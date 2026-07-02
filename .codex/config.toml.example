@@ -1,0 +1,34 @@
+# SAP Codex MCP config example
+#
+# Status: disabled by default.
+# Reviewed date: 2026-07-02
+#
+# This file intentionally includes only the three local-only MCP candidates
+# approved by docs/porting/mcp-trust-review.md:
+# - sap-cap-capire
+# - ui5-tooling
+# - fiori-tools
+#
+# To use this example:
+# 1. Copy this file to .codex/config.toml.
+# 2. Confirm Node.js and npm/npx are available in the target environment.
+# 3. Review the exact package pins below before first execution.
+# 4. Uncomment only the MCP server block you intend to test.
+# 5. Run the first test in a disposable project/workspace.
+#
+# Do not add tenant-connected MCPs here until tenant/security approval is complete.
+# Blocked by review: hana-mcp-server, sap-datasphere, sac-mcp.
+# Excluded by review: root oracle validation harness MCP.
+
+# [mcp_servers.sap-cap-capire]
+# command = "npx"
+# args = ["-y", "@cap-js/mcp-server@0.0.5"]
+
+# [mcp_servers.ui5-tooling]
+# command = "npx"
+# args = ["-y", "@ui5/mcp-server@0.2.11"]
+# env = { UI5_MCP_SERVER_RESPONSE_NO_RESOURCES = "true" }
+
+# [mcp_servers.fiori-tools]
+# command = "npx"
+# args = ["--yes", "@sap-ux/fiori-mcp-server@1.4.0", "fiori-mcp"]

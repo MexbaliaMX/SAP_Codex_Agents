@@ -1,0 +1,4 @@
+interface:
+  display_name: "SAP Deliverable Templates"
+  short_description: "Use SAP consulting templates and fictional samples."
+  default_prompt: "Draft an SAP deliverable using the bundled templates and mark unvalidated tenant claims clearly."

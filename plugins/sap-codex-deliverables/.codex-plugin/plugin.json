@@ -1,0 +1,22 @@
+{
+  "name": "sap-codex-deliverables",
+  "version": "0.1.0",
+  "description": "SAP deliverable templates and fictional filled examples for Codex.",
+  "author": {
+    "name": "Mexbalia SAP Codex Port"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SAP Codex Deliverables",
+    "shortDescription": "Draft SAP consulting deliverables from bundled templates.",
+    "longDescription": "SAP Codex Deliverables packages evidence-bound SAP consulting, Activate, and technical-readiness templates with fictional filled examples for safe local drafting.",
+    "developerName": "Mexbalia SAP Codex Port",
+    "category": "Productivity",
+    "capabilities": [
+      "SAP delivery templates",
+      "SAP readiness reviews",
+      "Fictional sample deliverables"
+    ],
+    "defaultPrompt": "Draft an SAP deliverable using the bundled templates and clearly mark assumptions, evidence gaps, and unvalidated tenant claims."
+  }
+}
