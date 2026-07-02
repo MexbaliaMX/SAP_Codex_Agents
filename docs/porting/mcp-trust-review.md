@@ -41,21 +41,22 @@ Policy source:
 | `fiori-tools` | `plugins/sap-fiori-tools/.mcp.json` | `npx --yes @sap-ux/fiori-mcp-server@1.4.0 fiori-mcp` | Exact npm pin matches approved inventory | None | Local-only app generation/tooling | Candidate for disabled example config |
 | `hana-mcp-server` | `plugins/sap-hana-cli/.mcp.json` | `npx -y hana-mcp-server@0.3.1` | Exact npm pin matches approved inventory | HANA endpoint/user/password/options | Tenant-connected; may mutate or destroy DB objects depending tools/credentials | Block until explicit HANA tenant approval |
 | `sap-datasphere` | `plugins/sap-datasphere/.mcp.json` | `npx -y @mariodefe/sap-datasphere-mcp@1.2.1` | Exact npm pin matches approved inventory; upstream notes later version as upgrade candidate only | Datasphere base URL, OAuth client id/secret, token URL | Tenant-connected; read/mutate/destructive possible | Block until explicit Datasphere tenant approval |
-| `sac-mcp` | `plugins/sap-sac-scripting/.mcp.json` | `node ${SAC_MCP_PATH}/build/index.js` | Source commit expected: `2020235505d98111c2889598ab2217c1619b6943` | SAC path, commit, base URL, OAuth client id/secret, token URL | Source-installed tenant-connected; read/mutate/destructive possible | Block; inventory/path mismatch must be resolved first |
+| `sac-mcp` | `plugins/sap-sac-scripting/.mcp.json` | `node ${SAC_MCP_PATH}/build/index.js` | Source commit expected: `2020235505d98111c2889598ab2217c1619b6943`; Windows/POSIX validator path mismatch fixed locally | SAC path, commit, base URL, OAuth client id/secret, token URL | Source-installed tenant-connected; read/mutate/destructive possible | Block until tenant/security approval and source-install evidence |
 
 ## Validator Results
 
 Ran in `.imports/sap-skills-main/sap-skills-main`:
 
 - `node scripts/validate-mcp-env-contracts.mjs`: passed.
-- `node scripts/validate-mcp-security.mjs`: failed.
+- `node scripts/validate-mcp-security.mjs`: passed after local upstream validator path-normalization fix.
 
-Security validator failure:
+Security validator path-normalization fix:
 
-- `plugins\sap-sac-scripting\.mcp.json:sac-mcp` is reported missing from the SAP MCP inventory.
-- `plugins/sap-sac-scripting/.mcp.json:sac-mcp` is reported stale or unused in the SAP MCP inventory.
+- Original finding: `plugins\sap-sac-scripting\.mcp.json:sac-mcp` was reported missing from the SAP MCP inventory while `plugins/sap-sac-scripting/.mcp.json:sac-mcp` was reported stale or unused.
+- Root cause: Windows path separators from `path.relative(...)` were compared directly against POSIX-style inventory keys.
+- Fix applied in the imported upstream validator: `.mcp.json` paths now use the existing `relPath(...)` helper before inventory lookup.
 
-Assessment: this appears to be a path-normalization mismatch between Windows-style backslashes and the POSIX-style inventory key. Treat SAC MCP as blocked until the validator and inventory agree on the same normalized key.
+Assessment: SAC MCP remains blocked because it is tenant-connected and source-installed, not because of an inventory validator mismatch.
 
 ## Trust Decisions
 
@@ -95,7 +96,6 @@ For tenant-connected candidates:
 
 For SAC source MCP:
 
-- Normalize inventory key handling on Windows.
 - Verify `SAC_MCP_PATH` points to the trusted `secondsky/sap_analytics_cloud_mcp` checkout.
 - Verify `SAC_MCP_COMMIT` equals `2020235505d98111c2889598ab2217c1619b6943`.
 - Build with lifecycle-script controls and audit the checkout before use.

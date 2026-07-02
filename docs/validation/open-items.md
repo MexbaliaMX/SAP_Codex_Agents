@@ -22,7 +22,7 @@
 - Do not commit secrets or tenant credentials.
 - Convert MCP definitions only into project-scoped `.codex/config.toml` templates or Codex plugin bundles after approval.
 - Pin package versions and document required environment variables.
-- Resolve the upstream MCP security validator mismatch for `plugins\sap-sac-scripting\.mcp.json:sac-mcp` before enabling or packaging SAC MCP support.
+- SAC MCP inventory path normalization is fixed in the imported upstream validator, but SAC MCP remains blocked until tenant/security approval and source-install evidence are available.
 
 ## Windows compatibility
 
@@ -42,7 +42,7 @@
 - Decide whether copied command references should remain under each skill or be consolidated under a shared prompt library.
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
 - Smoke-test `.codex/config.toml.example` in a disposable workspace before enabling any MCP block in this project.
-- Resolve the SAC MCP Windows/POSIX inventory key mismatch before considering SAC enablement.
+- Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before creating `.codex/hooks.example.json`.
 - Create only a disabled `.codex/hooks.example.json` for reviewed hook candidates after disposable-workspace smoke tests.

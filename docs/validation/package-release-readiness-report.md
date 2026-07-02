@@ -38,11 +38,14 @@ Passed:
 - Plugin bundle has no stale workspace paths, scaffold text, or unfinished placeholders.
 - Manual Codex app plugin load/smoke passed for `sap-codex-deliverables`.
 
-Known expected failure:
+Previously known failure now fixed locally:
 
-- Upstream `validate-mcp-security.mjs` fails on the SAC MCP Windows/POSIX inventory key mismatch:
+- Upstream `validate-mcp-security.mjs` originally failed on the SAC MCP Windows/POSIX inventory key mismatch:
   - `plugins\sap-sac-scripting\.mcp.json:sac-mcp` reported missing from inventory.
   - `plugins/sap-sac-scripting/.mcp.json:sac-mcp` reported stale or unused.
+  - Root cause was Windows `path.relative(...)` output being compared against POSIX-style inventory keys.
+  - Fixed in the imported upstream validator by normalizing `.mcp.json` paths through the existing `relPath(...)` helper.
+  - `node scripts\validate-mcp-security.mjs` now passes.
 
 Not run / unavailable:
 
@@ -69,7 +72,7 @@ Not run / unavailable:
 
 ## Blockers Before External Distribution
 
-- Resolve or explicitly document the SAC MCP inventory path-normalization mismatch before SAC enablement.
+- Keep SAC MCP disabled until source-install evidence, tenant approval, and security review are complete.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before creating any hooks example.
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.

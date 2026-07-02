@@ -33,7 +33,7 @@ MCP configs found in the upstream source remain disabled. Do not copy these into
 | `sap-datasphere` | pending review | source `.mcp.json` | Not enabled in this pass. |
 | `sap-fiori-tools` | pending review | source `.mcp.json` | Not enabled in this pass. |
 | `sap-hana-cli` | `hana-mcp-server` | `npx -y hana-mcp-server@0.3.1` | Requires HANA env vars and secret handling. |
-| `sap-sac-scripting` | `sac-mcp` | local Node path via `SAC_MCP_PATH` | Upstream validator reported inventory mismatch; keep disabled. |
+| `sap-sac-scripting` | `sac-mcp` | local Node path via `SAC_MCP_PATH` | Windows/POSIX validator path mismatch fixed locally; keep disabled until tenant/security approval and source-install evidence. |
 | `sapui5` | `ui5-tooling` | `npx -y @ui5/mcp-server@0.2.11` | Requires package trust review. |
 
 ## Hook Candidates
