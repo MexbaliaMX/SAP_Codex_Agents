@@ -22,6 +22,34 @@ Four independent subagents ran realistic tasks using the new overlay skills:
 | Deploy Readiness | Pass | Produced readiness table, go/no-go blockers, residual-risk rules, decisions, owners, and committee recommendation. |
 | Run / Hypercare Triage | Pass with improvement | Produced strong triage matrix and controls, but noted missing built-in severity/SLA starter and hypercare exit criteria. |
 
+## Second-Pass Test Set
+
+Remaining Phase 2 skills were forward-tested with realistic advisory prompts:
+
+- `sap-process-lead-to-cash`: CRM/CPQ to S/4HANA handoff with pricing, credit, fulfillment, billing, revenue, and collections concerns.
+- `sap-process-source-to-pay`: supplier onboarding, sourcing governance, contract leakage, buying channels, and P2P handoff.
+- `sap-process-procure-to-pay`: invoice exception backlog, three-way match failures, service entry delays, blocked invoices, tax codes, and approvals.
+- `sap-process-plan-to-produce`: MRP volatility, BOM/routing readiness, capacity, quality inspection, staging, and costing variance.
+- `sap-process-design-to-operate`: engineering change, asset maintenance, quality notification, spare parts, reliability, and operations feedback.
+- `sap-process-hire-to-retire`: SuccessFactors-to-S/4HANA finance/payroll/access lifecycle with privacy and audit constraints.
+- `sap-activate-discover`: executive value framing, feasibility, scope boundaries, and early risk discovery.
+- `sap-activate-prepare`: governance, RACI, system access, workshop readiness, project tools, and workstream setup.
+- `sap-activate-realize`: configuration/build backlog, integration, data migration cycles, defects, transports, and test evidence.
+
+## Second-Pass Results
+
+| Scenario | Result | Signal |
+|---|---|---|
+| L2C Revenue Handoff | Pass | Produced end-to-end lead-to-cash framing, CRM/CPQ/S/4HANA handoffs, pricing and credit watch points, revenue/collections controls, assumptions, open questions, and validation steps. |
+| S2P Governance | Pass | Produced sourcing-to-P2P operating model, supplier and contract controls, buying-channel policy gaps, Ariba/S/4HANA integration questions, owner decisions, and transformation backlog. |
+| P2P Invoice Exceptions | Pass | Produced exception-driver map, approval and three-way-match controls, supplier/master-data impacts, tax and payment watch points, owner actions, and evidence requests. |
+| Plan-to-Produce Readiness | Pass | Produced demand-to-production flow, master-data readiness checks, MRP/capacity/quality/costing impacts, integration touchpoints, and sequencing recommendations. |
+| Design-to-Operate Lifecycle | Pass | Produced product/asset lifecycle map, engineering-change and maintenance controls, data/integration risks, reliability improvement backlog, and validation plan. |
+| Hire-to-Retire Controls | Pass | Produced workforce lifecycle map, payroll and finance boundary assumptions, identity/access governance checks, privacy/audit evidence needs, and remediation backlog. |
+| Discover Phase Advisory | Pass | Produced value-case framing, scope options, stakeholder alignment, feasibility risks, assumptions, and executive decision points without premature solution claims. |
+| Prepare Phase Advisory | Pass | Produced project setup checklist, governance/RACI, system-access readiness, workstream setup, workshop prerequisites, risks, and owner-led next actions. |
+| Realize Phase Advisory | Pass | Produced build/test/data/integration readiness view, sprint and defect governance, transport controls, evidence requirements, and production-approval caveats. |
+
 ## Fix Applied
 
 Updated `scripts/create-phase2-overlays.ps1` and regenerated Phase 2 overlays to add:
@@ -40,9 +68,11 @@ Validation after patch:
 - Mexico-specific cues surfaced correctly for O2C and Run/hypercare scenarios.
 - The skills avoided unsupported tenant, licensing, app, or compliance claims.
 - Several outputs naturally formed tables, which supports adding reusable templates in the next phase.
+- The remaining process skills consistently used SAP S/4HANA process language before legacy module labels.
+- Discover, Prepare, and Realize outputs stayed phase-appropriate and did not jump into tenant-changing execution.
 
 ## Recommended Next Improvements
 
 - Add reusable templates for fit-to-standard delta log, process diagnostic summary, go-live readiness checklist, hypercare triage table, and RAID log.
-- Forward-test the remaining Phase 2 skills, especially L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, and Realize.
+- Treat Phase 2 representative forward testing as complete for v0.1.0; continue live tenant validation only when client or demo evidence is available.
 - Decide whether templates should live in `.agents/references` as markdown guidance or in a `templates/` directory for copy-ready artifacts.

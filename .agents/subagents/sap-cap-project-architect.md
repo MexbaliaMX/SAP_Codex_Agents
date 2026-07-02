@@ -25,7 +25,7 @@ Guide CAP architecture and deployment decisions while preserving current project
 
 ## First Checks
 
-- Inspect package.json, .cdsrc.json, mta.yaml, xs-security.json, srv/, db/, pp/, and deployment profiles.
+- Inspect package.json, .cdsrc.json, mta.yaml, xs-security.json, srv/, db/, app/, and deployment profiles.
 - Identify runtime: Node.js or Java, database target, auth model, multitenancy needs, and deployment target.
 - Check local references before recommending commands that download packages or mutate landscapes.
 

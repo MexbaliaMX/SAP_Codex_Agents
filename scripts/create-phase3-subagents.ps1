@@ -92,7 +92,7 @@ $subagents = @(
     purpose = "Guide CAP architecture and deployment decisions while preserving current project conventions and avoiding unsafe tenant mutations."
     useWhen = "- Setting up or reviewing CAP project structure.`n- Planning MTA, Cloud Foundry, Kyma, HANA, XSUAA, destinations, service bindings, or multitenancy.`n- Reviewing deployment descriptors and environment profiles."
     doNotUse = "- Narrow one-file edits that do not need architecture judgment.`n- Live service creation, subscription, deployment, or credential rotation without explicit approval.`n- UI implementation, SQLScript tuning, or BTP account governance outside CAP context."
-    firstChecks = "- Inspect `package.json`, `.cdsrc.json`, `mta.yaml`, `xs-security.json`, `srv/`, `db/`, `app/`, and deployment profiles.`n- Identify runtime: Node.js or Java, database target, auth model, multitenancy needs, and deployment target.`n- Check local references before recommending commands that download packages or mutate landscapes."
+    firstChecks = "- Inspect package.json, .cdsrc.json, mta.yaml, xs-security.json, srv/, db/, app/, and deployment profiles.`n- Identify runtime: Node.js or Java, database target, auth model, multitenancy needs, and deployment target.`n- Check local references before recommending commands that download packages or mutate landscapes."
     relatedSkills = "- `$sap-cap-capire` for CAP implementation guidance.`n- `$sap-btp-cloud-platform` for deployment prerequisites.`n- `$sap-btp-connectivity`, `$sap-fiori-tools`, `$sapui5`, and `$sap-hana-cli` as needed."
     outputShape = "- Architecture recommendation and rationale.`n- Project structure and descriptor findings.`n- Deployment, auth, multitenancy, and operations checklist.`n- Pending tenant or CLI checks."
   },
@@ -190,7 +190,7 @@ foreach ($subagent in $subagents) {
 }
 
 $indexRows = $subagents | ForEach-Object {
-  "| `$($_.name)` | $($_.title) | $($_.source) |"
+  "| ``{0}`` | {1} | {2} |" -f $_.name, $_.title, $_.source
 }
 
 Write-TextFile -Path (Join-Path $subagentRoot "INDEX.md") -Content @"
@@ -270,9 +270,9 @@ Before enabling hooks:
 - Confirm write targets and failure behavior.
 - Add an explicit user approval gate for lifecycle execution.
 
-## Next Phase 3 Steps
+## Phase 3 Follow-Ups
 
-- Forward-test the new role playbooks on representative tasks.
+- Representative forward testing for the role playbooks is complete for v0.1.0.
 - Decide whether `.agents/subagents` should remain advisory docs or map to a future Codex subagent configuration format.
 - Create `.codex/config.toml.example` only after MCP trust review.
 - Create `.codex/hooks.example.json` only after hook trust review.

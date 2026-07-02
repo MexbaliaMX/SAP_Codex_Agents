@@ -30,8 +30,8 @@ Required before external/client distribution:
 - [ ] Run `git status --short` and release/tag checks from an environment with Git installed.
 - [ ] Review GPL-3.0 redistribution obligations.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
-- [ ] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.
-- [ ] Complete remaining Phase 3 role-playbook forward tests: CAP Project Architect, Fiori App Advisor, HANA Database Advisor, SQLScript Analyzer, API Style Reviewer.
+- [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.
+- [x] Complete remaining Phase 3 role-playbook forward tests: CAP Project Architect, Fiori App Advisor, HANA Database Advisor, SQLScript Analyzer, API Style Reviewer.
 - [ ] Smoke-test `.codex/config.toml.example` in a disposable workspace before enabling any MCP block.
 - [ ] Resolve SAC MCP Windows/POSIX inventory key mismatch before considering SAC enablement.
 - [ ] Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.

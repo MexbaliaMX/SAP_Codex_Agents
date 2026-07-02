@@ -4,15 +4,15 @@ These files are Codex-safe role playbooks converted from upstream Claude agents.
 
 | Playbook | Role | Source |
 |---|---|---|
-| $(System.Collections.Hashtable.name) | SAP BTP Platform Advisor | plugins/sap-btp-cloud-platform/agents/btp-platform-advisor.md |
-| $(System.Collections.Hashtable.name) | SAP Integration Flow Advisor | plugins/sap-btp-integration-suite/agents/integration-flow-advisor.md |
-| $(System.Collections.Hashtable.name) | SAP CAP Project Architect | plugins/sap-cap-capire/agents/cap-project-architect.md |
-| $(System.Collections.Hashtable.name) | SAP Fiori App Advisor | plugins/sap-fiori-tools/agents/fiori-app-advisor.md |
-| $(System.Collections.Hashtable.name) | SAP UI5 Code Quality Advisor | plugins/sapui5/agents/ui5-code-quality-advisor.md |
-| $(System.Collections.Hashtable.name) | SAP HANA Database Advisor | plugins/sap-hana-cli/agents/hana-database-advisor.md |
-| $(System.Collections.Hashtable.name) | SAP SQLScript Analyzer | plugins/sap-sqlscript/agents/sqlscript-analyzer.md |
-| $(System.Collections.Hashtable.name) | SAP API Style Reviewer | plugins/sap-api-style/agents/api-style-reviewer.md |
-| $(System.Collections.Hashtable.name) | SAP Identity Security Advisor | plugins/sap-btp-cloud-identity-services/agents/identity-security-advisor.md |
+| `sap-btp-platform-advisor` | SAP BTP Platform Advisor | plugins/sap-btp-cloud-platform/agents/btp-platform-advisor.md |
+| `sap-integration-flow-advisor` | SAP Integration Flow Advisor | plugins/sap-btp-integration-suite/agents/integration-flow-advisor.md |
+| `sap-cap-project-architect` | SAP CAP Project Architect | plugins/sap-cap-capire/agents/cap-project-architect.md |
+| `sap-fiori-app-advisor` | SAP Fiori App Advisor | plugins/sap-fiori-tools/agents/fiori-app-advisor.md |
+| `sap-ui5-code-quality-advisor` | SAP UI5 Code Quality Advisor | plugins/sapui5/agents/ui5-code-quality-advisor.md |
+| `sap-hana-database-advisor` | SAP HANA Database Advisor | plugins/sap-hana-cli/agents/hana-database-advisor.md |
+| `sap-sqlscript-analyzer` | SAP SQLScript Analyzer | plugins/sap-sqlscript/agents/sqlscript-analyzer.md |
+| `sap-api-style-reviewer` | SAP API Style Reviewer | plugins/sap-api-style/agents/api-style-reviewer.md |
+| `sap-identity-security-advisor` | SAP Identity Security Advisor | plugins/sap-btp-cloud-identity-services/agents/identity-security-advisor.md |
 
 ## Use Rules
 

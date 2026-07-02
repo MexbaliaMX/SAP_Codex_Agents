@@ -41,8 +41,6 @@
 - Check references from `SKILL.md` to copied resource files.
 - Decide whether copied command references should remain under each skill or be consolidated under a shared prompt library.
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
-- Continue forward-testing the Phase 2 skills not covered in the first representative pass: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, and Realize.
-- Continue forward-testing the Phase 3 role playbooks not covered in the first representative pass: CAP Project Architect, Fiori App Advisor, HANA Database Advisor, SQLScript Analyzer, and API Style Reviewer.
 - Smoke-test `.codex/config.toml.example` in a disposable workspace before enabling any MCP block in this project.
 - Resolve the SAC MCP Windows/POSIX inventory key mismatch before considering SAC enablement.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.

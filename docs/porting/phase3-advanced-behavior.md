@@ -57,9 +57,9 @@ Before enabling hooks:
 - Confirm write targets and failure behavior.
 - Add an explicit user approval gate for lifecycle execution.
 
-## Next Phase 3 Steps
+## Phase 3 Follow-Ups
 
-- Forward-test the new role playbooks on representative tasks.
+- Representative forward testing for the role playbooks is complete for v0.1.0.
 - Decide whether `.agents/subagents` should remain advisory docs or map to a future Codex subagent configuration format.
 - Create `.codex/config.toml.example` only after MCP trust review.
 - Create `.codex/hooks.example.json` only after hook trust review.

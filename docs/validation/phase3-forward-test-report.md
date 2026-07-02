@@ -22,6 +22,32 @@ Four independent subagents ran realistic tasks using the new role playbooks:
 | UI5 Code Quality | Pass | Produced findings-first output ordered by severity with security, performance, accessibility, deprecation, reliability, and verification guidance. |
 | Identity Security | Pass | Produced readiness status, grouped trust/mapping/provisioning/certificate/role/operations findings, safe verification path, and pending tenant checks. |
 
+## Second-Pass Test Set
+
+Remaining Phase 3 role playbooks were forward-tested with realistic technical advisory prompts:
+
+- `sap-cap-project-architect`: CAP project review covering `package.json`, `.cdsrc.json`, `mta.yaml`, `xs-security.json`, `srv/`, `db/`, `app/`, HANA, XSUAA, service bindings, and deployment target.
+- `sap-fiori-app-advisor`: Fiori Elements versus freestyle choice, manifest/routing/local preview readiness, service metadata assumptions, and deployment checks.
+- `sap-hana-database-advisor`: safe HANA connectivity and metadata investigation with credential redaction, read-only queries, privileges, dependencies, and DBA handoff.
+- `sap-sqlscript-analyzer`: SQLScript/AMDP static review for cursor usage, dynamic SQL, exception handling, pushdown, performance assumptions, and runtime checks.
+- `sap-api-style-reviewer`: OData/OpenAPI style review for naming, paths, parameters, errors, lifecycle, compatibility, documentation, and SDK consistency.
+
+## Second-Pass Results
+
+| Scenario | Result | Signal |
+|---|---|---|
+| CAP Project Architecture | Pass with fix | Produced architecture, descriptor, auth, multitenancy, deployment, and operations checks. Forward test found a non-printing `app/` typo in the playbook, now fixed. |
+| Fiori App Advisory | Pass | Produced app approach recommendation, file-based configuration findings, preview/build/deployment verification plan, and pending tenant checks without mutating target systems. |
+| HANA Database Advisory | Pass | Produced safe metadata-first diagnostic plan, credential-redaction posture, read-only query guidance, owner-specific next checks, and pending system verification. |
+| SQLScript Analyzer | Pass | Produced findings-first static analysis shape with critical issues, warnings, performance assumptions, before/after suggestions, and runtime checks left pending. |
+| API Style Reviewer | Pass | Produced style readiness structure, findings grouped by naming/protocol/docs/lifecycle/compatibility/SDK consistency, rewrite suggestions, and owner questions. |
+
+## Second-Pass Fixes Applied
+
+- Fixed `.agents/subagents/sap-cap-project-architect.md` so the first-check folder list says `app/` instead of a non-printing character artifact.
+- Fixed `.agents/subagents/INDEX.md` so the Playbook column lists actual role playbook names instead of a PowerShell hashtable interpolation artifact.
+- Updated `scripts/create-phase3-subagents.ps1` so regenerated playbooks preserve the CAP `app/` text and render index rows correctly.
+
 ## Fixes Applied
 
 Updated `scripts/create-phase3-subagents.ps1` and regenerated role playbooks to add:
@@ -41,9 +67,11 @@ Validation after patch:
 - Outputs consistently separated facts, assumptions, evidence needs, pending tenant checks, and next actions.
 - UI5 and Identity playbooks were strong enough without immediate patching.
 - BTP and Integration playbooks needed more explicit acceptance criteria to make readiness calls less subjective.
+- CAP, Fiori, HANA, SQLScript, and API Style playbooks now cover the remaining specialist surfaces expected for v0.1.0.
+- The HANA and SQLScript playbooks correctly separate static/local review from runtime evidence and execution-plan validation.
 
 ## Recommended Next Improvements
 
-- Forward-test the remaining role playbooks: CAP Project Architect, Fiori App Advisor, HANA Database Advisor, SQLScript Analyzer, and API Style Reviewer.
+- Treat Phase 3 representative role-playbook forward testing as complete for v0.1.0; continue live tenant, CLI, and runtime validation only with approved access and sanitized evidence.
 - Add reusable output templates for technical readiness review, integration transport readiness, BTP platform readiness, UI5 quality review, and identity security readiness.
 - Keep MCP and hooks disabled until a separate trust and Windows execution review is complete.
