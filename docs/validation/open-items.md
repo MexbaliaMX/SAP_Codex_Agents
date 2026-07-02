@@ -41,7 +41,6 @@
 - Check references from `SKILL.md` to copied resource files.
 - Decide whether copied command references should remain under each skill or be consolidated under a shared prompt library.
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
-- Smoke-test `.codex/config.toml.example` in a disposable workspace before enabling any MCP block in this project.
 - Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before creating `.codex/hooks.example.json`.

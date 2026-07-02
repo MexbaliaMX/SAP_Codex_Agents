@@ -31,6 +31,7 @@ Passed:
 - `plugins/sap-codex-deliverables` passed `validate_plugin.py`.
 - `.codex/config.toml.example` parses as TOML with no active keys.
 - `.codex/config.toml.example` has no active MCP server blocks.
+- `.codex/config.toml.example` passed disposable-workspace smoke testing with `active keys: []`.
 - Upstream `validate-mcp-env-contracts.mjs` passed.
 - Upstream `test-hooks.mjs` passed.
 - Upstream `test-hook-contracts.mjs` passed for all 8 hook-enabled upstream plugins.
@@ -52,6 +53,7 @@ Not run / unavailable:
 - `git status --short` because `git` is not installed in this shell.
 - Live SAP tenant validation.
 - MCP runtime smoke tests.
+- Active MCP server startup tests.
 - Codex hook runtime tests.
 - Upstream iFlow XML template validation requiring `xmllint`.
 
@@ -66,7 +68,7 @@ Not run / unavailable:
 | Fictional sample deliverables | Ready for local use |
 | `sap-codex-deliverables` plugin bundle | Loaded and smoke-tested in Codex app; ready for internal review packaging |
 | `marketplace.json` | Ready for repo-local marketplace review |
-| `.codex/config.toml.example` | Safe as disabled example |
+| `.codex/config.toml.example` | Safe as disabled example; disposable-workspace smoke passed with no active keys |
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 
