@@ -62,4 +62,4 @@ Before enabling hooks:
 - Representative forward testing for the role playbooks is complete for v0.1.0.
 - Decide whether `.agents/subagents` should remain advisory docs or map to a future Codex subagent configuration format.
 - Create `.codex/config.toml.example` only after MCP trust review.
-- Create `.codex/hooks.example.json` only after hook trust review.
+- Documentation-only `.codex/hooks.example.json` exists after hook trust review; keep it disabled until Codex hook runtime behavior is confirmed.

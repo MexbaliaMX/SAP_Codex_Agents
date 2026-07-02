@@ -36,7 +36,8 @@ Required before external/client distribution:
 - [x] Resolve SAC MCP Windows/POSIX inventory key mismatch before considering SAC enablement.
 - [ ] Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
 - [ ] Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
-- [ ] Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before creating `.codex/hooks.example.json`.
+- [x] Create disabled `.codex/hooks.example.json` as documentation-only example.
+- [ ] Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - [ ] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
 
 ## Release Safety Notes

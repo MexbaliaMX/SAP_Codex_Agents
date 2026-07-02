@@ -16,6 +16,7 @@
 - Hook trust and Windows execution review is complete.
 - Keep lifecycle hooks disabled until Codex hook schema, event names, stdin payload shape, and denial semantics are confirmed.
 - Replace Claude path variables and Bash assumptions before any Windows execution.
+- Disabled `.codex/hooks.example.json` exists as documentation-only; do not convert it into active hooks until Codex hook runtime behavior is confirmed.
 
 ## MCP
 
@@ -43,5 +44,5 @@
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
 - Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
-- Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before creating `.codex/hooks.example.json`.
-- Create only a disabled `.codex/hooks.example.json` for reviewed hook candidates after disposable-workspace smoke tests.
+- Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
+- Run disposable-workspace smoke tests for each reviewed hook candidate before enablement.

@@ -76,6 +76,8 @@ These tests validate upstream hook behavior and contract fixtures. They do not p
 
 Do not create an active `.codex/hooks.json` or enable lifecycle hooks yet.
 
+A documentation-only `.codex/hooks.example.json` has been created with `activeHooks: []`, disabled candidates, blocked candidates, and explicit runtime blockers. It is not an active hook configuration.
+
 Best candidates for a future disabled example:
 
 - `sap-dependency-security` because it guards package/MCP executable trust and Bash package commands.
@@ -88,11 +90,10 @@ Blocked from example config until more review:
 - `sap-datasphere` because Datasphere SQL/view guidance overlaps tenant-connected modeling and should be handled carefully.
 - `sap-cap-capire` until CAP-specific Codex write-hook behavior is tested in a disposable project.
 
-## Required Conditions Before Creating `.codex/hooks.example.json`
+## Required Conditions Before Enabling Hooks
 
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics.
 - Replace `${CLAUDE_PLUGIN_ROOT}` with a Codex-compatible path strategy.
 - Use `validator.mjs` directly on Windows.
-- Keep all hooks disabled/commented by default.
 - Run a disposable-workspace smoke test for each candidate hook.
 - Keep tenant-connected, production-impacting, and credential-related workflows approval-gated.

@@ -1,0 +1,106 @@
+{
+  "status": "documentation-only-disabled-example",
+  "activationAllowed": false,
+  "schemaStatus": "Codex hook schema, event names, stdin payload shape, and denial semantics are not confirmed.",
+  "activeHooks": [],
+  "safetyRules": [
+    "Do not rename this file to hooks.json or copy entries into an active hook config until Codex hook behavior is confirmed in a disposable workspace.",
+    "Do not use Claude-specific CLAUDE_PLUGIN_ROOT paths.",
+    "Use direct node invocation of validator.mjs on Windows; do not use dispatch.sh unless a Bash runtime is explicitly approved.",
+    "Do not enable hooks that can affect tenant-connected, production-impacting, credential-bearing, or SAC workflows without explicit approval.",
+    "Treat all candidate commands below as inert review notes, not executable lifecycle automation."
+  ],
+  "reviewedCandidates": [
+    {
+      "id": "sap-dependency-security",
+      "status": "disabled-candidate",
+      "reason": "Useful for dependency and MCP executable trust checks after Codex hook schema mapping is confirmed.",
+      "upstreamEvents": [
+        "PreToolUse: Write|Edit|MultiEdit|Bash",
+        "PostToolUse: Write|Edit|MultiEdit"
+      ],
+      "windowsCommandCandidate": [
+        "node",
+        ".imports/sap-skills-main/sap-skills-main/plugins/sap-dependency-security/hooks/validator.mjs"
+      ],
+      "requiredBeforeEnablement": [
+        "Confirm Codex hook schema and denial semantics.",
+        "Confirm stdin payload compatibility.",
+        "Run disposable-workspace tests for write and command denial behavior.",
+        "Replace source path with a reviewed packaged or project-local validator path."
+      ]
+    },
+    {
+      "id": "sapui5",
+      "status": "disabled-candidate",
+      "reason": "Useful for UI5 write and deploy-command checks after Codex hook mapping is proven.",
+      "upstreamEvents": [
+        "PreToolUse: Write|Edit|MultiEdit|Bash",
+        "PostToolUse: Write|Edit|MultiEdit"
+      ],
+      "windowsCommandCandidate": [
+        "node",
+        ".imports/sap-skills-main/sap-skills-main/plugins/sapui5/hooks/validator.mjs"
+      ],
+      "requiredBeforeEnablement": [
+        "Confirm Codex hook schema and denial semantics.",
+        "Confirm stdin payload compatibility.",
+        "Run disposable-workspace UI5 write and command tests.",
+        "Replace source path with a reviewed packaged or project-local validator path."
+      ]
+    },
+    {
+      "id": "sap-sqlscript",
+      "status": "disabled-candidate",
+      "reason": "Narrow post-write validator candidate for SQLScript code quality checks.",
+      "upstreamEvents": [
+        "PostToolUse: Write|Edit|MultiEdit"
+      ],
+      "windowsCommandCandidate": [
+        "node",
+        ".imports/sap-skills-main/sap-skills-main/plugins/sap-sqlscript/hooks/validator.mjs"
+      ],
+      "requiredBeforeEnablement": [
+        "Confirm Codex hook schema and denial semantics.",
+        "Confirm stdin payload compatibility.",
+        "Run disposable-workspace SQLScript write tests.",
+        "Replace source path with a reviewed packaged or project-local validator path."
+      ]
+    }
+  ],
+  "blockedCandidates": [
+    {
+      "id": "sap-sac-custom-widget",
+      "status": "blocked",
+      "reason": "SAC tenant-facing artifacts need SAC-specific workflow validation and explicit approval."
+    },
+    {
+      "id": "sap-sac-planning",
+      "status": "blocked",
+      "reason": "SAC planning workflows can affect tenant-facing planning behavior and require explicit approval."
+    },
+    {
+      "id": "sap-sac-scripting",
+      "status": "blocked",
+      "reason": "SAC scripting workflows need source-install provenance, tenant/security approval, and SAC-specific runtime validation."
+    },
+    {
+      "id": "sap-datasphere",
+      "status": "blocked",
+      "reason": "Datasphere modeling overlaps tenant-connected data workflows and should remain disabled until runtime and tenant boundaries are proven."
+    },
+    {
+      "id": "sap-cap-capire",
+      "status": "blocked",
+      "reason": "CAP-specific Codex write-hook behavior has not been tested in a disposable project."
+    }
+  ],
+  "sourceReview": {
+    "reviewDocument": "docs/porting/hook-trust-windows-review.md",
+    "upstreamTests": [
+      "node scripts/test-hooks.mjs",
+      "node scripts/test-hook-contracts.mjs"
+    ],
+    "upstreamTestStatus": "passed for source validators; does not prove Codex runtime compatibility"
+  }
+}

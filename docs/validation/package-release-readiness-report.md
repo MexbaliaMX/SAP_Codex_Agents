@@ -15,6 +15,7 @@ Included deliverables:
 - Repo-local plugin bundle at `plugins/sap-codex-deliverables`.
 - Repo-local marketplace file at `marketplace.json`.
 - Disabled MCP example at `.codex/config.toml.example`.
+- Disabled hook example at `.codex/hooks.example.json`.
 - Porting and validation reports under `docs/porting` and `docs/validation`.
 
 ## Readiness Decision
@@ -32,6 +33,7 @@ Passed:
 - `.codex/config.toml.example` parses as TOML with no active keys.
 - `.codex/config.toml.example` has no active MCP server blocks.
 - `.codex/config.toml.example` passed disposable-workspace smoke testing with `active keys: []`.
+- `.codex/hooks.example.json` is documentation-only with `activeHooks: []` and validates as JSON.
 - Upstream `validate-mcp-env-contracts.mjs` passed.
 - Upstream `test-hooks.mjs` passed.
 - Upstream `test-hook-contracts.mjs` passed for all 8 hook-enabled upstream plugins.
@@ -69,6 +71,7 @@ Not run / unavailable:
 | `sap-codex-deliverables` plugin bundle | Loaded and smoke-tested in Codex app; ready for internal review packaging |
 | `marketplace.json` | Ready for repo-local marketplace review |
 | `.codex/config.toml.example` | Safe as disabled example; disposable-workspace smoke passed with no active keys |
+| `.codex/hooks.example.json` | Safe as documentation-only disabled example; no active hooks |
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 
@@ -76,7 +79,7 @@ Not run / unavailable:
 
 - Keep SAC MCP disabled until source-install evidence, tenant approval, and security review are complete.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
-- Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before creating any hooks example.
+- Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
 - Run Git status/release tagging from an environment where Git is installed.
 
