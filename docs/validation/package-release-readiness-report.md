@@ -37,6 +37,7 @@ Passed:
 - Upstream `validate-mcp-env-contracts.mjs` passed.
 - Upstream `test-hooks.mjs` passed.
 - Upstream `test-hook-contracts.mjs` passed for all 8 hook-enabled upstream plugins.
+- Upstream `validate-templates.mjs` passed after local `xmllint` tooling was installed under `.tools/xmllint`.
 - Plugin bundle contains 11 packaged templates and 11 packaged samples.
 - Plugin bundle has no stale workspace paths, scaffold text, or unfinished placeholders.
 - Manual Codex app plugin load/smoke passed for `sap-codex-deliverables`.
@@ -57,7 +58,6 @@ Not run / unavailable:
 - MCP runtime smoke tests.
 - Active MCP server startup tests.
 - Codex hook runtime tests.
-- Upstream iFlow XML template validation requiring `xmllint`.
 
 ## Release Assets
 

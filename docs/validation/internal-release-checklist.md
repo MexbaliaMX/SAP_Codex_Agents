@@ -38,7 +38,7 @@ Required before external/client distribution:
 - [ ] Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - [x] Create disabled `.codex/hooks.example.json` as documentation-only example.
 - [ ] Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
-- [ ] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
+- [x] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
 
 ## Release Safety Notes
 

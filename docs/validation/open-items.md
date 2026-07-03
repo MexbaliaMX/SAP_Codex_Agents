@@ -30,7 +30,6 @@
 - Review Bash scripts for Git Bash or WSL assumptions.
 - Prefer PowerShell or Node wrappers for local Windows workflows.
 - Check paths with spaces, long paths, and `.cmd` binary resolution for Node tooling.
-- Install or provide `xmllint` before running upstream iFlow XML template validation on Windows.
 
 ## Licensing
 

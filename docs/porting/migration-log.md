@@ -75,7 +75,9 @@ Upstream static checks run against the extracted source archive:
 - Earlier failure: `node scripts/validate-mcp-security.mjs` reported `plugins\sap-sac-scripting\.mcp.json:sac-mcp` as missing from or stale in the SAP MCP inventory because Windows path separators were compared against POSIX-style inventory keys.
 - Fixed locally in the imported upstream validator by using the existing `relPath(...)` helper for `.mcp.json` paths before inventory lookup.
 - Current status: `node scripts\validate-mcp-security.mjs` passes and `node scripts\validate-mcp-env-contracts.mjs` passes.
-- Failed/incomplete: `node scripts/validate-templates.mjs` requires `xmllint` for iFlow XML template validation and then hit a Node Windows assertion after reporting the missing dependency.
+- Earlier failed/incomplete: `node scripts/validate-templates.mjs` required `xmllint` for iFlow XML template validation.
+- Fixed locally by installing pinned libxml2/xmllint tooling under `.tools/xmllint` and prepending `.tools/xmllint/dist/bin` to `PATH` for validation.
+- Current status: `node scripts\validate-templates.mjs` passes.
 
 Environment notes:
 
