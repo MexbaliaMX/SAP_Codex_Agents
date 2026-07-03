@@ -2,6 +2,8 @@
 
 Date: 2026-07-02
 
+Manifest refresh: 2026-07-03
+
 ## Release Identity
 
 | Field | Value |
@@ -9,12 +11,16 @@ Date: 2026-07-02
 | Package | `sap-codex-deliverables` |
 | Release | `v0.1.0` |
 | Git tag | `sap-codex-deliverables-v0.1.0` |
-| Git commit | `46deb82 Record xmllint template validation` |
+| Git commit | `745876c Add final release manifest` |
 | Branch at release | `master` |
 | Git status at manifest creation | Clean |
 | Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip` |
-| Archive size | `1,033,209 bytes` |
-| SHA256 | `C8063B870107D6D40ADDE49B9FD4A14C527B2BC3EB5704130711C1A1E34403F4` |
+| Archive size | `1,035,405 bytes` |
+| SHA256 | `C3BF794B5C1AC2012A36A312D852A529ADEF4C583A6D690CB719A0620FF5BEC9` |
+
+## Manifest Refresh Note
+
+This refresh records the externally generated archive produced after commit `745876c` and the final smoke output. The commit that carries this note will necessarily have a newer commit ID; the archive hash above remains the last verified package artifact unless a new archive is generated and smoked again.
 
 ## Release Decision
 
