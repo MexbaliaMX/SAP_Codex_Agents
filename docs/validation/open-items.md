@@ -2,14 +2,26 @@
 
 ## Source verification
 
+- Source verification audit completed: `docs/validation/source-verification-audit.md`.
 - Preserve upstream `last_verified` metadata; do not advance dates without new evidence.
-- Identify skills with stale, missing, or audit-only verification before client-facing use.
+- Before client-facing use, remediate or explicitly accept the audit findings:
+  - 4 technical skills have source metadata older than 180 days.
+  - 14 local process/SAP Activate overlay skills have caveat files but no `last_verified` date.
+  - 14 local process/SAP Activate overlay `SKILL.md` files do not directly point to `references/verification.md`.
 - Add tenant evidence only after testing in the relevant SAP landscape.
 
 ## Live environment tests
 
 - No SAP BTP, Integration Suite, HANA, SAC, Datasphere, S/4HANA, BAS, or Fiori launchpad tenant validation has been performed in this Codex port.
 - Treat generated artifacts as locally structured and source-guided until imported or tested in a real tenant.
+
+## Agent operating layer
+
+- SAP Agent Registry, seven routing playbooks, output profiles, and controlled automation candidates are created for internal advisory use.
+- Seven client-ready anonymized sample outputs exist under `.agents/samples/client-ready`; adapt them with confirmed client evidence before use.
+- Read-only operating-layer validation passes with `scripts/validate-agent-operating-layer.ps1`.
+- Decide whether `.agents/AGENT_REGISTRY.md`, `.agents/playbooks`, `.agents/output-profiles`, and `.agents/automation-candidates.md` should remain workspace-only or be packaged into the repo-local `sap-codex-deliverables` plugin.
+- Keep the operating layer advisory-only until a future Codex subagent configuration format, MCP/tool activation model, or workflow automation design is explicitly approved.
 
 ## Hooks
 
@@ -39,6 +51,7 @@
 
 - Validate frontmatter for all migrated skills.
 - Check references from `SKILL.md` to copied resource files.
+- Run `scripts/validate-agent-operating-layer.ps1` after editing the registry, playbooks, output profiles, automation candidates, or related validation docs.
 - Decide whether copied command references should remain under each skill or be consolidated under a shared prompt library.
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
 - Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.

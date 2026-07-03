@@ -23,12 +23,21 @@ Completed in this workspace:
 - [x] MCP trust review completed.
 - [x] Hook trust and Windows execution review completed.
 - [x] Package/release readiness report completed.
+- [x] Source verification audit completed.
 - [x] Repo-local `sap-codex-deliverables` plugin loaded in the Codex app and completed one app-level smoke prompt.
+- [x] SAP Agent Registry created at `.agents/AGENT_REGISTRY.md`.
+- [x] Seven high-value routing playbooks created under `.agents/playbooks`.
+- [x] Output profiles created under `.agents/output-profiles` for executive Spanish, technical working notes, and evidence-bound audit outputs.
+- [x] Seven client-ready anonymized sample outputs created under `.agents/samples/client-ready`.
+- [x] Controlled automation candidates documented in `.agents/automation-candidates.md` with MCPs, hooks, and tenant-connected execution disabled.
+- [x] Full agent operating-layer forward-test report completed.
+- [x] Read-only operating-layer validation passed with `powershell -ExecutionPolicy Bypass -File scripts\validate-agent-operating-layer.ps1`, including registry, playbooks, output profiles, client-ready samples, automation notes, and template references.
 
 Required before external/client distribution:
 
 - [ ] Run `git status --short` and release/tag checks from an environment with Git installed.
 - [ ] Review GPL-3.0 redistribution obligations.
+- [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
 - [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.
 - [x] Complete remaining Phase 3 role-playbook forward tests: CAP Project Architect, Fiori App Advisor, HANA Database Advisor, SQLScript Analyzer, API Style Reviewer.
@@ -39,6 +48,7 @@ Required before external/client distribution:
 - [x] Create disabled `.codex/hooks.example.json` as documentation-only example.
 - [ ] Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - [x] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
+- [ ] Decide whether the agent operating-layer files should be packaged into the repo-local plugin bundle or remain workspace-only.
 
 ## Release Safety Notes
 
@@ -47,6 +57,8 @@ Required before external/client distribution:
 - Fictional sample deliverables are examples only and must not be reused as client facts.
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled.
+- Agent playbooks and output profiles are advisory operating guidance, not autonomous tool-enabled agents.
+- Client-ready samples are anonymized examples and must be adapted with confirmed client evidence before use.
 - `.imports` remains source evidence and should not be distributed as client-facing package content.
 
 ## Recommended Manual Smoke Prompt

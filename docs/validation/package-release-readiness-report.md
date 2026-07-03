@@ -10,6 +10,11 @@ Included deliverables:
 
 - 26 workspace skills under `.agents/skills`.
 - 9 role playbooks under `.agents/subagents`.
+- SAP Agent Registry at `.agents/AGENT_REGISTRY.md`.
+- 7 routing playbooks under `.agents/playbooks`.
+- 4 output profile files under `.agents/output-profiles`.
+- 8 client-ready sample files under `.agents/samples/client-ready`.
+- Controlled automation candidates at `.agents/automation-candidates.md`.
 - 11 shared templates under `.agents/templates`.
 - 11 fictional sample deliverables under `.agents/samples/deliverables`.
 - Repo-local plugin bundle at `plugins/sap-codex-deliverables`.
@@ -41,6 +46,8 @@ Passed:
 - Plugin bundle contains 11 packaged templates and 11 packaged samples.
 - Plugin bundle has no stale workspace paths, scaffold text, or unfinished placeholders.
 - Manual Codex app plugin load/smoke passed for `sap-codex-deliverables`.
+- Full agent operating-layer forward-test report completed.
+- Read-only agent operating-layer validation passed with `scripts/validate-agent-operating-layer.ps1`, including client-ready samples.
 
 Previously known failure now fixed locally:
 
@@ -64,8 +71,13 @@ Not run / unavailable:
 | Asset | Status |
 |---|---|
 | Workspace skills | Ready for local use |
-| Phase 2 process/Activate overlays | Ready for local use; more forward-testing remains |
-| Phase 3 role playbooks | Ready for advisory use; more forward-testing remains |
+| Phase 2 process/Activate overlays | Ready for local advisory use |
+| Phase 3 role playbooks | Ready for advisory use |
+| SAP Agent Registry | Ready for internal advisory use |
+| Routing playbooks | Ready for internal advisory use |
+| Output profiles | Ready for internal advisory use |
+| Client-ready sample outputs | Ready for internal adaptation; not tenant/legal/security proof |
+| Controlled automation candidates | Documented; automation remains disabled |
 | Shared templates | Ready for local use |
 | Fictional sample deliverables | Ready for local use |
 | `sap-codex-deliverables` plugin bundle | Loaded and smoke-tested in Codex app; ready for internal review packaging |
@@ -82,7 +94,8 @@ Not run / unavailable:
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
 - Run Git status/release tagging from an environment where Git is installed.
+- Decide whether the agent operating layer should be packaged into `sap-codex-deliverables` or kept as workspace-local guidance.
 
 ## Recommended Next Release Step
 
-Create a small release checklist or `RELEASE_NOTES.md` for the internal package, then run manual app install/load validation for `sap-codex-deliverables`.
+Decide the packaging boundary for the agent operating layer, then refresh the release manifest/package if these files should be included in the distributable plugin or internal review bundle.

@@ -12,6 +12,11 @@ It is not ready for external/client distribution until the blockers in `docs/val
 
 - 26 local SAP Codex skills under `.agents/skills`.
 - 9 advisory role playbooks under `.agents/subagents`.
+- Workspace-only SAP Agent Registry at `.agents/AGENT_REGISTRY.md`.
+- Workspace-only routing playbooks under `.agents/playbooks`.
+- Workspace-only output profiles under `.agents/output-profiles`.
+- Workspace-only client-ready anonymized samples under `.agents/samples/client-ready`.
+- Workspace-only controlled automation candidates at `.agents/automation-candidates.md`.
 - Shared references for Mexbalia guardrails, SAP process language, Mexico compliance cues, and SAP Activate governance.
 - 11 reusable output templates under `.agents/templates`.
 - 11 fictional filled sample deliverables under `.agents/samples/deliverables`.
@@ -32,14 +37,13 @@ Passed:
 - Plugin bundle contains 11 packaged templates and 11 packaged fictional samples.
 - Plugin bundle has no stale workspace paths, scaffold text, or unfinished placeholders.
 - Manual Codex app plugin load/smoke passed for `sap-codex-deliverables`.
+- Agent operating-layer validation passed with `scripts/validate-agent-operating-layer.ps1`, including client-ready samples.
 
 Known limitations:
 
-- `git` is not installed in this shell, so release status/tag checks were not run here.
-- The upstream MCP security validator still fails on the known SAC Windows/POSIX inventory key mismatch.
 - No live SAP tenant validation was performed.
 - MCP runtime and Codex hook runtime tests were not performed.
-- Upstream iFlow XML template validation still requires `xmllint`.
+- The agent operating layer and client-ready samples are workspace-only and are not included in the existing `sap-codex-deliverables-v0.1.0.zip` archive unless a future package refresh explicitly adapts and includes them.
 
 ## Do Not Enable Yet
 
@@ -47,11 +51,16 @@ Known limitations:
 - Do not enable SAC MCP until the inventory key mismatch is resolved.
 - Do not create active `.codex/hooks.json` until Codex hook schema and denial semantics are confirmed.
 - Do not treat templates, samples, or role playbooks as tenant-tested, legal/tax-approved, or production-ready.
+- Do not treat registry/playbooks/output profiles as autonomous tool-enabled agents.
+- Do not use client-ready samples as client facts without replacing anonymized assumptions with confirmed evidence.
 
 ## Primary Artifacts
 
 - Release readiness: `docs/validation/package-release-readiness-report.md`
+- Final manifest: `docs/validation/final-release-manifest.md`
 - Release checklist: `docs/validation/internal-release-checklist.md`
+- Agent coverage plan: `docs/porting/full-sap-agents-coverage-plan.md`
+- Agent operating-layer forward test: `docs/validation/full-agent-forward-test-report.md`
 - Plugin bundle notes: `docs/porting/plugin-bundle.md`
 - MCP trust review: `docs/porting/mcp-trust-review.md`
 - Hook trust review: `docs/porting/hook-trust-windows-review.md`

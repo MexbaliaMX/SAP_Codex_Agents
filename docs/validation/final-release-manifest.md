@@ -22,6 +22,8 @@ Manifest refresh: 2026-07-03
 
 This refresh records the externally generated archive produced after commit `745876c` and the final smoke output. The commit that carries this note will necessarily have a newer commit ID; the archive hash above remains the last verified package artifact unless a new archive is generated and smoked again.
 
+Workspace operating-layer update: the SAP Agent Registry, routing playbooks, output profiles, client-ready anonymized samples, controlled automation candidates, and operating-layer validation script were added after the archived `v0.1.0` package. These files are intentionally workspace-only for this manifest refresh and are not claimed to be included in the archive whose hash is listed above.
+
 ## Release Decision
 
 Status: ready for local workspace use and internal review packaging.
@@ -31,6 +33,8 @@ External or client distribution remains blocked pending licensing and governance
 Production or tenant-connected use remains blocked pending live SAP tenant evidence, security approval, legal/tax review where relevant, and explicit human approval for tenant-impacting actions.
 
 ## Included Assets
+
+Packaged release assets:
 
 - 26 workspace skills under `.agents/skills`.
 - 9 Codex-safe role playbooks under `.agents/subagents`.
@@ -42,6 +46,17 @@ Production or tenant-connected use remains blocked pending live SAP tenant evide
 - Documentation-only disabled hook example at `.codex/hooks.example.json`.
 - Release smoke script at `scripts/test-release-archive.ps1`.
 - Porting and validation evidence under `docs/porting` and `docs/validation`.
+
+Workspace-only operating assets added after the archived `v0.1.0` package:
+
+- SAP Agent Registry at `.agents/AGENT_REGISTRY.md`.
+- 7 high-value routing playbooks under `.agents/playbooks`.
+- 4 output profile files under `.agents/output-profiles`.
+- 8 client-ready sample files under `.agents/samples/client-ready`.
+- Controlled automation candidates at `.agents/automation-candidates.md`.
+- Full SAP Agents coverage plan at `docs/porting/full-sap-agents-coverage-plan.md`.
+- Full agent operating-layer forward-test report at `docs/validation/full-agent-forward-test-report.md`.
+- Read-only operating-layer validation script at `scripts/validate-agent-operating-layer.ps1`.
 
 ## Release Smoke
 
@@ -81,6 +96,7 @@ Passed in this workspace:
 - Upstream MCP security validation after Windows path normalization fix.
 - Upstream hook tests and hook contract tests for the source validators.
 - Upstream template validation with local `xmllint`.
+- Read-only SAP agent operating-layer validation with `scripts/validate-agent-operating-layer.ps1`.
 
 ## Safety Boundaries
 
@@ -89,12 +105,16 @@ Passed in this workspace:
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled; `.codex/hooks.example.json` is documentation-only.
 - `.codex/config.toml.example` is disabled/comment-only.
+- SAP Agent Registry, routing playbooks, output profiles, client-ready samples, and controlled automation notes are workspace-only advisory guidance for this refresh; they are not packaged into `sap-codex-deliverables-v0.1.0.zip`.
+- Agent playbooks and output profiles are not autonomous tool-enabled agents.
+- Client-ready samples are anonymized examples and require confirmed client evidence before use.
 - Fictional sample deliverables must not be reused as client facts.
 - `.imports` and `.tools` are local source/tooling evidence and are intentionally excluded from release packaging.
 
 ## Remaining Blockers
 
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
+- If the operating layer should become distributable later, create a plugin-safe copy with plugin-local paths and rerun package smoke validation before claiming inclusion.
 - Decide whether copied command references stay under individual skills or move to a shared prompt library.
 - Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
@@ -111,6 +131,8 @@ Passed in this workspace:
 - `docs/validation/config-example-disposable-smoke-report.md`
 - `docs/validation/hooks-example-validation-report.md`
 - `docs/validation/xmllint-template-validation-report.md`
+- `docs/validation/full-agent-forward-test-report.md`
+- `docs/porting/full-sap-agents-coverage-plan.md`
 - `docs/porting/mcp-trust-review.md`
 - `docs/porting/hook-trust-windows-review.md`
 - `docs/porting/upstream-mcp-security-validator-windows-path-fix.md`
