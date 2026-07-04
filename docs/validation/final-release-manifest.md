@@ -120,6 +120,7 @@ Passed in this workspace:
 - Plugin-safe operating-layer asset validation with `scripts/validate-plugin-operating-layer-assets.ps1`.
 - Packaged `sap-deliverable-templates` skill validation after adding operating-layer assets.
 - `sap-codex-deliverables` plugin validation after adding operating-layer assets.
+- Manual Codex app fresh-thread smoke for plugin-local operating-layer routing and output profiles, recorded in `docs/validation/plugin-operating-layer-app-smoke-report.md`.
 
 ## Safety Boundaries
 
@@ -137,7 +138,7 @@ Passed in this workspace:
 ## Remaining Blockers
 
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
-- Rerun app-level plugin smoke before external/client distribution of the refreshed archive.
+- Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 - Decide whether copied command references stay under individual skills or move to a shared prompt library.
 - Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
@@ -156,6 +157,7 @@ Passed in this workspace:
 - `docs/validation/xmllint-template-validation-report.md`
 - `docs/validation/full-agent-forward-test-report.md`
 - `docs/validation/plugin-operating-layer-validation-report.md`
+- `docs/validation/plugin-operating-layer-app-smoke-report.md`
 - `docs/porting/full-sap-agents-coverage-plan.md`
 - `docs/porting/plugin-safe-operating-layer-packaging.md`
 - `docs/porting/mcp-trust-review.md`

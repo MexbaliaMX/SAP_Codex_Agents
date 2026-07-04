@@ -21,7 +21,8 @@
 - Seven client-ready anonymized sample outputs exist under `.agents/samples/client-ready`; adapt them with confirmed client evidence before use.
 - Read-only operating-layer validation passes with `scripts/validate-agent-operating-layer.ps1`.
 - Plugin-safe packaging has started: generated assets now exist under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
-- No refreshed release archive or app-level plugin smoke has been completed after adding operating-layer assets.
+- Refreshed release archive smoke passed after adding operating-layer assets.
+- App-level plugin launch and two fresh-thread output confirmations passed in `docs/validation/plugin-operating-layer-app-smoke-report.md`.
 - Keep workspace sources authoritative; regenerate plugin assets with `scripts/package-operating-layer-assets.ps1` after editing registry, playbooks, output profiles, samples, or automation candidates.
 - Keep the operating layer advisory-only until a future Codex subagent configuration format, MCP/tool activation model, or workflow automation design is explicitly approved.
 

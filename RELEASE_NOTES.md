@@ -38,6 +38,7 @@ Passed:
 - Plugin bundle has no stale workspace paths, scaffold text, or unfinished placeholders.
 - Manual Codex app plugin load/smoke passed for `sap-codex-deliverables`.
 - Agent operating-layer validation passed with `scripts/validate-agent-operating-layer.ps1`, including client-ready samples.
+- Plugin operating-layer app smoke passed with two fresh Codex threads using `sap-deliverable-templates`, plugin-local playbooks, and output profiles.
 
 Known limitations:
 
@@ -63,6 +64,7 @@ Known limitations:
 - Agent operating-layer forward test: `docs/validation/full-agent-forward-test-report.md`
 - Plugin-safe operating-layer packaging: `docs/porting/plugin-safe-operating-layer-packaging.md`
 - Plugin operating-layer validation: `docs/validation/plugin-operating-layer-validation-report.md`
+- Plugin operating-layer app smoke: `docs/validation/plugin-operating-layer-app-smoke-report.md`
 - Plugin bundle notes: `docs/porting/plugin-bundle.md`
 - MCP trust review: `docs/porting/mcp-trust-review.md`
 - Hook trust review: `docs/porting/hook-trust-windows-review.md`
