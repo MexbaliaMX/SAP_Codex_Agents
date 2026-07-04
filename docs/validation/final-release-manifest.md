@@ -2,7 +2,7 @@
 
 Date: 2026-07-02
 
-Manifest refresh: 2026-07-03
+Manifest refresh: 2026-07-04
 
 ## Release Identity
 
@@ -11,18 +11,16 @@ Manifest refresh: 2026-07-03
 | Package | `sap-codex-deliverables` |
 | Release | `v0.1.0` |
 | Git tag | `sap-codex-deliverables-v0.1.0` |
-| Git commit | `745876c Add final release manifest` |
+| Git commit | `90bf571 Start plugin-safe operating layer packaging` |
 | Branch at release | `master` |
 | Git status at manifest creation | Clean |
 | Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip` |
-| Archive size | `1,035,405 bytes` |
-| SHA256 | `C3BF794B5C1AC2012A36A312D852A529ADEF4C583A6D690CB719A0620FF5BEC9` |
+| Archive size | `1,133,493 bytes` |
+| SHA256 | `27114A99F8B9C43FDFD69BE6A609C86FB032FEAAE2A68D2D0B6CFAEC42FC0660` |
 
 ## Manifest Refresh Note
 
-This refresh records the externally generated archive produced after commit `745876c` and the final smoke output. The commit that carries this note will necessarily have a newer commit ID; the archive hash above remains the last verified package artifact unless a new archive is generated and smoked again.
-
-Workspace operating-layer update: the SAP Agent Registry, routing playbooks, output profiles, client-ready anonymized samples, controlled automation candidates, and operating-layer validation script were added after the archived `v0.1.0` package. A plugin-safe operating-layer asset copy has also been started after the checkpoint commit, but no refreshed archive has been generated. The archive hash above remains the last verified package artifact.
+This refresh records the archive regenerated from commit `90bf571` after plugin-safe operating-layer packaging. The archive smoke test and extracted plugin operating-layer validation both passed before updating the size and SHA256 above. The commit that carries this manifest note will necessarily have a newer commit ID; the archive hash above remains the last verified package artifact unless a new archive is generated and smoked again.
 
 ## Release Decision
 
@@ -41,13 +39,14 @@ Packaged release assets:
 - 11 shared templates under `.agents/templates`.
 - 11 fictional sample deliverables under `.agents/samples/deliverables`.
 - Repo-local `sap-codex-deliverables` plugin bundle under `plugins/sap-codex-deliverables`.
+- Plugin-safe SAP Agent operating-layer assets under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
 - Repo-local marketplace file at `marketplace.json`.
 - Disabled MCP example at `.codex/config.toml.example`.
 - Documentation-only disabled hook example at `.codex/hooks.example.json`.
 - Release smoke script at `scripts/test-release-archive.ps1`.
 - Porting and validation evidence under `docs/porting` and `docs/validation`.
 
-Workspace-only operating assets added after the archived `v0.1.0` package:
+Workspace operating assets included in the refreshed archive:
 
 - SAP Agent Registry at `.agents/AGENT_REGISTRY.md`.
 - 7 high-value routing playbooks under `.agents/playbooks`.
@@ -58,7 +57,7 @@ Workspace-only operating assets added after the archived `v0.1.0` package:
 - Full agent operating-layer forward-test report at `docs/validation/full-agent-forward-test-report.md`.
 - Read-only operating-layer validation script at `scripts/validate-agent-operating-layer.ps1`.
 
-Plugin-safe operating-layer packaging started after the archived `v0.1.0` package:
+Plugin-safe operating-layer packaging included in the refreshed archive:
 
 - Generated plugin-local assets at `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
 - Packaging generator at `scripts/package-operating-layer-assets.ps1`.
@@ -84,6 +83,19 @@ Workspace templates markdown files: 11
 Workspace sample deliverable markdown files: 11
 Plugin templates markdown files: 11
 Plugin sample markdown files: 11
+```
+
+Additional extracted-archive validation:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\validate-plugin-operating-layer-assets.ps1 -Root <extracted-archive-root>
+```
+
+Result:
+
+```text
+Plugin operating-layer asset validation passed.
+Checked plugin-local registry, playbooks, output profiles, client-ready samples, references, and stale workspace paths.
 ```
 
 ## Validation Evidence
@@ -116,7 +128,7 @@ Passed in this workspace:
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled; `.codex/hooks.example.json` is documentation-only.
 - `.codex/config.toml.example` is disabled/comment-only.
-- SAP Agent Registry, routing playbooks, output profiles, client-ready samples, and controlled automation notes are advisory guidance. A plugin-safe generated copy now exists in the working tree, but it is not packaged into `sap-codex-deliverables-v0.1.0.zip`.
+- SAP Agent Registry, routing playbooks, output profiles, client-ready samples, and controlled automation notes are advisory guidance. The refreshed archive includes both the workspace operating layer and a plugin-safe generated copy.
 - Agent playbooks and output profiles are not autonomous tool-enabled agents.
 - Client-ready samples are anonymized examples and require confirmed client evidence before use.
 - Fictional sample deliverables must not be reused as client facts.
@@ -125,7 +137,7 @@ Passed in this workspace:
 ## Remaining Blockers
 
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
-- Before claiming operating-layer inclusion in a distributable archive, refresh the archive and rerun package smoke plus app-level plugin smoke.
+- Rerun app-level plugin smoke before external/client distribution of the refreshed archive.
 - Decide whether copied command references stay under individual skills or move to a shared prompt library.
 - Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.

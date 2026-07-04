@@ -43,7 +43,7 @@ Known limitations:
 
 - No live SAP tenant validation was performed.
 - MCP runtime and Codex hook runtime tests were not performed.
-- Plugin-safe operating-layer assets have been generated under the repo-local plugin, but they are not included in the existing `sap-codex-deliverables-v0.1.0.zip` archive until a future package refresh and smoke validation.
+- Plugin-safe operating-layer assets have been generated under the repo-local plugin and are included in the refreshed `sap-codex-deliverables-v0.1.0.zip` archive after archive smoke validation.
 
 ## Do Not Enable Yet
 
