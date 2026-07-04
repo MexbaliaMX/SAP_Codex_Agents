@@ -48,7 +48,9 @@ Required before external/client distribution:
 - [x] Create disabled `.codex/hooks.example.json` as documentation-only example.
 - [ ] Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - [x] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
-- [ ] Decide whether the agent operating-layer files should be packaged into the repo-local plugin bundle or remain workspace-only.
+- [x] Start plugin-safe packaging for operating-layer assets under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
+- [x] Plugin operating-layer asset validation passed with `scripts\validate-plugin-operating-layer-assets.ps1`.
+- [ ] Refresh release archive and run archive/app smoke after approving the plugin-safe operating-layer asset boundary.
 
 ## Release Safety Notes
 
@@ -59,6 +61,7 @@ Required before external/client distribution:
 - Hooks remain disabled.
 - Agent playbooks and output profiles are advisory operating guidance, not autonomous tool-enabled agents.
 - Client-ready samples are anonymized examples and must be adapted with confirmed client evidence before use.
+- Plugin-safe operating-layer assets are generated copies; edit workspace source files first, then regenerate.
 - `.imports` remains source evidence and should not be distributed as client-facing package content.
 
 ## Recommended Manual Smoke Prompt

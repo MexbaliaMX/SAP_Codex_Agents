@@ -20,7 +20,9 @@
 - SAP Agent Registry, seven routing playbooks, output profiles, and controlled automation candidates are created for internal advisory use.
 - Seven client-ready anonymized sample outputs exist under `.agents/samples/client-ready`; adapt them with confirmed client evidence before use.
 - Read-only operating-layer validation passes with `scripts/validate-agent-operating-layer.ps1`.
-- Decide whether `.agents/AGENT_REGISTRY.md`, `.agents/playbooks`, `.agents/output-profiles`, and `.agents/automation-candidates.md` should remain workspace-only or be packaged into the repo-local `sap-codex-deliverables` plugin.
+- Plugin-safe packaging has started: generated assets now exist under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
+- No refreshed release archive or app-level plugin smoke has been completed after adding operating-layer assets.
+- Keep workspace sources authoritative; regenerate plugin assets with `scripts/package-operating-layer-assets.ps1` after editing registry, playbooks, output profiles, samples, or automation candidates.
 - Keep the operating layer advisory-only until a future Codex subagent configuration format, MCP/tool activation model, or workflow automation design is explicitly approved.
 
 ## Hooks
@@ -52,6 +54,7 @@
 - Validate frontmatter for all migrated skills.
 - Check references from `SKILL.md` to copied resource files.
 - Run `scripts/validate-agent-operating-layer.ps1` after editing the registry, playbooks, output profiles, automation candidates, or related validation docs.
+- Run `scripts/validate-plugin-operating-layer-assets.ps1` after regenerating plugin operating-layer assets.
 - Decide whether copied command references should remain under each skill or be consolidated under a shared prompt library.
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
 - Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.

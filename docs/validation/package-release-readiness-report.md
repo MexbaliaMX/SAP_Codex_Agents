@@ -78,6 +78,7 @@ Not run / unavailable:
 | Output profiles | Ready for internal advisory use |
 | Client-ready sample outputs | Ready for internal adaptation; not tenant/legal/security proof |
 | Controlled automation candidates | Documented; automation remains disabled |
+| Plugin-safe operating-layer assets | Started and statically validated; not yet included in refreshed release archive |
 | Shared templates | Ready for local use |
 | Fictional sample deliverables | Ready for local use |
 | `sap-codex-deliverables` plugin bundle | Loaded and smoke-tested in Codex app; ready for internal review packaging |
@@ -94,8 +95,8 @@ Not run / unavailable:
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
 - Run Git status/release tagging from an environment where Git is installed.
-- Decide whether the agent operating layer should be packaged into `sap-codex-deliverables` or kept as workspace-local guidance.
+- Refresh the release archive and rerun app-level smoke before claiming the plugin-safe operating-layer assets in a distributable package.
 
 ## Recommended Next Release Step
 
-Decide the packaging boundary for the agent operating layer, then refresh the release manifest/package if these files should be included in the distributable plugin or internal review bundle.
+Review the generated plugin-safe operating-layer assets, then refresh the release archive and rerun package/app smoke if they should be included in the next distributable plugin bundle.

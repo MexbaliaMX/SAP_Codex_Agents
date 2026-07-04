@@ -43,7 +43,7 @@ Known limitations:
 
 - No live SAP tenant validation was performed.
 - MCP runtime and Codex hook runtime tests were not performed.
-- The agent operating layer and client-ready samples are workspace-only and are not included in the existing `sap-codex-deliverables-v0.1.0.zip` archive unless a future package refresh explicitly adapts and includes them.
+- Plugin-safe operating-layer assets have been generated under the repo-local plugin, but they are not included in the existing `sap-codex-deliverables-v0.1.0.zip` archive until a future package refresh and smoke validation.
 
 ## Do Not Enable Yet
 
@@ -61,6 +61,8 @@ Known limitations:
 - Release checklist: `docs/validation/internal-release-checklist.md`
 - Agent coverage plan: `docs/porting/full-sap-agents-coverage-plan.md`
 - Agent operating-layer forward test: `docs/validation/full-agent-forward-test-report.md`
+- Plugin-safe operating-layer packaging: `docs/porting/plugin-safe-operating-layer-packaging.md`
+- Plugin operating-layer validation: `docs/validation/plugin-operating-layer-validation-report.md`
 - Plugin bundle notes: `docs/porting/plugin-bundle.md`
 - MCP trust review: `docs/porting/mcp-trust-review.md`
 - Hook trust review: `docs/porting/hook-trust-windows-review.md`

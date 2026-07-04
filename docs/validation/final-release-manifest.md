@@ -22,7 +22,7 @@ Manifest refresh: 2026-07-03
 
 This refresh records the externally generated archive produced after commit `745876c` and the final smoke output. The commit that carries this note will necessarily have a newer commit ID; the archive hash above remains the last verified package artifact unless a new archive is generated and smoked again.
 
-Workspace operating-layer update: the SAP Agent Registry, routing playbooks, output profiles, client-ready anonymized samples, controlled automation candidates, and operating-layer validation script were added after the archived `v0.1.0` package. These files are intentionally workspace-only for this manifest refresh and are not claimed to be included in the archive whose hash is listed above.
+Workspace operating-layer update: the SAP Agent Registry, routing playbooks, output profiles, client-ready anonymized samples, controlled automation candidates, and operating-layer validation script were added after the archived `v0.1.0` package. A plugin-safe operating-layer asset copy has also been started after the checkpoint commit, but no refreshed archive has been generated. The archive hash above remains the last verified package artifact.
 
 ## Release Decision
 
@@ -57,6 +57,14 @@ Workspace-only operating assets added after the archived `v0.1.0` package:
 - Full SAP Agents coverage plan at `docs/porting/full-sap-agents-coverage-plan.md`.
 - Full agent operating-layer forward-test report at `docs/validation/full-agent-forward-test-report.md`.
 - Read-only operating-layer validation script at `scripts/validate-agent-operating-layer.ps1`.
+
+Plugin-safe operating-layer packaging started after the archived `v0.1.0` package:
+
+- Generated plugin-local assets at `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
+- Packaging generator at `scripts/package-operating-layer-assets.ps1`.
+- Plugin asset validator at `scripts/validate-plugin-operating-layer-assets.ps1`.
+- Validation record at `docs/validation/plugin-operating-layer-validation-report.md`.
+- Porting note at `docs/porting/plugin-safe-operating-layer-packaging.md`.
 
 ## Release Smoke
 
@@ -97,6 +105,9 @@ Passed in this workspace:
 - Upstream hook tests and hook contract tests for the source validators.
 - Upstream template validation with local `xmllint`.
 - Read-only SAP agent operating-layer validation with `scripts/validate-agent-operating-layer.ps1`.
+- Plugin-safe operating-layer asset validation with `scripts/validate-plugin-operating-layer-assets.ps1`.
+- Packaged `sap-deliverable-templates` skill validation after adding operating-layer assets.
+- `sap-codex-deliverables` plugin validation after adding operating-layer assets.
 
 ## Safety Boundaries
 
@@ -105,7 +116,7 @@ Passed in this workspace:
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled; `.codex/hooks.example.json` is documentation-only.
 - `.codex/config.toml.example` is disabled/comment-only.
-- SAP Agent Registry, routing playbooks, output profiles, client-ready samples, and controlled automation notes are workspace-only advisory guidance for this refresh; they are not packaged into `sap-codex-deliverables-v0.1.0.zip`.
+- SAP Agent Registry, routing playbooks, output profiles, client-ready samples, and controlled automation notes are advisory guidance. A plugin-safe generated copy now exists in the working tree, but it is not packaged into `sap-codex-deliverables-v0.1.0.zip`.
 - Agent playbooks and output profiles are not autonomous tool-enabled agents.
 - Client-ready samples are anonymized examples and require confirmed client evidence before use.
 - Fictional sample deliverables must not be reused as client facts.
@@ -114,7 +125,7 @@ Passed in this workspace:
 ## Remaining Blockers
 
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
-- If the operating layer should become distributable later, create a plugin-safe copy with plugin-local paths and rerun package smoke validation before claiming inclusion.
+- Before claiming operating-layer inclusion in a distributable archive, refresh the archive and rerun package smoke plus app-level plugin smoke.
 - Decide whether copied command references stay under individual skills or move to a shared prompt library.
 - Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
@@ -132,7 +143,9 @@ Passed in this workspace:
 - `docs/validation/hooks-example-validation-report.md`
 - `docs/validation/xmllint-template-validation-report.md`
 - `docs/validation/full-agent-forward-test-report.md`
+- `docs/validation/plugin-operating-layer-validation-report.md`
 - `docs/porting/full-sap-agents-coverage-plan.md`
+- `docs/porting/plugin-safe-operating-layer-packaging.md`
 - `docs/porting/mcp-trust-review.md`
 - `docs/porting/hook-trust-windows-review.md`
 - `docs/porting/upstream-mcp-security-validator-windows-path-fix.md`
