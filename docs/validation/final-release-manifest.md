@@ -11,22 +11,22 @@ Manifest refresh: 2026-07-05
 | Package | `sap-codex-deliverables` |
 | Release | `v0.1.0-advisory-rc` |
 | Git tag | `sap-codex-deliverables-v0.1.0` |
-| Git commit | Pending archive source commit from `chore/release-hygiene-advisory-rc` |
+| Git commit | `cf49ee5 Reconcile advisory RC validation docs` |
 | Branch at release | `chore/release-hygiene-advisory-rc` |
-| Git status at manifest creation | Pending final archive refresh |
+| Git status at manifest creation | Clean before ignored archive generation; manifest updated after smoke |
 | Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip` |
-| Archive size | Pending GPL advisory RC archive smoke |
-| SHA256 | Pending GPL advisory RC archive smoke |
+| Archive size | `1,176,338 bytes` |
+| SHA256 | `7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A` |
 
 ## Manifest Refresh Note
 
-This manifest is being reconciled for the GPL-3.0-only advisory RC branch. The final archive size and SHA256 are recorded only after regenerating and smoke-testing the archive from the committed release branch state.
+This manifest records the GPL-3.0-only advisory RC archive regenerated from commit `cf49ee5` after reconciling release validation docs. The archive smoke test, extracted plugin validation, disabled config check, and GPL file presence check passed.
 
 The final manifest commit may be newer than the archive source commit because the archive checksum cannot be embedded inside the same archive without changing the checksum.
 
 ## Release Decision
 
-Status: ready for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review after archive smoke passes.
+Status: ready for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review.
 
 External or client distribution remains blocked pending third-party notice, provenance, redistribution, tenant/security, and governance review.
 
@@ -81,7 +81,11 @@ powershell -ExecutionPolicy Bypass -File scripts\test-release-archive.ps1 `
 Result:
 
 ```text
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
 Release archive smoke passed.
+Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip
+SHA256: 7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A
 Workspace skills: 26
 Workspace templates markdown files: 11
 Workspace sample deliverable markdown files: 11
@@ -110,6 +114,7 @@ Passed in this workspace:
 - `quick_validate.py` for packaged `sap-deliverable-templates` skill.
 - `validate_plugin.py` for `plugins/sap-codex-deliverables`.
 - Release archive smoke via `scripts/test-release-archive.ps1`.
+- GPL release files present in the refreshed archive: `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs/governance/gpl-3-release-plan.md`.
 - Manual Codex app install/load smoke for `sap-codex-deliverables`.
 - Template forward testing and sample deliverable creation.
 - Remaining Phase 2 forward testing: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, and Realize.

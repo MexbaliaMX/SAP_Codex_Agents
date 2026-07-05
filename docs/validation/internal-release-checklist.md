@@ -55,7 +55,7 @@ Required before external/client distribution:
 - [x] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
 - [x] Start plugin-safe packaging for operating-layer assets under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
 - [x] Plugin operating-layer asset validation passed with `scripts\validate-plugin-operating-layer-assets.ps1`.
-- [ ] Refresh release archive and run archive smoke after GPL-3.0-only release-plan files are committed.
+- [x] Refresh release archive and run archive smoke after GPL-3.0-only release-plan files are committed.
 - [x] Rerun app-level plugin smoke after archive regeneration and before external/client distribution.
 
 ## Release Safety Notes

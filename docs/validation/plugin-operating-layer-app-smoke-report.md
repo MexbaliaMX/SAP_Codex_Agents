@@ -9,7 +9,8 @@ Manual Codex app plugin smoke for the refreshed repo-local `sap-codex-deliverabl
 The refreshed archive is:
 
 - `sap-codex-deliverables-v0.1.0.zip`
-- Final SHA256 is recorded from the post-build archive smoke output; the in-archive report intentionally avoids a self-referential checksum.
+- SHA256: `7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A`
+- Source commit: `cf49ee5 Reconcile advisory RC validation docs`
 
 ## Result
 
@@ -21,6 +22,7 @@ Confirmed from this Codex session:
   `codex://plugins/sap-codex-deliverables?marketplacePath=C%3A%5Ccodex%5CSAP%20Agents%5Cmarketplace.json`
 - The repo-local plugin URL was opened again after regenerating the archive with current validation documentation.
 - Refreshed archive smoke passed with `scripts/test-release-archive.ps1`.
+- GPL advisory RC archive smoke passed after adding `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs/governance/gpl-3-release-plan.md`.
 - Extracted archive plugin operating-layer validation passed.
 - Packaged `sap-deliverable-templates` skill validation passed.
 - `sap-codex-deliverables` plugin validation passed.
@@ -75,4 +77,4 @@ The output should:
 
 ## Recommendation
 
-Treat the refreshed plugin-safe operating layer as app-smoke validated for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review based on successful plugin URL launch, archive smoke, plugin validation, and completed go-live output rerun. Rerun app-level smoke after changing plugin assets, marketplace/plugin loading behavior, or enabled runtime behavior, and use the Codex app plugin surface rather than delegated MCP resources when confirming skill exposure.
+Treat the refreshed plugin-safe operating layer as app-smoke validated for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review based on successful plugin URL launch, archive smoke, plugin validation, and completed go-live output rerun. App-level plugin smoke was not rerun after the GPL-only governance file changes because plugin runtime assets were unchanged; rerun app-level smoke after changing plugin assets, marketplace/plugin loading behavior, or enabled runtime behavior, and use the Codex app plugin surface rather than delegated MCP resources when confirming skill exposure.

@@ -92,6 +92,15 @@ GPL-3.0 release planning update on 2026-07-05:
 - `docs/governance/gpl-3-release-plan.md` added.
 - Third-party notices, contributor-rights, provenance, proprietary packaging, marketplace distribution, and client redistribution review remain open.
 
+Archive refresh on 2026-07-05:
+
+- `sap-codex-deliverables-v0.1.0.zip` regenerated from commit `cf49ee5 Reconcile advisory RC validation docs`.
+- Archive size: `1,176,338 bytes`.
+- SHA256: `7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A`.
+- `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
+- `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1` passed.
+- Extracted archive check confirmed `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs\governance\gpl-3-release-plan.md` are present.
+
 ## Release Assets
 
 | Asset | Status |
@@ -123,7 +132,7 @@ GPL-3.0 release planning update on 2026-07-05:
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - Review GPL-3.0 obligations before proprietary client packaging, marketplace distribution, closed redistribution, or client distribution beyond public source review.
 - Complete formal third-party notice review before external/client distribution.
-- Regenerate and smoke the release archive again if validation documentation changes before distribution.
+- Regenerate and smoke the release archive again if validation documentation or release governance files change before distribution.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 
 ## Recommended Next Release Step
