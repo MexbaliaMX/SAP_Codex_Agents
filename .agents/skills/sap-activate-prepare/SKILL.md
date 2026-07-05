@@ -5,6 +5,10 @@ description: "SAP Activate Prepare phase advisory. Use for project setup, govern
 
 # SAP Activate Prepare Advisory
 
+## Verification Caveat
+
+This is a local advisory overlay. Review `references/verification.md` for source caveats, validation limits, and release treatment. Do not treat this skill as live tenant, legal, fiscal, licensing, security, or production-readiness proof.
+
 ## Operating Posture
 
 Use this skill to guide SAP Activate delivery work for the named phase. Keep workstream outputs evidence-bound, implementation-safe, and human-approved before any production-impacting change.

@@ -8,3 +8,13 @@ docs/deliverables/private-*
 docs/deliverables/customer-*
 docs/deliverables/*-confidential-*
 docs/deliverables/*-nda-*
+
+# Local Codex runtime config; examples only may be committed.
+.codex/config.toml
+.codex/hooks.json
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx

@@ -7,8 +7,8 @@ description: |
 
 - Use this as a local Codex skill ported from the upstream SAP skills repository.
 - Treat SAP product, tenant behavior, limits, licensing, and roadmap claims as evidence-bound; validate against the target tenant and current SAP documentation before production use.
-- Review eferences/verification.md for original source metadata and port caveats.
-- Claude slash-command workflows, when copied, live under eferences/commands/ as reference prompts; do not treat them as native Codex slash commands.
+- Review `references/verification.md` for original source metadata and port caveats.
+- Claude slash-command workflows, when copied, live under `references/commands/` as reference prompts; do not treat them as native Codex slash commands.
 
 # SAP ABAP Development Skill
 
