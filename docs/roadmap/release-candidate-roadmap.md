@@ -59,16 +59,16 @@ The RC may be labeled advisory-only if live tenant and governance approvals are 
 
 | Gate | Required outcome | Evidence artifact | Status |
 |---|---|---|---|
-| Repository hygiene | GitHub remote configured, release branch created, unrelated local work excluded from RC commit | `git remote -v`, `git status --short --branch` | Blocked: no remote configured |
+| Repository hygiene | GitHub remote configured, release branch created, unrelated local work excluded from RC commit | `git remote -v`, `git status --short --branch` | Complete for PR #7 |
 | Scope freeze | Exclude customer/NDA test deliverables from public RC scope | `.gitignore`, local Git exclude rules, roadmap scope note, PR description | Complete for current untracked files |
 | Source verification | Refresh or explicitly accept stale and missing `last_verified` findings | `docs/validation/source-verification-audit.md` update or acceptance record | Open |
 | Caveat discoverability | Add `references/verification.md` pointers to 14 local process/Activate overlay skills | Skill diffs plus validation result | Complete |
 | Governance | GPL-3.0-only source release planned; third-party notice and redistribution review completed before proprietary/client packaging | `LICENSE`, `docs/governance/license-review.md`, `docs/governance/gpl-3-release-plan.md`, `THIRD_PARTY_NOTICES.md` | Source license selected; proprietary/client distribution remains blocked |
 | Tenant safety | Keep MCPs, hooks, credentials, and tenant-connected execution disabled | `.codex` examples remain disabled, automation notes preserved, release hygiene validator | Complete for advisory RC; tenant execution remains blocked |
 | CI hygiene | Run advisory RC checks on push and PR | `.github/workflows/release-hygiene.yml`, `scripts/validate-release-hygiene.ps1` | Complete |
-| Release archive | Regenerate and smoke archive after final RC docs and asset changes | `docs/validation/final-release-manifest.md` and smoke output | Open after roadmap addition |
-| Plugin app smoke | Rerun app-level plugin smoke after final archive or manifest changes | `docs/validation/plugin-operating-layer-app-smoke-report.md` | Open after final changes |
-| GitHub publication | Push branch and open draft PR or publish initial remote branch | GitHub branch/PR URL | Blocked: no remote configured |
+| Release archive | Regenerate and smoke archive after final RC docs and asset changes | `docs/validation/final-release-manifest.md` and smoke output | Complete for GPL advisory RC archive |
+| Plugin app smoke | Rerun app-level plugin smoke after runtime asset, marketplace, or plugin manifest changes | `docs/validation/plugin-operating-layer-app-smoke-report.md` | Complete for unchanged runtime assets; rerun before external/client distribution |
+| GitHub publication | Push branch and open draft PR or publish initial remote branch | GitHub branch/PR URL | Complete: PR #7 opened as draft |
 
 ## Milestone Plan
 
@@ -142,26 +142,22 @@ Exit criteria:
 - Release owner approves the channel and residual risk position.
 - External or client distribution remains blocked unless the required approvals and evidence exist.
 
-## GitHub Push Plan
+## GitHub Publication Plan
 
-Current blocker: this checkout has no configured Git remote.
+Current status: branch `chore/release-hygiene-advisory-rc` is pushed to `origin` and draft PR #7 is open against `codex/sap-agents-framework-rc-roadmap`.
 
-Recommended path:
+Recommended next path:
 
-1. Create or choose the GitHub repository for `SAP Agents Framework`.
-2. Configure `origin` with the selected repository URL.
-3. Create a Codex branch from `master`.
-4. Stage only the roadmap and approved RC files.
-5. Commit with a terse message, for example `Add SAP Agents Framework RC roadmap`.
-6. Push with upstream tracking.
-7. Open a draft PR that states the framework is advisory-only and tenant-connected execution remains disabled.
+1. Keep PR #7 draft until release-owner review accepts the remaining advisory RC blockers.
+2. Confirm GitHub Actions remain green.
+3. Review that the PR states advisory-only scope, GPL-3.0-only source release planning, and blocked tenant-connected features.
+4. Convert PR #7 to ready for review or merge it as the advisory RC baseline when governance accepts the documented residual blockers.
+5. Tag the merged commit as the advisory RC only after merge approval.
 
 Do not use `git add -A`. Customer/NDA-protected test artifacts are excluded from the public RC.
 
 ## Open Decisions
 
-- GitHub repository owner, visibility, and remote URL.
-- Whether to publish from `master` directly or through a `codex/` release branch and draft PR.
 - Whether the RC version remains `v0.1.0` or moves to an `rc.1` tag/archive.
 - Whether stale source metadata is refreshed now or accepted with explicit advisory-only caveats.
 - Whether copied command references remain under individual skills or move to a shared prompt library.

@@ -82,7 +82,7 @@ Release hygiene update on 2026-07-05:
 - `.github/workflows/release-hygiene.yml` was added for push and pull request validation.
 - `scripts/validate-release-hygiene.ps1` was added to enforce advisory RC guardrails for broken reference paths, active `.codex/config.toml`, active `.codex/hooks.json`, disabled example files, unfinished operating-layer markers, and private/customer/NDA artifact filename patterns.
 - `.gitignore` was expanded for local Codex runtime config, environment files, certificates, keys, and private/customer/NDA deliverable patterns.
-- Formal license review remains pending in `docs/governance/license-review.md`; `THIRD_PARTY_NOTICES.md` is a pending-review stub.
+- GPL-3.0-only source release planning is recorded in `docs/governance/license-review.md`; third-party notice, contributor-rights, provenance, and redistribution review remain pending.
 - Local validation passed for `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1`.
 
 GPL-3.0 release planning update on 2026-07-05:
