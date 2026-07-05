@@ -34,6 +34,7 @@ Completed in this workspace:
 - [x] Read-only operating-layer validation passed with `powershell -ExecutionPolicy Bypass -File scripts\validate-agent-operating-layer.ps1`, including registry, playbooks, output profiles, client-ready samples, automation notes, and template references.
 - [x] Release hygiene validation passed with `powershell -ExecutionPolicy Bypass -File scripts\validate-release-hygiene.ps1`.
 - [x] Repo-level GPL-3.0-only release plan documented with root `LICENSE`, `docs/governance/license-review.md`, and `docs/governance/gpl-3-release-plan.md`.
+- [x] Initial post-RC third-party provenance inventory recorded in `docs/governance/third-party-provenance-review.md` and `THIRD_PARTY_NOTICES.md`.
 
 Required before external/client distribution:
 
@@ -41,7 +42,7 @@ Required before external/client distribution:
 - [x] Confirm local release tag state before external/client distribution.
 - [x] Resolve release tag alignment: local tag `sap-codex-deliverables-v0.1.0` now points to the manifest-recorded archive source commit `90bf571 Start plugin-safe operating layer packaging`.
 - [x] Select GPL-3.0-only as the public source advisory RC release license.
-- [ ] Complete third-party notice, contributor-rights, provenance, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, or closed redistribution.
+- [ ] Complete upstream source URL/commit/checksum, contributor-rights, SAP documentation terms, trademark, marketplace, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
 - [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.

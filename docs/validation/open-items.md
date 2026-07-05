@@ -56,7 +56,8 @@
 
 - GPL-3.0-only source release planning is documented in `docs/governance/license-review.md` and `docs/governance/gpl-3-release-plan.md`.
 - `LICENSE` contains GNU GPLv3 text downloaded from the Free Software Foundation license URL on 2026-07-05.
-- Complete third-party notice, contributor-rights, provenance, and redistribution review before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or archive release.
+- Initial post-RC third-party provenance inventory is documented in `docs/governance/third-party-provenance-review.md` and `THIRD_PARTY_NOTICES.md`.
+- Complete upstream source URL/commit/checksum, contributor-rights, SAP documentation terms, trademark, marketplace, and redistribution review before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or refreshed archive release.
 - `THIRD_PARTY_NOTICES.md` remains incomplete and is not legal clearance.
 
 ## Skill quality checks

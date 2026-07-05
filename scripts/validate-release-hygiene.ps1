@@ -143,6 +143,42 @@ elseif (($licenseText -notmatch "GNU GENERAL PUBLIC LICENSE") -or ($licenseText 
   Add-Failure "Root LICENSE does not look like GNU GPLv3 text"
 }
 
+$thirdPartyText = Read-Text "THIRD_PARTY_NOTICES.md"
+if ([string]::IsNullOrWhiteSpace($thirdPartyText)) {
+  Add-Failure "Missing THIRD_PARTY_NOTICES.md for GPL-3.0 provenance review"
+}
+else {
+  foreach ($requiredNotice in @(
+    "sap-skills-main.zip",
+    "license: GPL-3.0",
+    "docs/governance/third-party-provenance-review.md",
+    "proprietary client packaging",
+    "marketplace publication"
+  )) {
+    if ($thirdPartyText -notmatch [regex]::Escape($requiredNotice)) {
+      Add-Failure "THIRD_PARTY_NOTICES.md missing required provenance marker: $requiredNotice"
+    }
+  }
+}
+
+$provenanceText = Read-Text "docs/governance/third-party-provenance-review.md"
+if ([string]::IsNullOrWhiteSpace($provenanceText)) {
+  Add-Failure "Missing third-party provenance review: docs/governance/third-party-provenance-review.md"
+}
+else {
+  foreach ($requiredProvenance in @(
+    "Issue: <https://github.com/MexbaliaMX/SAP_Codex_Agents/issues/2>",
+    "Copied Technical Skills",
+    "Local Overlay Skills",
+    "Evidence Still Required To Close Issue #2",
+    "Regenerate and smoke-test any distributable archive"
+  )) {
+    if ($provenanceText -notmatch [regex]::Escape($requiredProvenance)) {
+      Add-Failure "third-party provenance review missing required marker: $requiredProvenance"
+    }
+  }
+}
+
 if ($Failures.Count -gt 0) {
   Write-Host "Release hygiene validation failed:" -ForegroundColor Red
   foreach ($failure in $Failures) {

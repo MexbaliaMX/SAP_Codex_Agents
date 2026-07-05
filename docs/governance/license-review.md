@@ -6,6 +6,8 @@ Date: 2026-07-05
 
 Owner-directed release plan: GNU General Public License v3.0 only (`GPL-3.0-only`).
 
+Initial post-RC third-party provenance and redistribution review is recorded in `docs/governance/third-party-provenance-review.md`.
+
 The repository now contains a repo-level `LICENSE` with the GNU GPLv3 license text downloaded from the Free Software Foundation license URL on 2026-07-05:
 
 - <https://www.gnu.org/licenses/gpl-3.0.txt>
@@ -16,11 +18,11 @@ This updates the release plan from "license pending" to "GPL-3.0-only source rel
 
 Repository-authored assets appear to include the Codex operating-layer documentation, advisory playbooks, output profiles, validation records, roadmap, local plugin metadata, and release-hygiene scripts.
 
-Ported or derived assets appear to include SAP technical skill content, reference material, templates, and command-reference files under `.agents/skills` and packaged copies under `plugins/sap-codex-deliverables`.
+Ported or derived assets include 12 SAP technical skills copied from `sap-skills-main.zip` into `.agents/skills`. Local process and SAP Activate overlays record that they were created locally and were not copied from upstream. Packaged copies under `plugins/sap-codex-deliverables` are generated or copied from repo-local source assets.
 
 ## Third-Party And Upstream License Signals
 
-Several ported skill verification files record `license: GPL-3.0`. The GPL-3.0-only release plan aligns the repository-level source license with those upstream license signals.
+The 12 copied technical skill verification files record `license: GPL-3.0`. The GPL-3.0-only release plan aligns the repository-level source license with those upstream license signals.
 
 The current review did not validate upstream repositories, exact commit provenance, contributor rights, SAP documentation terms, or compatibility between repo-authored assets, ported skill material, templates, and plugin packaging.
 
@@ -32,10 +34,11 @@ The current review did not validate upstream repositories, exact commit provenan
 
 ## Pending Decisions
 
-- Confirm whether third-party notices are required for SAP skill content, command references, templates, bundled plugin metadata, and validation scripts.
+- Confirm upstream `sap-skills-main.zip` source URL, commit/tag, checksum, license text, and contributor-rights chain.
 - Confirm whether any SAP documentation, product names, screenshots, API snippets, or examples require additional attribution or usage limits.
 - Confirm contributor rights and exact upstream provenance for ported or derived content.
 - Confirm whether any marketplace publication model is compatible with GPL-3.0-only distribution.
+- Confirm whether client-ready samples and SEMASS discovery artifacts are fictional, authorized, or should be excluded from public/client redistribution.
 
 ## Release Treatment
 

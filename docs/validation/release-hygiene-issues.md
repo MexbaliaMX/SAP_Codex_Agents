@@ -28,6 +28,11 @@ Acceptance criteria:
 - Complete `THIRD_PARTY_NOTICES.md`.
 - Decide whether proprietary packaging, marketplace publication, or external/client distribution is allowed.
 
+Post-RC progress:
+
+- Initial tracked-repository provenance inventory is recorded in `docs/governance/third-party-provenance-review.md` and `THIRD_PARTY_NOTICES.md`.
+- Remaining evidence gaps: upstream `sap-skills-main.zip` source URL/commit/checksum, copied-skill contributor-rights chain, SAP documentation terms, trademark treatment, marketplace terms, client artifact treatment, and refreshed archive smoke after governance changes.
+
 ## 3. Tenant validation plan
 
 GitHub issue: <https://github.com/MexbaliaMX/SAP_Codex_Agents/issues/3>

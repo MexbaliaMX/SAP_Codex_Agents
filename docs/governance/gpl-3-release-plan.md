@@ -28,8 +28,8 @@ Excluded from the public GPL-3.0-only release:
 
 1. Keep `LICENSE` at the repository root with the unmodified GNU GPLv3 license text.
 2. Add the release note phrase: `Licensed under GNU General Public License v3.0 only (GPL-3.0-only).`
-3. Keep `THIRD_PARTY_NOTICES.md` current for ported or derived SAP skill/reference material.
-4. Confirm every distributable archive includes `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs/governance/license-review.md`.
+3. Keep `THIRD_PARTY_NOTICES.md` and `docs/governance/third-party-provenance-review.md` current for ported or derived SAP skill/reference material.
+4. Confirm every distributable archive includes `LICENSE`, `THIRD_PARTY_NOTICES.md`, `docs/governance/license-review.md`, and `docs/governance/third-party-provenance-review.md`.
 5. Regenerate and smoke-test the release archive after the licensing files are committed.
 6. Keep proprietary client packaging, private marketplace distribution, and closed redistribution blocked unless reviewed against GPL-3.0 obligations.
 
