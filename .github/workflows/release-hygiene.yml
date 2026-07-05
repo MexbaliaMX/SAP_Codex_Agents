@@ -1,0 +1,25 @@
+name: Release Hygiene
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  release-hygiene:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate agent operating layer
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File scripts\validate-agent-operating-layer.ps1
+
+      - name: Validate plugin operating-layer assets
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File scripts\validate-plugin-operating-layer-assets.ps1
+
+      - name: Validate release hygiene
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File scripts\validate-release-hygiene.ps1

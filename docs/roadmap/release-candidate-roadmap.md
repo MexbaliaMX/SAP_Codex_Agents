@@ -38,6 +38,7 @@ Validation already recorded:
 - App-level plugin smoke passed after archive regeneration.
 - Full agent operating-layer forward test passed across process, Activate, technical, development, integration, go-live, and hypercare scenarios.
 - Source verification audit completed with caveats preserved.
+- Release hygiene validator and GitHub Actions workflow added for advisory RC guardrails.
 
 Validation not yet performed:
 
@@ -60,9 +61,10 @@ The RC may be labeled advisory-only if live tenant and governance approvals are 
 | Repository hygiene | GitHub remote configured, release branch created, unrelated local work excluded from RC commit | `git remote -v`, `git status --short --branch` | Blocked: no remote configured |
 | Scope freeze | Exclude customer/NDA test deliverables from public RC scope | `.gitignore`, local Git exclude rules, roadmap scope note, PR description | Complete for current untracked files |
 | Source verification | Refresh or explicitly accept stale and missing `last_verified` findings | `docs/validation/source-verification-audit.md` update or acceptance record | Open |
-| Caveat discoverability | Add `references/verification.md` pointers to 14 local process/Activate overlay skills | Skill diffs plus validation result | Open |
-| Governance | GPL-3.0 redistribution review completed before proprietary/client packaging | License review record | Open |
-| Tenant safety | Keep MCPs, hooks, credentials, and tenant-connected execution disabled | `.codex` examples remain disabled, automation notes preserved | Partially complete |
+| Caveat discoverability | Add `references/verification.md` pointers to 14 local process/Activate overlay skills | Skill diffs plus validation result | Complete |
+| Governance | GPL-3.0 redistribution review completed before proprietary/client packaging | `docs/governance/license-review.md`, `THIRD_PARTY_NOTICES.md` | Blocked: formal legal review pending |
+| Tenant safety | Keep MCPs, hooks, credentials, and tenant-connected execution disabled | `.codex` examples remain disabled, automation notes preserved, release hygiene validator | Complete for advisory RC; tenant execution remains blocked |
+| CI hygiene | Run advisory RC checks on push and PR | `.github/workflows/release-hygiene.yml`, `scripts/validate-release-hygiene.ps1` | Complete |
 | Release archive | Regenerate and smoke archive after final RC docs and asset changes | `docs/validation/final-release-manifest.md` and smoke output | Open after roadmap addition |
 | Plugin app smoke | Rerun app-level plugin smoke after final archive or manifest changes | `docs/validation/plugin-operating-layer-app-smoke-report.md` | Open after final changes |
 | GitHub publication | Push branch and open draft PR or publish initial remote branch | GitHub branch/PR URL | Blocked: no remote configured |
@@ -94,7 +96,7 @@ Objective: make source limits discoverable at the point of skill use.
 
 Actions:
 
-- Add short verification caveat pointers in the 14 local process and SAP Activate overlay `SKILL.md` files.
+- Add short verification caveat pointers in the 14 local process and SAP Activate overlay `SKILL.md` files. Complete for advisory RC.
 - Refresh or explicitly accept stale source metadata for BTP, Connectivity, Integration Suite, and HANA CLI before making client-facing platform claims.
 - Recheck over-90-day ABAP, ABAP CDS, Fiori tools, and CAP metadata before release notes imply version-specific behavior.
 - Keep Mexico fiscal topics, including CFDI, complementos de pago, Carta Porte, tax evidence, approvals, and auditability, as validation prompts unless authoritative client evidence is supplied.
@@ -128,7 +130,7 @@ Objective: decide the release channel and distribution constraints.
 
 Actions:
 
-- Complete GPL-3.0 redistribution review.
+- Complete GPL-3.0 redistribution review. Current status is documented as pending in `docs/governance/license-review.md`.
 - Decide whether the RC is internal-only, GitHub-source-visible, marketplace-ready, or client-distribution-blocked.
 - Confirm no tenant URLs, secrets, private user identifiers, certificate material, credential aliases, or customer/NDA test artifacts are committed.
 - Document approval owners for security, legal/tax, release management, and SAP tenant validation.

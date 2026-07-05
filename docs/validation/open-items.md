@@ -7,7 +7,7 @@
 - Before client-facing use, remediate or explicitly accept the audit findings:
   - 4 technical skills have source metadata older than 180 days.
   - 14 local process/SAP Activate overlay skills have caveat files but no `last_verified` date.
-  - 14 local process/SAP Activate overlay `SKILL.md` files do not directly point to `references/verification.md`.
+- Release hygiene update on 2026-07-05: the 14 local process/SAP Activate overlay `SKILL.md` files now directly point to `references/verification.md`.
 - Add tenant evidence only after testing in the relevant SAP landscape.
 
 ## Live environment tests
@@ -15,11 +15,17 @@
 - No SAP BTP, Integration Suite, HANA, SAC, Datasphere, S/4HANA, BAS, or Fiori launchpad tenant validation has been performed in this Codex port.
 - Treat generated artifacts as locally structured and source-guided until imported or tested in a real tenant.
 
+## Release alignment
+
+- Release tag alignment is resolved locally: tag `sap-codex-deliverables-v0.1.0` points to the final manifest archive source commit `90bf571 Start plugin-safe operating layer packaging`.
+- Release archive was regenerated and smoked with the latest validation documentation included; regenerate and smoke again if validation documentation changes before distribution.
+
 ## Agent operating layer
 
 - SAP Agent Registry, seven routing playbooks, output profiles, and controlled automation candidates are created for internal advisory use.
-- Seven client-ready anonymized sample outputs exist under `.agents/samples/client-ready`; adapt them with confirmed client evidence before use.
+- Eight client-ready anonymized sample files exist under `.agents/samples/client-ready`, including `INDEX.md`; adapt them with confirmed client evidence before use.
 - Read-only operating-layer validation passes with `scripts/validate-agent-operating-layer.ps1`.
+- Release hygiene CI and `scripts/validate-release-hygiene.ps1` now check advisory RC guardrails, including broken reference paths, active Codex runtime config, active hooks, unfinished operating-layer markers, and private artifact filename patterns.
 - Plugin-safe packaging has started: generated assets now exist under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
 - Refreshed release archive smoke passed after adding operating-layer assets.
 - App-level plugin launch and two fresh-thread output confirmations passed in `docs/validation/plugin-operating-layer-app-smoke-report.md`.
@@ -48,7 +54,9 @@
 
 ## Licensing
 
-- Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
+- Formal license review remains pending in `docs/governance/license-review.md`.
+- Review GPL-3.0 redistribution obligations before proprietary client packaging, marketplace distribution, external/client distribution, or archive release.
+- `THIRD_PARTY_NOTICES.md` exists only as a pending-review stub and is not legal clearance.
 
 ## Skill quality checks
 

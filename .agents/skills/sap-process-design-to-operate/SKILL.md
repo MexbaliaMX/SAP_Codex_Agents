@@ -5,6 +5,10 @@ description: "Design-to-Operate process advisory across product or asset lifecyc
 
 # SAP Design-to-Operate Process Advisory
 
+## Verification Caveat
+
+This is a local advisory overlay. Review `references/verification.md` for source caveats, validation limits, and release treatment. Do not treat this skill as live tenant, legal, fiscal, licensing, security, or production-readiness proof.
+
 ## Operating Posture
 
 Use this skill to reason from an end-to-end SAP business process view before jumping to module, configuration, integration, or extension answers. Keep confirmed facts, assumptions, risks, validation gaps, and next actions separate.

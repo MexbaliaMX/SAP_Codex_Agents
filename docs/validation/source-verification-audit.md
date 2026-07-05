@@ -2,6 +2,8 @@
 
 Date: 2026-07-03
 
+Release hygiene update: 2026-07-05. Caveat discoverability was improved without advancing any `last_verified` dates.
+
 ## Scope
 
 This audit covers the 26 Codex workspace skills under `.agents/skills`.
@@ -29,8 +31,8 @@ Summary:
 - 26 of 26 skills have `references/verification.md`.
 - 12 of 26 skills preserve upstream-style `last_verified` metadata.
 - 14 of 26 locally created process or SAP Activate overlay skills do not have `last_verified` metadata.
-- 12 of 26 `SKILL.md` files directly reference `references/verification.md`.
-- 14 of 26 `SKILL.md` files have caveat files but do not directly point readers to them.
+- 26 of 26 `SKILL.md` files directly reference `references/verification.md`.
+- 0 of 26 `SKILL.md` files have undisclosed local caveat files.
 - 4 source-copied technical skills have `last_verified` dates older than 180 days as of 2026-07-03.
 
 ## Dated Verification Inventory
@@ -73,24 +75,9 @@ These skills have `references/verification.md` caveats but no `last_verified` da
 
 ## Caveat Discoverability
 
-The following 14 skills have verification caveat files but their `SKILL.md` files do not directly reference `references/verification.md`:
+Release hygiene update completed on 2026-07-05: the 14 local process and SAP Activate overlay `SKILL.md` files now include a uniform `Verification Caveat` section that points to `references/verification.md`.
 
-- `sap-activate-deploy`
-- `sap-activate-discover`
-- `sap-activate-explore-fit-to-standard`
-- `sap-activate-prepare`
-- `sap-activate-realize`
-- `sap-activate-run`
-- `sap-process-design-to-operate`
-- `sap-process-hire-to-retire`
-- `sap-process-lead-to-cash`
-- `sap-process-order-to-cash`
-- `sap-process-plan-to-produce`
-- `sap-process-procure-to-pay`
-- `sap-process-record-to-report`
-- `sap-process-source-to-pay`
-
-Recommended follow-up: add a short `SKILL.md` note to each overlay skill pointing to `references/verification.md`, without changing behavior or advancing verification dates.
+No `last_verified` dates were advanced. The overlay skills remain local advisory references and are not live tenant, legal, fiscal, licensing, security, or production-readiness proof.
 
 ## Release Impact
 
@@ -100,6 +87,5 @@ Before external or client-facing distribution:
 
 - Refresh SAP source references for the four skills older than 180 days.
 - Recheck over-90-day technical skills before making version-specific claims.
-- Add discoverability pointers for the 14 process and SAP Activate overlay caveat files.
+- Keep the newly added caveat pointers in the 14 process and SAP Activate overlay skills discoverable during future edits.
 - Keep tenant-specific, fiscal, legal, licensing, roadmap, and production claims marked as assumptions or validation gaps until evidenced.
-

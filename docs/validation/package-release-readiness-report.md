@@ -60,11 +60,30 @@ Previously known failure now fixed locally:
 
 Not run / unavailable:
 
-- `git status --short` because `git` is not installed in this shell.
 - Live SAP tenant validation.
 - MCP runtime smoke tests.
 - Active MCP server startup tests.
 - Codex hook runtime tests.
+
+Additional QA refresh on 2026-07-04:
+
+- `git status --short` completed from this workspace; current pending edits are limited to validation documentation updates.
+- Release tag alignment completed: `sap-codex-deliverables-v0.1.0` points to the manifest-recorded archive source commit `90bf571 Start plugin-safe operating layer packaging`.
+- Release archive regenerated from the current tracked workspace after tag alignment and smoke-tested as `sap-codex-deliverables-v0.1.0.zip`.
+- Archive SHA256 is recorded from the post-build archive smoke output; in-archive validation docs avoid self-referential checksums.
+- Plugin-safe operating-layer assets are included in the refreshed release archive.
+- Extracted archive documentation check confirmed that the embedded readiness report contains the current release tag alignment status.
+- App-level plugin smoke rerun opened the repo-local plugin URL after archive regeneration and completed a go-live readiness output rerun using plugin-local assets.
+
+Release hygiene update on 2026-07-05:
+
+- Broken verification-reference path scan completed; malformed verification reference paths were corrected in the targeted technical skills.
+- The 14 local process/SAP Activate overlay skills now expose a uniform `Verification Caveat` section that points to `references/verification.md`.
+- `.github/workflows/release-hygiene.yml` was added for push and pull request validation.
+- `scripts/validate-release-hygiene.ps1` was added to enforce advisory RC guardrails for broken reference paths, active `.codex/config.toml`, active `.codex/hooks.json`, disabled example files, unfinished operating-layer markers, and private/customer/NDA artifact filename patterns.
+- `.gitignore` was expanded for local Codex runtime config, environment files, certificates, keys, and private/customer/NDA deliverable patterns.
+- Formal license review remains pending in `docs/governance/license-review.md`; `THIRD_PARTY_NOTICES.md` is a pending-review stub.
+- Local validation passed for `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1`.
 
 ## Release Assets
 
@@ -78,7 +97,7 @@ Not run / unavailable:
 | Output profiles | Ready for internal advisory use |
 | Client-ready sample outputs | Ready for internal adaptation; not tenant/legal/security proof |
 | Controlled automation candidates | Documented; automation remains disabled |
-| Plugin-safe operating-layer assets | Started and statically validated; not yet included in refreshed release archive |
+| Plugin-safe operating-layer assets | Generated, statically validated, included in refreshed archive, and recorded in the final release manifest |
 | Shared templates | Ready for local use |
 | Fictional sample deliverables | Ready for local use |
 | `sap-codex-deliverables` plugin bundle | Loaded and smoke-tested in Codex app; ready for internal review packaging |
@@ -87,6 +106,8 @@ Not run / unavailable:
 | `.codex/hooks.example.json` | Safe as documentation-only disabled example; no active hooks |
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
+| Release hygiene CI | Added for advisory RC push and pull request checks |
+| License review | Pending; external/client distribution blocked |
 
 ## Blockers Before External Distribution
 
@@ -94,9 +115,10 @@ Not run / unavailable:
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
 - Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
-- Run Git status/release tagging from an environment where Git is installed.
-- Refresh the release archive and rerun app-level smoke before claiming the plugin-safe operating-layer assets in a distributable package.
+- Complete formal third-party notice review before external/client distribution.
+- Regenerate and smoke the release archive again if validation documentation changes before distribution.
+- Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 
 ## Recommended Next Release Step
 
-Review the generated plugin-safe operating-layer assets, then refresh the release archive and rerun package/app smoke if they should be included in the next distributable plugin bundle.
+Complete the remaining governance checks, then rerun app-level plugin smoke immediately before any external/client distribution.

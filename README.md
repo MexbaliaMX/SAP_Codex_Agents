@@ -2,6 +2,8 @@
 
 Advisory SAP agent framework for Codex, focused on SAP S/4HANA process language, SAP Activate delivery governance, technical architecture review, development implementation guidance, and reusable consulting deliverables.
 
+> **Release status:** `v0.1.0-advisory-rc` candidate. Local advisory use and public source review only. Not tenant-connected, not production-ready, not legal/tax/licensing/security approved, and not marketplace-ready.
+
 The framework is designed for evidence-bound SAP advisory work. It helps structure analysis, route work to the right skill or playbook, and produce clear outputs that separate confirmed facts, assumptions, validation gaps, risks, owners, and next actions.
 
 ## Current Status
