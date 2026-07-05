@@ -1,32 +1,34 @@
 # Final Release Manifest
 
-Date: 2026-07-02
+Date: 2026-07-05
 
-Manifest refresh: 2026-07-04
+Manifest refresh: 2026-07-05
 
 ## Release Identity
 
 | Field | Value |
 |---|---|
 | Package | `sap-codex-deliverables` |
-| Release | `v0.1.0` |
+| Release | `v0.1.0-advisory-rc` |
 | Git tag | `sap-codex-deliverables-v0.1.0` |
-| Git commit | `90bf571 Start plugin-safe operating layer packaging` |
-| Branch at release | `master` |
-| Git status at manifest creation | Clean |
+| Git commit | Pending archive source commit from `chore/release-hygiene-advisory-rc` |
+| Branch at release | `chore/release-hygiene-advisory-rc` |
+| Git status at manifest creation | Pending final archive refresh |
 | Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip` |
-| Archive size | `1,133,493 bytes` |
-| SHA256 | `27114A99F8B9C43FDFD69BE6A609C86FB032FEAAE2A68D2D0B6CFAEC42FC0660` |
+| Archive size | Pending GPL advisory RC archive smoke |
+| SHA256 | Pending GPL advisory RC archive smoke |
 
 ## Manifest Refresh Note
 
-This refresh records the archive regenerated from commit `90bf571` after plugin-safe operating-layer packaging. The archive smoke test and extracted plugin operating-layer validation both passed before updating the size and SHA256 above. The commit that carries this manifest note will necessarily have a newer commit ID; the archive hash above remains the last verified package artifact unless a new archive is generated and smoked again.
+This manifest is being reconciled for the GPL-3.0-only advisory RC branch. The final archive size and SHA256 are recorded only after regenerating and smoke-testing the archive from the committed release branch state.
+
+The final manifest commit may be newer than the archive source commit because the archive checksum cannot be embedded inside the same archive without changing the checksum.
 
 ## Release Decision
 
-Status: ready for local workspace use and internal review packaging.
+Status: ready for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review after archive smoke passes.
 
-External or client distribution remains blocked pending licensing and governance review.
+External or client distribution remains blocked pending third-party notice, provenance, redistribution, tenant/security, and governance review.
 
 Production or tenant-connected use remains blocked pending live SAP tenant evidence, security approval, legal/tax review where relevant, and explicit human approval for tenant-impacting actions.
 
@@ -43,6 +45,8 @@ Packaged release assets:
 - Repo-local marketplace file at `marketplace.json`.
 - Disabled MCP example at `.codex/config.toml.example`.
 - Documentation-only disabled hook example at `.codex/hooks.example.json`.
+- GPL-3.0-only license file at `LICENSE`.
+- GPL-3.0 release plan at `docs/governance/gpl-3-release-plan.md`.
 - Release smoke script at `scripts/test-release-archive.ps1`.
 - Porting and validation evidence under `docs/porting` and `docs/validation`.
 
@@ -125,7 +129,7 @@ Passed in this workspace:
 ## Safety Boundaries
 
 - No live SAP BTP, Integration Suite, HANA, SAC, Datasphere, S/4HANA, BAS, or Fiori launchpad tenant validation has been performed.
-- No fiscal, legal, security, licensing, or production-readiness approval is implied.
+- No fiscal, legal, security, third-party notice, redistribution, or production-readiness approval is implied.
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled; `.codex/hooks.example.json` is documentation-only.
 - `.codex/config.toml.example` is disabled/comment-only.
@@ -137,7 +141,7 @@ Passed in this workspace:
 
 ## Remaining Blockers
 
-- Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
+- Complete third-party notice, contributor-rights, provenance, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, closed redistribution, or external/client distribution beyond public source review.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 - Decide whether copied command references stay under individual skills or move to a shared prompt library.
 - Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
