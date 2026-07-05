@@ -15,16 +15,16 @@ Acceptance criteria:
 - Do not advance `last_verified` without documented evidence.
 - Keep tenant, licensing, roadmap, and production claims evidence-bound.
 
-## 2. Complete license and redistribution review
+## 2. Complete GPL-3.0 notices and redistribution review
 
 GitHub issue: <https://github.com/MexbaliaMX/SAP_Codex_Agents/issues/2>
 
-Scope: GPL-3.0 obligations, third-party notices, client packaging, marketplace distribution, and archive release.
+Scope: GPL-3.0-only source release, third-party notices, client packaging, marketplace distribution, and archive release.
 
 Acceptance criteria:
 
-- Confirm repo-level license decision with the owner.
-- Complete `docs/governance/license-review.md`.
+- Confirm repo-level `GPL-3.0-only` release posture with the owner.
+- Keep `LICENSE`, `docs/governance/license-review.md`, and `docs/governance/gpl-3-release-plan.md` aligned.
 - Complete `THIRD_PARTY_NOTICES.md`.
 - Decide whether proprietary packaging, marketplace publication, or external/client distribution is allowed.
 

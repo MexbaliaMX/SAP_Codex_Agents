@@ -54,9 +54,10 @@
 
 ## Licensing
 
-- Formal license review remains pending in `docs/governance/license-review.md`.
-- Review GPL-3.0 redistribution obligations before proprietary client packaging, marketplace distribution, external/client distribution, or archive release.
-- `THIRD_PARTY_NOTICES.md` exists only as a pending-review stub and is not legal clearance.
+- GPL-3.0-only source release planning is documented in `docs/governance/license-review.md` and `docs/governance/gpl-3-release-plan.md`.
+- `LICENSE` contains GNU GPLv3 text downloaded from the Free Software Foundation license URL on 2026-07-05.
+- Complete third-party notice, contributor-rights, provenance, and redistribution review before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or archive release.
+- `THIRD_PARTY_NOTICES.md` remains incomplete and is not legal clearance.
 
 ## Skill quality checks
 

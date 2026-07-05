@@ -23,6 +23,7 @@ Confirmed local assets:
 - Repo-local `sap-codex-deliverables` plugin bundle under `plugins/sap-codex-deliverables`.
 - Plugin-local operating-layer assets under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
 - Disabled examples only for Codex config and hooks under `.codex`.
+- Repo-level `LICENSE` with GNU GPLv3 text for GPL-3.0-only source release planning.
 - Release archive `sap-codex-deliverables-v0.1.0.zip`, excluded by `.gitignore`.
 
 Excluded from the public RC:
@@ -62,7 +63,7 @@ The RC may be labeled advisory-only if live tenant and governance approvals are 
 | Scope freeze | Exclude customer/NDA test deliverables from public RC scope | `.gitignore`, local Git exclude rules, roadmap scope note, PR description | Complete for current untracked files |
 | Source verification | Refresh or explicitly accept stale and missing `last_verified` findings | `docs/validation/source-verification-audit.md` update or acceptance record | Open |
 | Caveat discoverability | Add `references/verification.md` pointers to 14 local process/Activate overlay skills | Skill diffs plus validation result | Complete |
-| Governance | GPL-3.0 redistribution review completed before proprietary/client packaging | `docs/governance/license-review.md`, `THIRD_PARTY_NOTICES.md` | Blocked: formal legal review pending |
+| Governance | GPL-3.0-only source release planned; third-party notice and redistribution review completed before proprietary/client packaging | `LICENSE`, `docs/governance/license-review.md`, `docs/governance/gpl-3-release-plan.md`, `THIRD_PARTY_NOTICES.md` | Source license selected; proprietary/client distribution remains blocked |
 | Tenant safety | Keep MCPs, hooks, credentials, and tenant-connected execution disabled | `.codex` examples remain disabled, automation notes preserved, release hygiene validator | Complete for advisory RC; tenant execution remains blocked |
 | CI hygiene | Run advisory RC checks on push and PR | `.github/workflows/release-hygiene.yml`, `scripts/validate-release-hygiene.ps1` | Complete |
 | Release archive | Regenerate and smoke archive after final RC docs and asset changes | `docs/validation/final-release-manifest.md` and smoke output | Open after roadmap addition |
@@ -130,7 +131,8 @@ Objective: decide the release channel and distribution constraints.
 
 Actions:
 
-- Complete GPL-3.0 redistribution review. Current status is documented as pending in `docs/governance/license-review.md`.
+- Release as public source under GPL-3.0-only. Current plan is documented in `docs/governance/license-review.md` and `docs/governance/gpl-3-release-plan.md`.
+- Complete remaining third-party notice, provenance, and redistribution review before proprietary/client packaging or marketplace release.
 - Decide whether the RC is internal-only, GitHub-source-visible, marketplace-ready, or client-distribution-blocked.
 - Confirm no tenant URLs, secrets, private user identifiers, certificate material, credential aliases, or customer/NDA test artifacts are committed.
 - Document approval owners for security, legal/tax, release management, and SAP tenant validation.

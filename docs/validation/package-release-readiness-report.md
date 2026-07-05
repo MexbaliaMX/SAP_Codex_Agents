@@ -85,6 +85,13 @@ Release hygiene update on 2026-07-05:
 - Formal license review remains pending in `docs/governance/license-review.md`; `THIRD_PARTY_NOTICES.md` is a pending-review stub.
 - Local validation passed for `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1`.
 
+GPL-3.0 release planning update on 2026-07-05:
+
+- Owner direction recorded for GPL-3.0-only source release planning.
+- `LICENSE` added with GNU GPLv3 text downloaded from the Free Software Foundation license URL.
+- `docs/governance/gpl-3-release-plan.md` added.
+- Third-party notices, contributor-rights, provenance, proprietary packaging, marketplace distribution, and client redistribution review remain open.
+
 ## Release Assets
 
 | Asset | Status |
@@ -107,14 +114,14 @@ Release hygiene update on 2026-07-05:
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 | Release hygiene CI | Added for advisory RC push and pull request checks |
-| License review | Pending; external/client distribution blocked |
+| License review | GPL-3.0-only source release planned; third-party notice and redistribution review still open |
 
 ## Blockers Before External Distribution
 
 - Keep SAC MCP disabled until source-install evidence, tenant approval, and security review are complete.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
-- Review GPL-3.0 redistribution obligations before proprietary client packaging or marketplace distribution.
+- Review GPL-3.0 obligations before proprietary client packaging, marketplace distribution, closed redistribution, or client distribution beyond public source review.
 - Complete formal third-party notice review before external/client distribution.
 - Regenerate and smoke the release archive again if validation documentation changes before distribution.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.

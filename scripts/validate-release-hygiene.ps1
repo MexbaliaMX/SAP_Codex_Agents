@@ -135,6 +135,14 @@ if ($null -ne $hooksJson) {
   }
 }
 
+$licenseText = Read-Text "LICENSE"
+if ([string]::IsNullOrWhiteSpace($licenseText)) {
+  Add-Failure "Missing root LICENSE for GPL-3.0-only release planning"
+}
+elseif (($licenseText -notmatch "GNU GENERAL PUBLIC LICENSE") -or ($licenseText -notmatch "Version 3, 29 June 2007")) {
+  Add-Failure "Root LICENSE does not look like GNU GPLv3 text"
+}
+
 if ($Failures.Count -gt 0) {
   Write-Host "Release hygiene validation failed:" -ForegroundColor Red
   foreach ($failure in $Failures) {
