@@ -2,3 +2,9 @@
 .tools/
 
 *.zip
+
+# Customer/NDA test artifacts used for agent validation only.
+docs/deliverables/private-*
+docs/deliverables/customer-*
+docs/deliverables/*-confidential-*
+docs/deliverables/*-nda-*
