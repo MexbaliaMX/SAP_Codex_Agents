@@ -82,7 +82,7 @@ Release hygiene update on 2026-07-05:
 - `.github/workflows/release-hygiene.yml` was added for push and pull request validation.
 - `scripts/validate-release-hygiene.ps1` was added to enforce advisory RC guardrails for broken reference paths, active `.codex/config.toml`, active `.codex/hooks.json`, disabled example files, unfinished operating-layer markers, and private/customer/NDA artifact filename patterns.
 - `.gitignore` was expanded for local Codex runtime config, environment files, certificates, keys, and private/customer/NDA deliverable patterns.
-- GPL-3.0-only source release planning is recorded in `docs/governance/license-review.md`; third-party notice, contributor-rights, provenance, and redistribution review remain pending.
+- GPL-3.0-only source release planning is recorded in `docs/governance/license-review.md`; initial post-RC third-party provenance inventory is recorded in `docs/governance/third-party-provenance-review.md`; upstream source, contributor-rights, SAP documentation terms, trademark, marketplace, and redistribution review remain pending.
 - Local validation passed for `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1`.
 
 GPL-3.0 release planning update on 2026-07-05:
@@ -90,7 +90,7 @@ GPL-3.0 release planning update on 2026-07-05:
 - Owner direction recorded for GPL-3.0-only source release planning.
 - `LICENSE` added with GNU GPLv3 text downloaded from the Free Software Foundation license URL.
 - `docs/governance/gpl-3-release-plan.md` added.
-- Third-party notices, contributor-rights, provenance, proprietary packaging, marketplace distribution, and client redistribution review remain open.
+- Third-party notices now include an initial tracked-repository provenance inventory; upstream repository URL, pinned source commit, local import archive checksum, and archive-content comparison are recorded; contributor-rights, SAP documentation terms, proprietary packaging, marketplace distribution, and client redistribution review remain open.
 
 Archive refresh on 2026-07-05:
 
@@ -123,7 +123,7 @@ Archive refresh on 2026-07-05:
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 | Release hygiene CI | Added for advisory RC push and pull request checks |
-| License review | GPL-3.0-only source release planned; third-party notice and redistribution review still open |
+| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights, SAP terms, marketplace, and redistribution review still open |
 
 ## Blockers Before External Distribution
 

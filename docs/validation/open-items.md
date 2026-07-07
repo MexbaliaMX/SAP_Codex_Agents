@@ -8,6 +8,7 @@
   - 4 technical skills have source metadata older than 180 days.
   - 14 local process/SAP Activate overlay skills have caveat files but no `last_verified` date.
 - Release hygiene update on 2026-07-05: the 14 local process/SAP Activate overlay `SKILL.md` files now directly point to `references/verification.md`.
+- Upstream repository URL for copied technical skills confirmed on 2026-07-07 as `secondsky/sap-skills`; source ref pinned to commit `45073ee91a2d7fb81401c35199da32aa91e08053`; local `.imports/sap-skills-main.zip` checksum and archive-content comparison are recorded in `docs/governance/third-party-provenance-review.md`. Contributor-rights chain remains open.
 - Add tenant evidence only after testing in the relevant SAP landscape.
 
 ## Live environment tests
@@ -56,7 +57,8 @@
 
 - GPL-3.0-only source release planning is documented in `docs/governance/license-review.md` and `docs/governance/gpl-3-release-plan.md`.
 - `LICENSE` contains GNU GPLv3 text downloaded from the Free Software Foundation license URL on 2026-07-05.
-- Complete third-party notice, contributor-rights, provenance, and redistribution review before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or archive release.
+- Initial post-RC third-party provenance inventory is documented in `docs/governance/third-party-provenance-review.md` and `THIRD_PARTY_NOTICES.md`.
+- Complete contributor-rights, SAP documentation terms, trademark, marketplace, and redistribution review before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or refreshed archive release.
 - `THIRD_PARTY_NOTICES.md` remains incomplete and is not legal clearance.
 
 ## Skill quality checks
