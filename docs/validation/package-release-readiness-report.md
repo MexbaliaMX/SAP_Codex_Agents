@@ -90,7 +90,7 @@ GPL-3.0 release planning update on 2026-07-05:
 - Owner direction recorded for GPL-3.0-only source release planning.
 - `LICENSE` added with GNU GPLv3 text downloaded from the Free Software Foundation license URL.
 - `docs/governance/gpl-3-release-plan.md` added.
-- Third-party notices now include an initial tracked-repository provenance inventory; contributor-rights, exact upstream source URL/commit/checksum, SAP documentation terms, proprietary packaging, marketplace distribution, and client redistribution review remain open.
+- Third-party notices now include an initial tracked-repository provenance inventory; upstream repository URL and local import archive checksum are recorded; contributor-rights, exact source archive commit/tag pin, SAP documentation terms, proprietary packaging, marketplace distribution, and client redistribution review remain open.
 
 Archive refresh on 2026-07-05:
 

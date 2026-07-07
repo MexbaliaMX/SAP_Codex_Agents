@@ -8,11 +8,13 @@ The SAP Codex Agents Framework source release is planned under GNU General Publi
 
 Initial post-RC provenance review started on 2026-07-05. See `docs/governance/third-party-provenance-review.md`.
 
+Upstream repository URL confirmed on 2026-07-07: <https://github.com/secondsky/sap-skills>. The local import archive `.imports/sap-skills-main.zip` has SHA256 `12612A25E34D823A0FC79D2E0D58119C320F25ACF274B02F980B6DD28C2EDC37`.
+
 This notice file records the current tracked-repository inventory. It is not legal advice and does not replace formal legal, contributor-rights, SAP documentation terms, marketplace, or client redistribution review.
 
 ## Included Upstream Or Third-Party Material
 
-The following technical skills were copied into `.agents/skills` from `sap-skills-main.zip` during the Codex Windows port. Their local verification files preserve original frontmatter with `license: GPL-3.0`, maintainer `Eduard Jiglau`, maintainer email `hello@sap-ai-skills.com`, website `https://sap-ai-skills.com`, and version `2.3.2`.
+The following technical skills were copied into `.agents/skills` from `sap-skills-main.zip` during the Codex Windows port. The source repository is recorded as `secondsky/sap-skills`; their local verification files preserve original frontmatter with `license: GPL-3.0`, maintainer `Eduard Jiglau`, maintainer email `hello@sap-ai-skills.com`, website `https://sap-ai-skills.com`, and version `2.3.2`.
 
 | Skill | Local verification evidence | Upstream path recorded locally |
 | --- | --- | --- |
@@ -29,7 +31,7 @@ The following technical skills were copied into `.agents/skills` from `sap-skill
 | `sap-sqlscript` | `.agents/skills/sap-sqlscript/references/verification.md` | `plugins/sap-sqlscript/skills/sap-sqlscript` |
 | `sapui5` | `.agents/skills/sapui5/references/verification.md` | `plugins/sapui5/skills/sapui5` |
 
-The exact upstream archive URL, commit/tag, source checksum, contributor-rights chain, and upstream license text still need to be confirmed before closing issue #2.
+The upstream repository root `LICENSE` was checked through GitHub and contains GNU GPLv3 text. The exact source archive URL or commit/tag pin and contributor-rights chain still need to be confirmed before closing issue #2.
 
 ## Repo-Authored And Local Port Material
 

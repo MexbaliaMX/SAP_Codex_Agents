@@ -6,7 +6,7 @@ Date: 2026-07-05
 
 Owner-directed release plan: GNU General Public License v3.0 only (`GPL-3.0-only`).
 
-Initial post-RC third-party provenance and redistribution review is recorded in `docs/governance/third-party-provenance-review.md`.
+Initial post-RC third-party provenance and redistribution review is recorded in `docs/governance/third-party-provenance-review.md`. Upstream repository URL confirmation for the copied technical skills is recorded as <https://github.com/secondsky/sap-skills>.
 
 The repository now contains a repo-level `LICENSE` with the GNU GPLv3 license text downloaded from the Free Software Foundation license URL on 2026-07-05:
 
@@ -18,13 +18,13 @@ This updates the release plan from "license pending" to "GPL-3.0-only source rel
 
 Repository-authored assets appear to include the Codex operating-layer documentation, advisory playbooks, output profiles, validation records, roadmap, local plugin metadata, and release-hygiene scripts.
 
-Ported or derived assets include 12 SAP technical skills copied from `sap-skills-main.zip` into `.agents/skills`. Local process and SAP Activate overlays record that they were created locally and were not copied from upstream. Packaged copies under `plugins/sap-codex-deliverables` are generated or copied from repo-local source assets.
+Ported or derived assets include 12 SAP technical skills copied from `sap-skills-main.zip` into `.agents/skills`. The upstream repository URL is recorded as `secondsky/sap-skills`; the local import archive checksum is recorded in `docs/governance/third-party-provenance-review.md`. Local process and SAP Activate overlays record that they were created locally and were not copied from upstream. Packaged copies under `plugins/sap-codex-deliverables` are generated or copied from repo-local source assets.
 
 ## Third-Party And Upstream License Signals
 
-The 12 copied technical skill verification files record `license: GPL-3.0`. The GPL-3.0-only release plan aligns the repository-level source license with those upstream license signals.
+The 12 copied technical skill verification files record `license: GPL-3.0`. The upstream repository root `LICENSE` was checked through GitHub and contains GNU GPLv3 text. The GPL-3.0-only release plan aligns the repository-level source license with those upstream license signals.
 
-The current review did not validate upstream repositories, exact commit provenance, contributor rights, SAP documentation terms, or compatibility between repo-authored assets, ported skill material, templates, and plugin packaging.
+The current review confirmed the upstream repository URL but did not validate exact source archive commit provenance, contributor rights, SAP documentation terms, or compatibility between repo-authored assets, ported skill material, templates, and plugin packaging.
 
 ## Release Decisions
 
@@ -34,9 +34,10 @@ The current review did not validate upstream repositories, exact commit provenan
 
 ## Pending Decisions
 
-- Confirm upstream `sap-skills-main.zip` source URL, commit/tag, checksum, license text, and contributor-rights chain.
+- Pin the exact upstream source archive URL, commit, or tag used for `.imports/sap-skills-main.zip`; the repository URL and local archive checksum are now recorded.
+- Confirm contributor-rights chain for copied skill content.
 - Confirm whether any SAP documentation, product names, screenshots, API snippets, or examples require additional attribution or usage limits.
-- Confirm contributor rights and exact upstream provenance for ported or derived content.
+- Confirm exact upstream provenance for ported or derived content beyond the currently recorded repository URL and local archive checksum.
 - Confirm whether any marketplace publication model is compatible with GPL-3.0-only distribution.
 - Confirm whether client-ready samples and SEMASS discovery artifacts are fictional, authorized, or should be excluded from public/client redistribution.
 

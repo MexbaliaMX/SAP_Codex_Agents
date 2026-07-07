@@ -8,6 +8,7 @@
   - 4 technical skills have source metadata older than 180 days.
   - 14 local process/SAP Activate overlay skills have caveat files but no `last_verified` date.
 - Release hygiene update on 2026-07-05: the 14 local process/SAP Activate overlay `SKILL.md` files now directly point to `references/verification.md`.
+- Upstream repository URL for copied technical skills confirmed on 2026-07-07 as `secondsky/sap-skills`; local `.imports/sap-skills-main.zip` checksum is recorded in `docs/governance/third-party-provenance-review.md`. Exact source archive commit/tag pin and contributor-rights chain remain open.
 - Add tenant evidence only after testing in the relevant SAP landscape.
 
 ## Live environment tests

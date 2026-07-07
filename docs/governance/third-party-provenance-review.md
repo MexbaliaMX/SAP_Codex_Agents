@@ -17,6 +17,10 @@ The review inspected tracked repository files only, using local Git and text sca
 Evidence used:
 
 - Root `LICENSE` contains GNU GPLv3 text for the repo-level `GPL-3.0-only` source release posture.
+- Upstream repository URL confirmed on 2026-07-07: <https://github.com/secondsky/sap-skills>.
+- GitHub repository metadata confirmed `secondsky/sap-skills` as a public repository with default branch `main` and clone URL `https://github.com/secondsky/sap-skills.git`.
+- Local import archive evidence: `.imports/sap-skills-main.zip`, size `15,868,913 bytes`, SHA256 `12612A25E34D823A0FC79D2E0D58119C320F25ACF274B02F980B6DD28C2EDC37`, local creation time `2026-07-01 21:12:50`, local last write time `2026-07-01 10:40:21`.
+- Upstream `LICENSE`, `package.json`, `skills-lock.json`, and representative copied skill blobs were compared through GitHub on 2026-07-07. Matching blob SHA examples: `LICENSE` `f288702d2fa16d3cdf0035b15a9fcbc552cd88e7`, `package.json` `2ec606bf38a9afc74da017689dd7437a171e4642`, `skills-lock.json` `30b6c70b07e5b0bf7faab501130d24b51dfb8fd0`, `plugins/sap-abap/skills/sap-abap/SKILL.md` `ac099f9849e65a5f2702a4c9f6edfa48810bf44c`, and `plugins/sap-btp-cloud-platform/skills/sap-btp-cloud-platform/SKILL.md` `ea02df57675d6c51785aa0123ddb717b06723a76`.
 - `.agents/skills/*/references/verification.md` records whether each skill was copied from `sap-skills-main.zip` or created locally.
 - `docs/validation/source-verification-audit.md` records stale, missing, and audit-only source-verification caveats.
 - `scripts/port-priority-skills.ps1` records the Codex port source path pattern for copied priority skills.
@@ -29,7 +33,7 @@ Evidence used:
 | --- | --- | --- | --- |
 | Repo-authored governance, roadmap, validation, packaging, and release scripts | `README.md`, `docs/**`, `scripts/**`, `.github/**`, root metadata | Created in this Codex port during release hygiene and packaging work | Covered by repo-level `GPL-3.0-only` posture, subject to contributor-rights confirmation |
 | Local SAP process, SAP Activate, playbook, template, sample, subagent, registry, and output-profile assets | `.agents/AGENT_REGISTRY.md`, `.agents/playbooks/**`, `.agents/output-profiles/**`, `.agents/templates/**`, `.agents/samples/**`, `.agents/subagents/**`, 14 process/SAP Activate overlay skills | Local Mexbalia/Codex port content; overlay verification files state they were not copied from upstream `sap-skills-main.zip` | Covered by repo-level `GPL-3.0-only` posture, subject to owner/contributor confirmation and client-data checks |
-| Copied SAP technical skills | 12 skills listed below under `.agents/skills/**` | Verification files state the skills were copied from `plugins/<skill>/skills/<skill>` in `sap-skills-main.zip`; original frontmatter records `license: GPL-3.0` | Compatible with repo-level GPL-3.0-only planning based on local metadata, but exact upstream source URL, commit/tag, contributor rights, and license text still need confirmation before issue closure |
+| Copied SAP technical skills | 12 skills listed below under `.agents/skills/**` | Verification files state the skills were copied from `plugins/<skill>/skills/<skill>` in `sap-skills-main.zip`; upstream repository URL confirmed as `secondsky/sap-skills`; original frontmatter records `license: GPL-3.0` | Compatible with repo-level GPL-3.0-only planning based on local and upstream metadata, but exact source archive commit/tag and contributor-rights chain still need confirmation before issue closure |
 | Packaged plugin copies | `plugins/sap-codex-deliverables/**` | Generated or copied from repo-local templates, samples, and operating-layer files | No independent license signal; must stay aligned with source files and remain advisory-only until marketplace/client redistribution review is complete |
 | External SAP documentation and product references | URLs and product names embedded in skill references and docs | Source citations and product terminology; not bundled binary/media assets | Evidence references only; SAP documentation terms, trademark use, screenshots, API snippets, and product/license claims require separate review before stronger distribution or client claims |
 | Local imports, tool binaries, archives, credentials, and customer/NDA artifacts | `.imports/`, `.tools/`, `*.zip`, `.env*`, keys/certificates, private/customer/NDA deliverables | Excluded by `.gitignore` and release-plan scope | Not part of public source release or distributable archive scope |
@@ -77,9 +81,9 @@ These overlays are advisory references only. They do not provide live SAP tenant
 ## Initial Findings
 
 - The repo-level public source posture is consistently `GPL-3.0-only`.
-- The copied technical-skill license signal is internally consistent with GPL-3.0-only planning.
+- The copied technical-skill license signal is internally consistent with GPL-3.0-only planning, and the upstream repository root `LICENSE` is GNU GPLv3 text.
 - The tracked repository does not include common binary/media/office/archive artifacts that would need separate asset license treatment.
-- The exact upstream `sap-skills-main.zip` source URL, commit/tag, checksum, and contributor-rights chain are not recorded in tracked files.
+- The upstream repository URL and local import archive checksum are now recorded. The exact downloaded source archive URL or commit/tag pin and contributor-rights chain are not recorded in tracked files.
 - SAP documentation URLs and product names are used as citations and terminology, not as proof of permission to redistribute SAP documentation excerpts or make product, licensing, tenant, roadmap, or compliance claims.
 - Packaged plugin assets are generated copies of repo-local content and need regeneration after source changes; they do not remove the need for GPL and marketplace/client redistribution review.
 
@@ -96,8 +100,8 @@ These overlays are advisory references only. They do not provide live SAP tenant
 
 ## Evidence Still Required To Close Issue #2
 
-- Record upstream `sap-skills-main.zip` origin URL, version/tag/commit, source checksum, and retrieval date.
-- Confirm copied-skill license text and contributor-rights chain from the upstream source, not only local frontmatter.
+- Pin the exact upstream source archive URL, commit, or tag used for `.imports/sap-skills-main.zip`; current evidence records the repository URL, local archive checksum, and version `2.3.2` signal but not an immutable source ref.
+- Confirm copied-skill contributor-rights chain from the upstream source, not only local frontmatter and repository license text.
 - Confirm whether SAP documentation-derived reference material requires additional attribution, removal, summarization, or usage limits.
 - Confirm SAP trademark and product-name treatment for public, marketplace, and client-facing distribution.
 - Confirm whether plugin packaging and any marketplace distribution model are compatible with `GPL-3.0-only`.
