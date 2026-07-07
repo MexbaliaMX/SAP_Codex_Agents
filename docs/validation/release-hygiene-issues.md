@@ -31,7 +31,8 @@ Acceptance criteria:
 Post-RC progress:
 
 - Initial tracked-repository provenance inventory is recorded in `docs/governance/third-party-provenance-review.md` and `THIRD_PARTY_NOTICES.md`.
-- Remaining evidence gaps: upstream `sap-skills-main.zip` source URL/commit/checksum, copied-skill contributor-rights chain, SAP documentation terms, trademark treatment, marketplace terms, client artifact treatment, and refreshed archive smoke after governance changes.
+- Upstream `sap-skills-main.zip` source URL, commit `45073ee91a2d7fb81401c35199da32aa91e08053`, local checksum, and archive-content comparison are recorded in `docs/governance/third-party-provenance-review.md`.
+- Remaining evidence gaps: copied-skill contributor-rights chain, SAP documentation terms, trademark treatment, marketplace terms, client artifact treatment, and refreshed archive smoke after governance changes.
 
 ## 3. Tenant validation plan
 

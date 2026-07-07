@@ -42,7 +42,8 @@ Required before external/client distribution:
 - [x] Confirm local release tag state before external/client distribution.
 - [x] Resolve release tag alignment: local tag `sap-codex-deliverables-v0.1.0` now points to the manifest-recorded archive source commit `90bf571 Start plugin-safe operating layer packaging`.
 - [x] Select GPL-3.0-only as the public source advisory RC release license.
-- [ ] Complete upstream source URL/commit/checksum, contributor-rights, SAP documentation terms, trademark, marketplace, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, or closed redistribution.
+- [x] Pin upstream `sap-skills-main.zip` source URL, commit, and local checksum evidence in `docs/governance/third-party-provenance-review.md`.
+- [ ] Complete contributor-rights, SAP documentation terms, trademark, marketplace, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
 - [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.

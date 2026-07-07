@@ -90,7 +90,7 @@ GPL-3.0 release planning update on 2026-07-05:
 - Owner direction recorded for GPL-3.0-only source release planning.
 - `LICENSE` added with GNU GPLv3 text downloaded from the Free Software Foundation license URL.
 - `docs/governance/gpl-3-release-plan.md` added.
-- Third-party notices now include an initial tracked-repository provenance inventory; upstream repository URL and local import archive checksum are recorded; contributor-rights, exact source archive commit/tag pin, SAP documentation terms, proprietary packaging, marketplace distribution, and client redistribution review remain open.
+- Third-party notices now include an initial tracked-repository provenance inventory; upstream repository URL, pinned source commit, local import archive checksum, and archive-content comparison are recorded; contributor-rights, SAP documentation terms, proprietary packaging, marketplace distribution, and client redistribution review remain open.
 
 Archive refresh on 2026-07-05:
 
@@ -123,7 +123,7 @@ Archive refresh on 2026-07-05:
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 | Release hygiene CI | Added for advisory RC push and pull request checks |
-| License review | GPL-3.0-only source release planned; initial provenance inventory recorded; contributor-rights, exact upstream source, SAP terms, marketplace, and redistribution review still open |
+| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights, SAP terms, marketplace, and redistribution review still open |
 
 ## Blockers Before External Distribution
 
