@@ -1,8 +1,8 @@
 # Final Release Manifest
 
-Date: 2026-07-05
+Date: 2026-07-07
 
-Manifest refresh: 2026-07-05
+Manifest refresh: 2026-07-07
 
 ## Release Identity
 
@@ -10,17 +10,17 @@ Manifest refresh: 2026-07-05
 |---|---|
 | Package | `sap-codex-deliverables` |
 | Release | `v0.1.0-advisory-rc` |
-| Git tag | `sap-codex-deliverables-v0.1.0` |
-| Git commit | `cf49ee5 Reconcile advisory RC validation docs` |
-| Branch at release | `chore/release-hygiene-advisory-rc` |
-| Git status at manifest creation | Clean before ignored archive generation; manifest updated after smoke |
+| Git tag | `sap-codex-deliverables-v0.1.0` (not moved during this archive refresh) |
+| Archive source commit | `adc09eb Merge pull request #8 from MexbaliaMX/codex/gpl-provenance-review` |
+| Branch at archive refresh | `codex/sap-agents-framework-rc-roadmap` |
+| Git status at archive creation | Clean tracked workspace before ignored archive generation; manifest updated after smoke |
 | Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip` |
-| Archive size | `1,176,338 bytes` |
-| SHA256 | `7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A` |
+| Archive size | `1,184,351 bytes` |
+| SHA256 | `EA444CB94350C0C0DF1D4A4D0FDF30A5ABE28F5C440D305724041F8CBB0458E2` |
 
 ## Manifest Refresh Note
 
-This manifest records the GPL-3.0-only advisory RC archive regenerated from commit `cf49ee5` after reconciling release validation docs. The archive smoke test, extracted plugin validation, disabled config check, and GPL file presence check passed.
+This manifest records the GPL-3.0-only advisory RC archive regenerated from merge commit `adc09eb` after PR #8 pinned upstream `secondsky/sap-skills` provenance and refreshed third-party notices. The archive smoke test, extracted plugin validation, disabled config check, and GPL file presence check passed.
 
 The final manifest commit may be newer than the archive source commit because the archive checksum cannot be embedded inside the same archive without changing the checksum.
 
@@ -86,6 +86,21 @@ config example active keys: []
 Release archive smoke passed.
 Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip
 SHA256: 7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A
+Workspace skills: 26
+Workspace templates markdown files: 11
+Workspace sample deliverable markdown files: 11
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
+Post-PR #8 archive refresh result:
+
+```text
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip
+SHA256: EA444CB94350C0C0DF1D4A4D0FDF30A5ABE28F5C440D305724041F8CBB0458E2
 Workspace skills: 26
 Workspace templates markdown files: 11
 Workspace sample deliverable markdown files: 11

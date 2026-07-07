@@ -101,6 +101,16 @@ Archive refresh on 2026-07-05:
 - `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1` passed.
 - Extracted archive check confirmed `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs\governance\gpl-3-release-plan.md` are present.
 
+Post-PR #8 archive refresh on 2026-07-07:
+
+- PR #8 was merged as provenance checkpoint commit `adc09eb Merge pull request #8 from MexbaliaMX/codex/gpl-provenance-review`.
+- `sap-codex-deliverables-v0.1.0.zip` regenerated from commit `adc09eb`.
+- Archive size: `1,184,351 bytes`.
+- SHA256: `EA444CB94350C0C0DF1D4A4D0FDF30A5ABE28F5C440D305724041F8CBB0458E2`.
+- `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
+- `scripts\validate-release-hygiene.ps1`, `scripts\validate-agent-operating-layer.ps1`, and `scripts\validate-plugin-operating-layer-assets.ps1` passed.
+- Remaining external distribution blockers are contributor-rights chain, SAP documentation and trademark treatment, marketplace/client redistribution posture, tenant/security approvals, and app-level plugin smoke before any external/client distribution.
+
 ## Release Assets
 
 | Asset | Status |
