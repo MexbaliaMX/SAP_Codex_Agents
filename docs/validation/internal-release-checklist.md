@@ -43,7 +43,8 @@ Required before external/client distribution:
 - [x] Resolve release tag alignment: local tag `sap-codex-deliverables-v0.1.0` now points to the manifest-recorded archive source commit `90bf571 Start plugin-safe operating layer packaging`.
 - [x] Select GPL-3.0-only as the public source advisory RC release license.
 - [x] Pin upstream `sap-skills-main.zip` source URL, commit, and local checksum evidence in `docs/governance/third-party-provenance-review.md`.
-- [ ] Complete contributor-rights, SAP documentation terms, trademark, marketplace, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, or closed redistribution.
+- [x] Record contributor-rights and SAP redistribution/trademark checkpoint for public-source advisory RC governance.
+- [ ] Obtain release-owner/legal acceptance of contributor-rights posture, SAP documentation excerpt treatment, SAP trademark/product-name treatment, marketplace terms, and GPL-3.0 redistribution posture before proprietary/client packaging, marketplace distribution, SAP-branded promotion, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
 - [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.
@@ -63,7 +64,7 @@ Required before external/client distribution:
 ## Release Safety Notes
 
 - No live SAP tenant validation has been performed.
-- No fiscal, legal, security, third-party notice, redistribution, or production-readiness approval is implied.
+- No fiscal, legal, security, third-party notice, SAP trademark, SAP documentation redistribution, marketplace, client redistribution, or production-readiness approval is implied.
 - Fictional sample deliverables are examples only and must not be reused as client facts.
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled.
@@ -71,7 +72,7 @@ Required before external/client distribution:
 - Client-ready samples are anonymized examples and must be adapted with confirmed client evidence before use.
 - Plugin-safe operating-layer assets are generated copies; edit workspace source files first, then regenerate.
 - `.imports` remains source evidence and should not be distributed as client-facing package content.
-- GPL-3.0-only source release planning does not make tenant-connected execution, MCP activation, hook activation, proprietary packaging, or client distribution safe without the remaining approvals.
+- GPL-3.0-only source release planning does not make tenant-connected execution, MCP activation, hook activation, proprietary packaging, SAP-branded promotion, marketplace publication, or client distribution safe without the remaining approvals.
 
 ## Recommended Manual Smoke Prompt
 

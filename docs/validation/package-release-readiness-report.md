@@ -109,7 +109,14 @@ Post-PR #8 archive refresh on 2026-07-07:
 - SHA256: `EA444CB94350C0C0DF1D4A4D0FDF30A5ABE28F5C440D305724041F8CBB0458E2`.
 - `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
 - `scripts\validate-release-hygiene.ps1`, `scripts\validate-agent-operating-layer.ps1`, and `scripts\validate-plugin-operating-layer-assets.ps1` passed.
-- Remaining external distribution blockers are contributor-rights chain, SAP documentation and trademark treatment, marketplace/client redistribution posture, tenant/security approvals, and app-level plugin smoke before any external/client distribution.
+- Remaining external distribution blockers are release-owner/legal acceptance of contributor-rights posture, SAP documentation excerpt audit, SAP trademark/product-name treatment, marketplace/client redistribution posture, tenant/security approvals, and app-level plugin smoke before any external/client distribution.
+
+Contributor-rights and SAP redistribution/trademark checkpoint on 2026-07-07:
+
+- Pinned upstream public GPL signals remain the evidence basis for public-source advisory RC planning.
+- Local scan of the pinned upstream archive found contributor-guide material but no root CLA, DCO, copyright-assignment, or contributor-license agreement file.
+- SAP website legal pages reviewed on 2026-07-07 support a conservative posture: use SAP names only for clear textual compatibility/advisory references, preserve trademark attribution, avoid SAP endorsement/affiliation/certification/logo implications, and do not bundle SAP documentation pages, screenshots, large excerpts, API reference dumps, or SAP-authored assets without separate permission.
+- Public-source advisory review remains allowed by owner direction with caveats preserved; proprietary/client packaging, marketplace publication, SAP-branded promotion, and external/client distribution beyond public source review remain blocked pending formal acceptance.
 
 ## Release Assets
 
@@ -133,15 +140,15 @@ Post-PR #8 archive refresh on 2026-07-07:
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 | Release hygiene CI | Added for advisory RC push and pull request checks |
-| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights, SAP terms, marketplace, and redistribution review still open |
+| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights and SAP redistribution/trademark checkpoint recorded; formal acceptance, marketplace, and client redistribution still open |
 
 ## Blockers Before External Distribution
 
 - Keep SAC MCP disabled until source-install evidence, tenant approval, and security review are complete.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
-- Review GPL-3.0 obligations before proprietary client packaging, marketplace distribution, closed redistribution, or client distribution beyond public source review.
-- Complete formal third-party notice review before external/client distribution.
+- Obtain release-owner/legal acceptance of GPL-3.0 obligations, contributor-rights posture, SAP documentation/trademark treatment, marketplace terms, and redistribution posture before proprietary client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, or client distribution beyond public source review.
+- Complete formal third-party notice and SAP documentation excerpt review before external/client distribution.
 - Regenerate and smoke the release archive again if validation documentation or release governance files change before distribution.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 

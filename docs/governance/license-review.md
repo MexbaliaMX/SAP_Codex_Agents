@@ -12,7 +12,7 @@ The repository now contains a repo-level `LICENSE` with the GNU GPLv3 license te
 
 - <https://www.gnu.org/licenses/gpl-3.0.txt>
 
-This updates the release plan from "license pending" to "GPL-3.0-only source release planned." It does not replace formal legal review for third-party notices, contributor rights, SAP documentation terms, proprietary packaging, marketplace distribution, or client redistribution.
+This updates the release plan from "license pending" to "GPL-3.0-only source release planned." It does not replace formal legal review for third-party notices, contributor rights, SAP documentation terms, SAP trademark treatment, proprietary packaging, marketplace distribution, or client redistribution.
 
 ## Current Assets
 
@@ -24,18 +24,21 @@ Ported or derived assets include 12 SAP technical skills copied from `sap-skills
 
 The 12 copied technical skill verification files record `license: GPL-3.0`. The upstream repository root `LICENSE` was checked through GitHub and contains GNU GPLv3 text. The GPL-3.0-only release plan aligns the repository-level source license with those upstream license signals.
 
-The current review confirmed the upstream repository URL and pinned source commit provenance, but did not validate contributor rights, SAP documentation terms, or compatibility between repo-authored assets, ported skill material, templates, and plugin packaging.
+The current review confirmed the upstream repository URL and pinned source commit provenance. A 2026-07-07 scan of the pinned upstream archive found contributor-guide material but no root CLA, DCO, copyright-assignment, or contributor-license agreement file. Contributor-rights acceptance, SAP documentation redistribution terms, SAP trademark treatment, and compatibility between repo-authored assets, ported skill material, templates, and plugin packaging remain formal release-owner/legal decisions.
 
 ## Release Decisions
 
 - Use `GPL-3.0-only` as the repo-level source release license.
 - Include `LICENSE` in source and distributable archive scope.
+- Keep SAP documentation as cited references unless separate redistribution permission is recorded.
+- Preserve SAP trademark attribution and avoid SAP endorsement, certification, affiliation, logo, or ownership implications.
 - Treat proprietary client packaging, private marketplace distribution, and closed redistribution as blocked until reviewed against GPL-3.0 obligations.
 
 ## Pending Decisions
 
-- Confirm contributor-rights chain for copied skill content.
-- Confirm whether any SAP documentation, product names, screenshots, API snippets, or examples require additional attribution or usage limits.
+- Obtain release-owner/legal acceptance of the copied-skill contributor-rights posture, or obtain independent upstream maintainer/contributor-rights confirmation beyond public GPL metadata.
+- Complete a SAP documentation excerpt audit and confirm whether any SAP documentation, product names, screenshots, API snippets, or examples require additional attribution, removal, summarization, or usage limits.
+- Complete SAP trademark/product-name pass for repository name, README, plugin metadata, marketplace listings, notices, and client-facing materials.
 - Preserve the pinned upstream provenance record for ported or derived content and update it only with new evidence.
 - Confirm whether any marketplace publication model is compatible with GPL-3.0-only distribution.
 - Confirm whether client-ready samples and SEMASS discovery artifacts are fictional, authorized, or should be excluded from public/client redistribution.

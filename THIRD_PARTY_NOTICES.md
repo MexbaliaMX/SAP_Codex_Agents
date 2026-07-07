@@ -6,7 +6,7 @@ The SAP Codex Agents Framework source release is planned under GNU General Publi
 
 ## Review Status
 
-Initial post-RC provenance review started on 2026-07-05. See `docs/governance/third-party-provenance-review.md`.
+Initial post-RC provenance review started on 2026-07-05. Contributor-rights and SAP redistribution/trademark checkpoint updated on 2026-07-07. See `docs/governance/third-party-provenance-review.md`.
 
 Upstream repository URL confirmed on 2026-07-07: <https://github.com/secondsky/sap-skills>. Source ref pinned to commit `45073ee91a2d7fb81401c35199da32aa91e08053`; the local import archive `.imports/sap-skills-main.zip` has SHA256 `12612A25E34D823A0FC79D2E0D58119C320F25ACF274B02F980B6DD28C2EDC37`.
 
@@ -31,7 +31,7 @@ The following technical skills were copied into `.agents/skills` from `sap-skill
 | `sap-sqlscript` | `.agents/skills/sap-sqlscript/references/verification.md` | `plugins/sap-sqlscript/skills/sap-sqlscript` |
 | `sapui5` | `.agents/skills/sapui5/references/verification.md` | `plugins/sapui5/skills/sapui5` |
 
-The upstream repository root `LICENSE` was checked through GitHub and contains GNU GPLv3 text. Fresh extraction of `.imports/sap-skills-main.zip` matched the pinned upstream commit archive content with 1,093 files and 0 path/hash differences after normalizing the generated archive root directory name. The contributor-rights chain still needs to be confirmed before closing issue #2.
+The upstream repository root `LICENSE` was checked through GitHub and contains GNU GPLv3 text. Fresh extraction of `.imports/sap-skills-main.zip` matched the pinned upstream commit archive content with 1,093 files and 0 path/hash differences after normalizing the generated archive root directory name. A local scan of the pinned upstream archive found contributor-guide material, but did not find a root CLA, DCO, copyright-assignment, or contributor-license agreement file. The contributor-rights chain still needs release-owner/legal acceptance or independent upstream confirmation before closing issue #2.
 
 ## Repo-Authored And Local Port Material
 
@@ -47,7 +47,11 @@ These local assets are covered by the repo-level `GPL-3.0-only` source release p
 
 SAP product names, SAP S/4HANA process language, SAP BTP, SAP Activate, SAPUI5/OpenUI5, SAP HANA, SAP Integration Suite, SAP CAP, and related SAP documentation URLs appear as advisory references and source citations.
 
-This notice does not confirm SAP trademark permissions, SAP documentation redistribution rights, SAP product licensing, SAP roadmap claims, tenant behavior, fiscal/legal compliance, or production readiness.
+SAP, SAP S/4HANA, SAP Business Technology Platform, SAP BTP, SAP Activate, SAPUI5, OpenUI5, SAP HANA, SAP Integration Suite, SAP CAP, SAP Fiori, ABAP, and other SAP product or service names mentioned in this repository are trademarks or registered trademarks of SAP SE or its affiliates in Germany and other countries.
+
+This repository is not affiliated with, sponsored by, endorsed by, certified by, or approved by SAP SE or its affiliates. No SAP logo use is authorized by this notice.
+
+This notice does not confirm SAP trademark permissions, SAP documentation redistribution rights, SAP product licensing, SAP roadmap claims, tenant behavior, fiscal/legal compliance, or production readiness. SAP documentation should remain referenced by URL unless separate permission or licensing evidence is recorded.
 
 ## Excluded From Public Source Release Scope
 
@@ -57,6 +61,6 @@ The tracked repository scan found no common image, office-document, executable, 
 
 ## Current Redistribution Posture
 
-Public source advisory RC review under `GPL-3.0-only` remains allowed by owner direction, with caveats preserved.
+Public source advisory RC review under `GPL-3.0-only` remains allowed by owner direction, with contributor-rights and SAP documentation/trademark caveats preserved.
 
-Proprietary client packaging, closed redistribution, marketplace publication, tenant-connected execution, production-impacting use, and client distribution beyond public source review remain blocked until the open evidence items in `docs/governance/third-party-provenance-review.md` are completed or explicitly accepted by the release owner with appropriate legal/security review.
+Proprietary client packaging, closed redistribution, marketplace publication, tenant-connected execution, production-impacting use, SAP-branded promotion, and client distribution beyond public source review remain blocked until the open evidence items in `docs/governance/third-party-provenance-review.md` are completed or explicitly accepted by the release owner with appropriate legal/security review.
