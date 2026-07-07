@@ -8,7 +8,7 @@ The SAP Codex Agents Framework source release is planned under GNU General Publi
 
 Initial post-RC provenance review started on 2026-07-05. Contributor-rights and SAP redistribution/trademark checkpoint updated on 2026-07-07. See `docs/governance/third-party-provenance-review.md`.
 
-Upstream repository URL confirmed on 2026-07-07: <https://github.com/secondsky/sap-skills>. Source ref pinned to commit `45073ee91a2d7fb81401c35199da32aa91e08053`; the local import archive `.imports/sap-skills-main.zip` has SHA256 `12612A25E34D823A0FC79D2E0D58119C320F25ACF274B02F980B6DD28C2EDC37`.
+Upstream repository URL confirmed on 2026-07-07: <https://github.com/secondsky/sap-skills>. Source ref pinned to commit `45073ee91a2d7fb81401c35199da32aa91e08053`; the local import archive `.imports/sap-skills-main.zip` has SHA256 `12612A25E34D823A0FC79D2E0D58119C320F25ACF274B02F980B6DD28C2EDC37`. SAP documentation excerpt audit completed in `docs/governance/sap-documentation-excerpt-audit.md`.
 
 This notice file records the current tracked-repository inventory. It is not legal advice and does not replace formal legal, contributor-rights, SAP documentation terms, marketplace, or client redistribution review.
 
@@ -46,6 +46,8 @@ These local assets are covered by the repo-level `GPL-3.0-only` source release p
 ## External References And Product Names
 
 SAP product names, SAP S/4HANA process language, SAP BTP, SAP Activate, SAPUI5/OpenUI5, SAP HANA, SAP Integration Suite, SAP CAP, and related SAP documentation URLs appear as advisory references and source citations.
+
+Tracked-source audit found SAP documentation URLs and source-guided summaries, but did not identify tracked SAP documentation pages, screenshots, large excerpts, API reference dumps, SAP logos, or SAP-authored binary/media/archive assets by the audited patterns.
 
 SAP, SAP S/4HANA, SAP Business Technology Platform, SAP BTP, SAP Activate, SAPUI5, OpenUI5, SAP HANA, SAP Integration Suite, SAP CAP, SAP Fiori, ABAP, and other SAP product or service names mentioned in this repository are trademarks or registered trademarks of SAP SE or its affiliates in Germany and other countries.
 

@@ -58,7 +58,8 @@
 - GPL-3.0-only source release planning is documented in `docs/governance/license-review.md` and `docs/governance/gpl-3-release-plan.md`.
 - `LICENSE` contains GNU GPLv3 text downloaded from the Free Software Foundation license URL on 2026-07-05.
 - Initial post-RC third-party provenance inventory is documented in `docs/governance/third-party-provenance-review.md` and `THIRD_PARTY_NOTICES.md`.
-- Complete release-owner/legal acceptance for contributor-rights, SAP documentation terms, SAP trademark/product-name treatment, marketplace terms, and redistribution posture before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or refreshed archive release.
+- SAP documentation excerpt audit is documented in `docs/governance/sap-documentation-excerpt-audit.md`; tracked-source scan found no immediate SAP documentation removal items.
+- Complete release-owner/legal acceptance for contributor-rights, SAP documentation audit sufficiency, SAP trademark/product-name treatment, marketplace terms, and redistribution posture before proprietary client packaging, marketplace distribution, external/client distribution beyond public source review, or refreshed archive release.
 - `THIRD_PARTY_NOTICES.md` remains incomplete and is not legal clearance.
 
 ## Skill quality checks

@@ -44,7 +44,8 @@ Required before external/client distribution:
 - [x] Select GPL-3.0-only as the public source advisory RC release license.
 - [x] Pin upstream `sap-skills-main.zip` source URL, commit, and local checksum evidence in `docs/governance/third-party-provenance-review.md`.
 - [x] Record contributor-rights and SAP redistribution/trademark checkpoint for public-source advisory RC governance.
-- [ ] Obtain release-owner/legal acceptance of contributor-rights posture, SAP documentation excerpt treatment, SAP trademark/product-name treatment, marketplace terms, and GPL-3.0 redistribution posture before proprietary/client packaging, marketplace distribution, SAP-branded promotion, or closed redistribution.
+- [x] Complete tracked-source SAP documentation excerpt audit in `docs/governance/sap-documentation-excerpt-audit.md`.
+- [ ] Obtain release-owner/legal acceptance of contributor-rights posture, SAP documentation audit sufficiency, SAP trademark/product-name treatment, marketplace terms, and GPL-3.0 redistribution posture before proprietary/client packaging, marketplace distribution, SAP-branded promotion, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
 - [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.

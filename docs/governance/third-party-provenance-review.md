@@ -28,6 +28,7 @@ Evidence used:
 - Representative upstream copied skill frontmatter records `license: GPL-3.0`, maintainer `Eduard Jiglau`, maintainer email `hello@sap-ai-skills.com`, website `https://sap-ai-skills.com`, and version `2.3.2`.
 - Public SAP Trademark page reviewed on 2026-07-07: <https://www.sap.com/about/legal/trademark.html>. SAP's page was effective 2026-01-12 at review time and allows textual SAP compatibility references within stated rules, while restricting SAP logo use, SAP marks in third-party product/service names, and endorsement/confusion.
 - Public SAP Terms of Use reviewed on 2026-07-07: <https://www.sap.com/about/legal/terms-of-use.html>. The terms treat SAP website materials as limited-use SAP materials and do not provide a general right to copy, publish, redistribute, bulk download, cache, or repackage SAP documentation.
+- SAP documentation excerpt audit completed on 2026-07-07 in `docs/governance/sap-documentation-excerpt-audit.md`. Tracked-source scan found SAP documentation URLs and source-guided summaries, but no tracked `docs/vendor` SAP documentation copy, SAP-authored binary/media/archive asset, large excerpt/API dump signal, or SAP logo/media asset by the audited patterns.
 - `.agents/skills/*/references/verification.md` records whether each skill was copied from `sap-skills-main.zip` or created locally.
 - `docs/validation/source-verification-audit.md` records stale, missing, and audit-only source-verification caveats.
 - `scripts/port-priority-skills.ps1` records the Codex port source path pattern for copied priority skills.
@@ -91,7 +92,7 @@ These overlays are advisory references only. They do not provide live SAP tenant
 - The copied technical-skill license signal is internally consistent with GPL-3.0-only planning, and the upstream repository root `LICENSE` is GNU GPLv3 text.
 - The tracked repository does not include common binary/media/office/archive artifacts that would need separate asset license treatment.
 - The upstream repository URL, exact source commit ref, source archive URL, and local import archive checksum are now recorded. Contributor-rights evidence is limited to the public GPL repository signals and copied frontmatter; no separate contributor-rights chain was confirmed.
-- SAP documentation URLs and product names are used as citations and terminology, not as proof of permission to redistribute SAP documentation excerpts or make product, licensing, tenant, roadmap, endorsement, certification, or compliance claims.
+- SAP documentation URLs and product names are used as citations and terminology, not as proof of permission to redistribute SAP documentation excerpts or make product, licensing, tenant, roadmap, endorsement, certification, or compliance claims. The tracked-source SAP documentation excerpt audit did not identify immediate removal items, but legal/owner acceptance remains required before broader distribution.
 - Packaged plugin assets are generated copies of repo-local content and need regeneration after source changes; they do not remove the need for GPL and marketplace/client redistribution review.
 
 ## Contributor-Rights And SAP Redistribution/Trademark Checkpoint
@@ -116,6 +117,7 @@ SAP redistribution/trademark evidence found:
 - SAP trademark guidance restricts SAP logo use and inclusion of SAP marks or SAP offering names in third-party company, product, service, slogan, domain, logo, or confusing social account names without permission.
 - SAP trademark guidance requires correct trademark spelling/capitalization, first-use symbol/descriptor treatment where practical, and a trademark attribution statement in materials that mention SAP trademarks.
 - SAP Terms of Use do not provide general permission to copy, publish, redistribute, bulk download, cache, or repackage SAP website materials.
+- Tracked-source audit found no SAP-authored binary/media/archive assets and no tracked `docs/vendor` SAP documentation copy.
 
 SAP redistribution/trademark decision:
 
@@ -138,7 +140,7 @@ SAP redistribution/trademark decision:
 ## Evidence Still Required To Close Issue #2
 
 - Obtain release-owner/legal acceptance of the copied-skill contributor-rights posture, or obtain independent upstream maintainer/contributor-rights confirmation beyond public GPL metadata.
-- Complete a SAP documentation excerpt audit to confirm that tracked files cite SAP documentation by URL and do not redistribute SAP documentation pages, screenshots, large excerpts, API reference dumps, or SAP-authored assets without permission.
+- Obtain release-owner/legal acceptance of the completed SAP documentation excerpt audit and preserve the no-bundled-SAP-documentation control for future imports, archive refreshes, marketplace packages, and client packages.
 - Complete SAP trademark and product-name treatment for public, marketplace, and client-facing distribution, including attribution statement placement and relationship-clear naming.
 - Confirm whether plugin packaging and any marketplace distribution model are compatible with `GPL-3.0-only`.
 - Confirm whether client-ready samples and SEMASS discovery artifacts are fictional, authorized, or should be excluded from public/client redistribution.
