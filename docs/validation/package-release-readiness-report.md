@@ -119,6 +119,16 @@ Contributor-rights and SAP redistribution/trademark checkpoint on 2026-07-07:
 - SAP documentation excerpt audit completed in `docs/governance/sap-documentation-excerpt-audit.md`; tracked-source scan found SAP documentation URLs and source-guided summaries, but no tracked SAP documentation pages, screenshots, large excerpts, API reference dumps, SAP logos, or SAP-authored binary/media/archive assets by the audited patterns.
 - Public-source advisory review remains allowed by owner direction with caveats preserved; proprietary/client packaging, marketplace publication, SAP-branded promotion, and external/client distribution beyond public source review remain blocked pending formal acceptance.
 
+Post-issue #2 close archive refresh on 2026-07-07:
+
+- Issue #2 was closed as completed for the public-source advisory RC GPL/provenance/notices review scope.
+- `sap-codex-deliverables-v0.1.0.zip` regenerated from commit `f62cd38 Record SAP documentation excerpt audit`.
+- Archive size: `1,190,304 bytes`.
+- SHA256: `36B1F20E5A5452D41B10B972D0ABADED817EB31D860B787A0AC64786662CF42D`.
+- `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
+- The archive includes `docs/governance/sap-documentation-excerpt-audit.md` available at source commit `f62cd38`; this readiness report records the later issue #2 closure note.
+- Proprietary/client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, and external/client distribution beyond public source advisory review remain blocked pending separate release-owner/legal/security acceptance.
+
 ## Release Assets
 
 | Asset | Status |
@@ -141,15 +151,14 @@ Contributor-rights and SAP redistribution/trademark checkpoint on 2026-07-07:
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 | Release hygiene CI | Added for advisory RC push and pull request checks |
-| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights and SAP redistribution/trademark checkpoint recorded; SAP documentation excerpt audit completed for tracked source; formal acceptance, marketplace, and client redistribution still open |
+| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights and SAP redistribution/trademark checkpoint recorded; SAP documentation excerpt audit completed for tracked source; issue #2 closed for public-source advisory RC governance; marketplace/client redistribution acceptance still separate |
 
 ## Blockers Before External Distribution
 
 - Keep SAC MCP disabled until source-install evidence, tenant approval, and security review are complete.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
-- Obtain release-owner/legal acceptance of GPL-3.0 obligations, contributor-rights posture, SAP documentation audit sufficiency, SAP trademark treatment, marketplace terms, and redistribution posture before proprietary client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, or client distribution beyond public source review.
-- Complete formal third-party notice acceptance before external/client distribution.
+- Obtain separate release-owner/legal/security acceptance before proprietary client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, or client distribution beyond public source review.
 - Regenerate and smoke the release archive again if validation documentation or release governance files change before distribution.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 
