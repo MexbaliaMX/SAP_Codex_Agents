@@ -1,4 +1,4 @@
-﻿# SAP Agent Registry
+# SAP Agent Registry
 
 This registry maps the local SAP skills, advisory role playbooks, and deliverable assets into an operating model for Mexbalia SAP work. It is advisory by default: it does not enable tenant access, MCP servers, hooks, lifecycle automation, or production-impacting changes.
 
@@ -31,6 +31,7 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | Engagement Orchestrator | Advisory-ready | Intake objective, select skills/playbooks, enforce evidence and approval gates |
 | Process Advisory Agents | Advisory-ready | Frame end-to-end business process, controls, handoffs, gaps, and Mexico overlays |
 | SAP Activate Delivery Agents | Advisory-ready | Convert findings into phase-appropriate gates, backlog, RAID, readiness, and hypercare outputs |
+| GROW Fast Delivery Overlay | Advisory-ready | Route fixed-scope first-wave GROW Fast work across Activate phases, core processes, cookbooks, signoffs, and expansion backlog |
 | Technical Architecture Agents | Advisory-ready | Evaluate BTP, integration, connectivity, identity, data, operations, AI, and security impacts |
 | Development Implementation Agents | Advisory-ready | Support SAP development design, code review, quality, and release-aware implementation guidance |
 | Deliverable Factory Agents | Draft-ready | Package findings into reusable consulting and readiness deliverables |
@@ -59,6 +60,12 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | Realize Advisor | `sap-activate-realize` | Approved design, build backlog, integrations, data cycles, tests, defects | Sprint/build readiness, defect triage, test evidence, transport readiness | Transport moves, production-impacting build decisions |
 | Deploy Advisor | `sap-activate-deploy` | Cutover plan, migration status, training, readiness, support, risks | Go-live readiness checklist, go/no-go recommendation, residual risks | Go-live approval, residual-risk acceptance |
 | Run Advisor | `sap-activate-run` | Incidents, severity, workarounds, process owner status, AMS handoff | Hypercare triage, stabilization view, exit criteria, CI backlog | SLA commitments, incident closure, AMS acceptance |
+
+## GROW Fast Delivery Overlay
+
+| Agent | Skill or playbook | Typical inputs | Expected outputs | Approval gates |
+|---|---|---|---|---|
+| GROW Fast First-Wave Advisor | `sap-grow-fast`; `assets/operating-layer/playbooks/grow-fast-first-wave.md` | DDA/CBC/Cloud ALM scope, country/legal entity, project plan, RACI, cookbook, workshop, migration, testing, cutover, and backlog evidence | First-wave scope boundary, routing recommendation, cookbook/readiness view, signoff gates, RAID/backlog entries, expansion-wave candidates | Scope freeze, irreversible finance presets, country fiscal/legal validation, custom extension/integration, migration signoff, go-live approval |
 
 ## Technical Architecture Agents
 
@@ -105,6 +112,7 @@ Client-ready anonymized examples live under `assets/operating-layer/client-ready
 
 | Playbook | Path |
 |---|---|
+| GROW Fast first wave | `assets/operating-layer/playbooks/grow-fast-first-wave.md` |
 | Fit-to-standard workshop | `assets/operating-layer/playbooks/fit-to-standard-workshop.md` |
 | Process diagnostic | `assets/operating-layer/playbooks/process-diagnostic.md` |
 | Technical readiness review | `assets/operating-layer/playbooks/technical-readiness-review.md` |
@@ -125,6 +133,7 @@ Client-ready anonymized examples live under `assets/operating-layer/client-ready
 
 - No live SAP tenant validation has been performed.
 - No legal or tax validation has been performed for Mexico fiscal scenarios.
+- GROW Fast guidance is a local advisory abstraction; do not publish proprietary accelerator content or treat it as live SAP documentation.
 - API style review has a role playbook but no local `sap-api-style` skill folder in this workspace.
 - Identity security has a role playbook but no dedicated local Cloud Identity Services skill folder in this workspace.
 - MCP servers and hooks remain disabled by design.

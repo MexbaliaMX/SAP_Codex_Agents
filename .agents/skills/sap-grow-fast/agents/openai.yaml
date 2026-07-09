@@ -1,0 +1,4 @@
+interface:
+  display_name: "SAP GROW Fast Advisory"
+  short_description: "Guide fixed-scope Grow Fast delivery"
+  default_prompt: "Use $sap-grow-fast to route a GROW Fast first-wave implementation request with evidence-bound scope, governance, and validation gates."

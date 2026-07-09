@@ -30,7 +30,7 @@ $requiredFiles = @(
 $requiredFiles | ForEach-Object { Test-RequiredPath $_ }
 
 $counts = @(
-  @{ Path = "$assetRoot\playbooks"; Expected = 7; Label = "playbooks" },
+  @{ Path = "$assetRoot\playbooks"; Expected = 8; Label = "playbooks" },
   @{ Path = "$assetRoot\output-profiles"; Expected = 4; Label = "output profiles" },
   @{ Path = "$assetRoot\client-ready-samples"; Expected = 8; Label = "client-ready sample files" }
 )

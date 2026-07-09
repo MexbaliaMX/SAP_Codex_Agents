@@ -33,6 +33,7 @@ $automation = ".agents\automation-candidates.md"
 $forwardReport = "docs\validation\full-agent-forward-test-report.md"
 
 $playbooks = @(
+  ".agents\playbooks\grow-fast-first-wave.md",
   ".agents\playbooks\fit-to-standard-workshop.md",
   ".agents\playbooks\process-diagnostic.md",
   ".agents\playbooks\technical-readiness-review.md",
@@ -79,8 +80,8 @@ $templateRefs = @(
 $playbookDir = Join-Path $Root ".agents\playbooks"
 if (Test-Path -LiteralPath $playbookDir) {
   $actualPlaybooks = @(Get-ChildItem -LiteralPath $playbookDir -Filter "*.md" -File)
-  if ($actualPlaybooks.Count -ne 7) {
-    Add-Failure "Expected 7 playbooks, found $($actualPlaybooks.Count)"
+  if ($actualPlaybooks.Count -ne 8) {
+    Add-Failure "Expected 8 playbooks, found $($actualPlaybooks.Count)"
   }
 }
 
@@ -140,4 +141,4 @@ if ($Failures.Count -gt 0) {
 }
 
 Write-Host "Agent operating-layer validation passed." -ForegroundColor Green
-Write-Host "Checked: 1 registry, 7 playbooks, 4 output profile files, 8 client-ready sample files, controlled automation notes, forward-test report, and template references."
+Write-Host "Checked: 1 registry, 8 playbooks, 4 output profile files, 8 client-ready sample files, controlled automation notes, forward-test report, and template references."
