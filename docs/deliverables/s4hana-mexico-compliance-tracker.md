@@ -4,7 +4,7 @@ Fecha de preparacion: 2026-07-13
 
 ## Proposito
 
-Este tracker separa los escenarios Mexico-relevantes de los inventarios SAP Fiori para gestionar CFDI, complementos de pago, Carta Porte, DRC/eDocument, evidencia fiscal, trazabilidad contable, SoD y auditoria. Es una herramienta de validacion para Tax, Finance, Logistics, Security y process owners.
+Este tracker separa los escenarios Mexico-relevantes de los inventarios SAP Fiori para gestionar CFDI, complementos de pago, Carta Porte, DRC/eDocument, evidencia fiscal, trazabilidad contable, SoD y auditoria. Es una herramienta de validacion para Tax, Finance, Logistics, Manufacturing, Quality, Security y process owners.
 
 ## Fuentes
 
@@ -19,28 +19,30 @@ Este tracker no es asesoria fiscal ni prueba de cumplimiento. Debe validarse con
 
 | Metrica | Valor |
 | --- | --- |
-| Filas Mexico-relevantes | 56 |
+| Filas Mexico-relevantes | 92 |
 | Lead-to-Cash / Order-to-Cash | 42 |
+| Plan-to-Produce | 27 |
 | Record-to-Report | 9 |
-| Source-to-Pay / Procure-to-Pay | 5 |
-| Riesgo High | 55 |
+| Source-to-Pay / Procure-to-Pay | 14 |
+| Riesgo High | 91 |
 | Riesgo Medium | 1 |
 | CFDI / e-invoicing | 23 |
 | Complemento de pago / payment evidence | 18 |
-| Carta Porte / logistics evidence | 3 |
+| Carta Porte / logistics evidence | 18 |
 | DRC/eDocument and tax reporting | 6 |
-| Accounting audit trail | 9 |
-| SoD / restricted access | 51 |
+| Accounting audit trail | 27 |
+| SoD / restricted access | 77 |
 
 ## Owners sugeridos
 
 | Owner | Filas |
 | --- | --- |
 | Tax / Localization Lead | 24 |
+| Logistics + Tax Owner | 18 |
+| Manufacturing + Costing Owner | 18 |
 | Finance AR/AP + Treasury Owner | 18 |
-| Security Lead + Process Owner | 5 |
+| Security Lead + Process Owner | 8 |
 | Finance R2R Owner | 3 |
-| Logistics + Tax Owner | 3 |
 | Billing / AR Owner | 3 |
 
 ## Columnas clave
@@ -53,7 +55,7 @@ Este tracker no es asesoria fiscal ni prueba de cumplimiento. Debe validarse con
 | TenantValidation | Evidencia requerida en tenant |
 | PACSATValidation | Validacion con PAC/SAT cuando aplica |
 | DRCeDocumentValidation | Validacion de DRC/eDocument, monitoreo y re-proceso |
-| AccountingReconciliation | Puente de evidencia con asiento, line item, clearing o reporte |
+| AccountingReconciliation | Puente de evidencia con asiento, line item, material document, clearing o reporte |
 | SoDReview | Revision de acceso y segregacion de funciones |
 | DecisionStatus | Estado de cierre del escenario |
 
@@ -67,8 +69,8 @@ Este tracker no es asesoria fiscal ni prueba de cumplimiento. Debe validarse con
 
 ## Siguientes acciones
 
-1. Revisar las filas High con Tax, Finance, Logistics y Security.
+1. Revisar las filas High con Tax, Finance, Logistics, Manufacturing, Quality y Security.
 2. Completar `TenantValidation`, `PACSATValidation`, `TestScenario` y evidencia por entidad legal.
-3. Separar pruebas por ciclo: O2C CFDI ingreso, pagos/complemento, P2P CFDI proveedor, Carta Porte, R2R evidencia contable.
+3. Separar pruebas por ciclo: O2C CFDI ingreso, pagos/complemento, P2P CFDI proveedor, Plan-to-Produce goods movement/costing, Carta Porte, R2R evidencia contable.
 4. Conectar cada fila con scripts Cloud ALM/UAT, defectos, decisiones fit-gap y control de auditoria.
 5. Actualizar `DecisionStatus` solo con evidencia revisada por owner.

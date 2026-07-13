@@ -11,6 +11,7 @@ Este indice maestro consolida los catalogos E2E actuales de SAP Fiori Apps para 
 - P2P/S2P: `docs/deliverables/s4hana-fiori-p2p-s2p-app-inventory.md`
 - O2C/L2C: `docs/deliverables/s4hana-fiori-o2c-l2c-app-inventory.md`
 - R2R/FI: `docs/deliverables/s4hana-fiori-fi-r2r-app-inventory.md`
+- P2Produce: `docs/deliverables/s4hana-fiori-plan-to-produce-app-inventory.md`
 
 Fuentes oficiales originales: SAP Fiori Apps Reference Library y servicio OData publico `SingleApp.xsodata`. Este indice es una consolidacion derivada de los catalogos locales; no reemplaza la validacion en FARL ni en tenant.
 
@@ -18,13 +19,14 @@ Fuentes oficiales originales: SAP Fiori Apps Reference Library y servicio OData 
 
 | Metrica | Valor |
 | --- | --- |
-| Apps / entradas consolidadas | 204 |
+| Apps / entradas consolidadas | 293 |
 | Lead-to-Cash / Order-to-Cash | 111 |
+| Plan-to-Produce | 89 |
 | Record-to-Report | 36 |
 | Source-to-Pay / Procure-to-Pay | 57 |
-| Entradas SAP GUI / fallback | 30 |
-| Entradas con validacion Public Cloud pendiente | 17 |
-| Entradas con relevancia Mexico marcada | 56 |
+| Entradas SAP GUI / fallback | 41 |
+| Entradas con validacion Public Cloud pendiente | 20 |
+| Entradas con relevancia Mexico marcada | 92 |
 
 ## Uso recomendado
 
@@ -65,6 +67,7 @@ Columnas del CSV:
 | Proceso E2E | Entradas | Ejemplos de apps clave |
 | --- | --- | --- |
 | Lead-to-Cash / Order-to-Cash | 111 | F3893, F0867A, F0797, F1345, F0702A, F5218 |
+| Plan-to-Produce | 89 | F3445, F1339, F4170, F2336, F2343, F1780 |
 | Record-to-Report | 36 | F0717A, F0718, F2547A, F0770, F1366A, F4406 |
 | Source-to-Pay / Procure-to-Pay | 57 | F1643A, F0842A, F0859, F2027, F0683, F1053A |
 
@@ -79,5 +82,5 @@ Columnas del CSV:
 
 1. Usar el CSV como fuente de filtros para workshops por proceso.
 2. Agregar columnas de owner, prioridad, fit/gap, scope item, test script y tenant evidence cuando exista informacion de proyecto.
-3. Crear un indice equivalente por roles y business catalogs para preparar seguridad y adopcion.
+3. Crear o actualizar indices por roles y business catalogs para preparar seguridad y adopcion.
 4. Generar el siguiente catalogo E2E y volver a ejecutar esta consolidacion.

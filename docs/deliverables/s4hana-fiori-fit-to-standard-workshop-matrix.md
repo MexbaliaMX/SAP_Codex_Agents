@@ -17,13 +17,13 @@ La matriz hereda las caveats de los catalogos FARL: es evidencia de referencia, 
 
 | Metrica | Valor |
 | --- | --- |
-| Filas de workshop | 204 |
-| Prioridad High | 159 |
-| Prioridad Medium | 45 |
-| Riesgo: Edition/scope validation | 5 |
-| Riesgo: Fallback dependency | 12 |
-| Riesgo: Mexico fiscal/audit review | 44 |
-| Riesgo: Standard validation | 143 |
+| Filas de workshop | 293 |
+| Prioridad High | 231 |
+| Prioridad Medium | 62 |
+| Riesgo: Edition/scope validation | 8 |
+| Riesgo: Fallback dependency | 23 |
+| Riesgo: Mexico fiscal/audit review | 69 |
+| Riesgo: Standard validation | 193 |
 
 ## Columnas clave
 
@@ -46,7 +46,7 @@ La matriz hereda las caveats de los catalogos FARL: es evidencia de referencia, 
 
 | Workshop | Filas |
 | --- | --- |
-| Fallback and transition controls | 12 |
+| Fallback and transition controls | 23 |
 | L2C/O2C commercial document flow | 22 |
 | Mexico compliance and fiscal evidence | 6 |
 | O2C analytics and controls | 6 |
@@ -60,6 +60,14 @@ La matriz hereda las caveats de los catalogos FARL: es evidencia de referencia, 
 | P2P master data and supplier performance | 4 |
 | P2P receiving, inventory and logistics handoff | 8 |
 | P2P requisition, purchase order and approvals | 19 |
+| P2Produce controls and analytics | 4 |
+| P2Produce costing and R2R handoff | 4 |
+| P2Produce demand, MRP and planned orders | 18 |
+| P2Produce inventory, staging and goods movements | 6 |
+| P2Produce lean, Kanban and supply to production | 3 |
+| P2Produce master data, routings and capacity | 31 |
+| P2Produce production and process order execution | 5 |
+| P2Produce quality inspection and usage decision | 7 |
 | R2R accounts payable and payment operations | 1 |
 | R2R accounts receivable and correspondence | 4 |
 | R2R banking, payments and cash operations | 8 |

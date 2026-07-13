@@ -15,6 +15,7 @@ La base esta disenada para discovery, fit-to-standard, diseno de roles, preparac
 | Record-to-Report / FI | Catalogo inicial completo | [s4hana-fiori-fi-r2r-app-inventory.md](deliverables/s4hana-fiori-fi-r2r-app-inventory.md) |
 | Source-to-Pay / Procure-to-Pay | Catalogo inicial completo | [s4hana-fiori-p2p-s2p-app-inventory.md](deliverables/s4hana-fiori-p2p-s2p-app-inventory.md) |
 | Lead-to-Cash / Order-to-Cash | Catalogo inicial completo | [s4hana-fiori-o2c-l2c-app-inventory.md](deliverables/s4hana-fiori-o2c-l2c-app-inventory.md) |
+| Plan-to-Produce | Catalogo inicial completo | [s4hana-fiori-plan-to-produce-app-inventory.md](deliverables/s4hana-fiori-plan-to-produce-app-inventory.md) |
 | Indice maestro E2E | Consolidado searchable | [s4hana-fiori-e2e-master-app-index.md](deliverables/s4hana-fiori-e2e-master-app-index.md) / [CSV](deliverables/s4hana-fiori-e2e-master-app-index.csv) |
 | Fit-to-Standard | Matriz de workshop | [s4hana-fiori-fit-to-standard-workshop-matrix.md](deliverables/s4hana-fiori-fit-to-standard-workshop-matrix.md) / [CSV](deliverables/s4hana-fiori-fit-to-standard-workshop-matrix.csv) |
 | Roles y business catalogs | Matriz de seguridad y accesos | [s4hana-fiori-role-business-catalog-matrix.md](deliverables/s4hana-fiori-role-business-catalog-matrix.md) / [CSV](deliverables/s4hana-fiori-role-business-catalog-matrix.csv) |
@@ -69,11 +70,11 @@ Antes de usar estos artefactos en proposal, discovery formal, fit-to-standard o 
 
 | Prioridad | Proceso / artefacto | Motivo |
 | --- | --- | --- |
-| 1 | Plan-to-Produce | Conecta demanda, MRP, produccion, inventario, costing y R2R |
-| 2 | Design-to-Operate | Extiende asset/product lifecycle, mantenimiento, calidad y operaciones |
-| 3 | Hire-to-Retire | Completa cobertura cross-process con roles, HR touchpoints y finance integration |
-| 4 | Artifact status register | Controlar version, owner, fecha de refresh y gaps por archivo |
-| 5 | Scope item mapping | Conectar apps con SAP Best Practices y scripts de prueba |
+| 1 | Design-to-Operate | Extiende asset/product lifecycle, mantenimiento, calidad y operaciones |
+| 2 | Hire-to-Retire | Completa cobertura cross-process con roles, HR touchpoints y finance integration |
+| 3 | Scope item mapping | Conectar apps con SAP Best Practices y scripts de prueba |
+| 4 | Workshop packs | Crear vistas listas para sesiones por proceso y seguridad |
+| 5 | Periodic FARL refresh | Revalidar release anchors y cambios de apps |
 
 ## Validaciones abiertas
 
@@ -84,4 +85,4 @@ Antes de usar estos artefactos en proposal, discovery formal, fit-to-standard o 
 
 ## Siguiente paso sugerido
 
-Crear el catalogo E2E de **Plan-to-Produce** usando la plantilla reutilizable y despues refrescar el indice maestro y las matrices derivadas.
+Crear el catalogo E2E de **Design-to-Operate** usando la plantilla reutilizable y despues refrescar el indice maestro y las matrices derivadas.

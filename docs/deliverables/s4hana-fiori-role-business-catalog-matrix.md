@@ -18,16 +18,17 @@ La matriz es una guia de diseno y validacion. No prueba que los roles existan en
 
 | Metrica | Valor |
 | --- | --- |
-| Filas de acceso | 204 |
-| Business catalogs unicos observados | 95 |
+| Filas de acceso | 293 |
+| Business catalogs unicos observados | 128 |
 | Lead-to-Cash / Order-to-Cash | 111 |
+| Plan-to-Produce | 89 |
 | Record-to-Report | 36 |
 | Source-to-Pay / Procure-to-Pay | 57 |
-| Criticidad High | 122 |
-| Criticidad Medium | 82 |
-| SoD review requerido | 116 |
-| Fallback approval requerido | 30 |
-| Mexico audit review requerido | 56 |
+| Criticidad High | 194 |
+| Criticidad Medium | 99 |
+| SoD review requerido | 194 |
+| Fallback approval requerido | 41 |
+| Mexico audit review requerido | 92 |
 | Catalog gaps / validacion especial | 11 |
 
 ## Columnas clave
@@ -52,9 +53,10 @@ La matriz es una guia de diseno y validacion. No prueba que los roles existan en
 | Security workshop | Filas |
 | --- | --- |
 | Sales, logistics and receivables role design | 93 |
+| Manufacturing, quality and costing role design | 78 |
 | Procurement role and catalog design | 48 |
+| Fallback SAP GUI and privileged access review | 37 |
 | Finance role and catalog design | 29 |
-| Fallback SAP GUI and privileged access review | 26 |
 | Mexico fiscal access and audit roles | 6 |
 | Catalog gap and role remediation | 2 |
 
@@ -62,14 +64,14 @@ La matriz es una guia de diseno y validacion. No prueba que los roles existan en
 
 - Validar cada business catalog contra el tenant objetivo antes de usarlo para roles productivos.
 - Tratar `Without Catalog Assignment`, `Validar por localizacion` y SAP GUI como puntos de diseno, no como autorizaciones listas.
-- Revisar SoD con el owner funcional y seguridad, especialmente aprobaciones, pagos, clearing, billing, master data, journal entries, credito, collections y configuracion de reglas.
+- Revisar SoD con el owner funcional y seguridad, especialmente aprobaciones, pagos, clearing, billing, master data, journal entries, credito, production execution, quality, costing, inventory y configuracion de reglas.
 - Para Mexico, validar acceso a DRC/eDocument/CFDI con Tax, Finance, Seguridad y auditoria.
 - Documentar launchpad space/page, role collection/business role, catalog, restricciones organizacionales y evidencia de prueba.
 
 ## Siguientes acciones
 
 1. Revisar filas High con Security Lead y owners por proceso.
-2. Separar role design por workstream: Finance, Procurement, Sales/Billing, Logistics, Tax y Master Data.
+2. Separar role design por workstream: Finance, Procurement, Sales/Billing, Logistics, Manufacturing, Quality, Tax y Master Data.
 3. Confirmar catalogs y apps en tenant sandbox; adjuntar evidencia en la matriz.
 4. Crear backlog de remediacion para gaps de catalogo, fallbacks SAP GUI y SoD conflicts.
 5. Usar esta matriz como base para role build, UAT access y cutover readiness.
