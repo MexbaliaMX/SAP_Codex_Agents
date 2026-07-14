@@ -18,6 +18,7 @@ La base esta disenada para discovery, fit-to-standard, diseno de roles, preparac
 | Plan-to-Produce | Catalogo inicial completo | [s4hana-fiori-plan-to-produce-app-inventory.md](deliverables/s4hana-fiori-plan-to-produce-app-inventory.md) |
 | Design-to-Operate | Catalogo inicial completo | [s4hana-fiori-design-to-operate-app-inventory.md](deliverables/s4hana-fiori-design-to-operate-app-inventory.md) |
 | Hire-to-Retire | Catalogo inicial completo | [s4hana-fiori-hire-to-retire-app-inventory.md](deliverables/s4hana-fiori-hire-to-retire-app-inventory.md) |
+| Hire-to-Retire Workshop Pack | Fit-to-Standard pack inicial | [s4hana-fiori-hire-to-retire-workshop-pack.md](deliverables/s4hana-fiori-hire-to-retire-workshop-pack.md) / [CSV](deliverables/s4hana-fiori-hire-to-retire-workshop-pack.csv) |
 | Indice maestro E2E | Consolidado searchable | [s4hana-fiori-e2e-master-app-index.md](deliverables/s4hana-fiori-e2e-master-app-index.md) / [CSV](deliverables/s4hana-fiori-e2e-master-app-index.csv) |
 | Fit-to-Standard | Matriz de workshop | [s4hana-fiori-fit-to-standard-workshop-matrix.md](deliverables/s4hana-fiori-fit-to-standard-workshop-matrix.md) / [CSV](deliverables/s4hana-fiori-fit-to-standard-workshop-matrix.csv) |
 | Roles y business catalogs | Matriz de seguridad y accesos | [s4hana-fiori-role-business-catalog-matrix.md](deliverables/s4hana-fiori-role-business-catalog-matrix.md) / [CSV](deliverables/s4hana-fiori-role-business-catalog-matrix.csv) |
@@ -33,6 +34,7 @@ La base esta disenada para discovery, fit-to-standard, diseno de roles, preparac
 | --- | --- | --- |
 | Preparar discovery ejecutivo | Catalogo del proceso + indice maestro | Alcance inicial, apps candidatas, gaps de validacion |
 | Preparar fit-to-standard | Fit-to-Standard Workshop Matrix | Agenda, owners, decisiones Fit/Gap y evidencia requerida |
+| Ejecutar workshop H2R | Hire-to-Retire Workshop Pack | Agenda, backlog, decisiones, prompts Mexico y evidencia por sesion |
 | Preparar seguridad | Role & Business Catalog Matrix | Roles, catalogs, SoD, launchpad validation y fallbacks |
 | Preparar rollout Mexico | Mexico Compliance Tracker | CFDI, complemento de pago, Carta Porte, DRC/eDocument, calidad, EHS y evidencia fiscal/auditoria |
 | Conectar alcance | Scope Item Mapping + Validation Report | Scope candidates, IDs pendientes, test script, tenant validation y decision de evidencia |
