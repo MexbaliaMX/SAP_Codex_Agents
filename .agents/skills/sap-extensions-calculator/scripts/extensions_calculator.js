@@ -107,13 +107,17 @@
         return merged;
     }
 
+    function hasCustomRates(rates) {
+        return !!rates && Object.keys(rates).length > 0;
+    }
+
     function buildAdvisoryWarnings(counts, rates, params, weighted, overhead, hoursPerDay) {
         const warnings = [];
         const activeCounts = counts || {};
         const providedRates = rates || {};
         const activeParams = params || {};
 
-        if (rates) {
+        if (hasCustomRates(rates)) {
             EXTENSION_TYPES.forEach(type => {
                 const itemCounts = activeCounts[type.id] || {};
                 EXTENSION_COMPLEXITIES.forEach(complexity => {
@@ -259,6 +263,7 @@
         EXTENSION_TYPES,
         calculateExtensionsEstimate,
         cloneDefaultExtensionRates,
+        hasCustomRates,
         mergeRatesWithDefaults
     };
 }));

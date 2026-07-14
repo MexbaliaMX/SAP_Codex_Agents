@@ -39,6 +39,18 @@ assertClose(overhead.estimate.baseTotal, 80, 'overhead baseTotal');
 assertClose(overhead.estimate.totalOverhead, 61.6, 'overhead totalOverhead');
 assertClose(overhead.estimate.totalHours, 141.6, 'overhead totalHours');
 
+const emptyRates = calculateExtensionsEstimate(
+    { 't1-custom-logic': { alta: 1 } },
+    {},
+    { hoursPerDay: 8, govEnabled: false, testEnabled: false, docEnabled: false, intEnabled: false }
+);
+assertClose(emptyRates.estimate.baseTotal, 16, 'empty custom rates use defaults');
+assert.equal(
+    emptyRates.advisoryWarnings.some(w => w.code === 'missing_custom_rate'),
+    false,
+    'empty custom rates do not produce missing_custom_rate warnings'
+);
+
 const warnings = calculateExtensionsEstimate(
     {
         't1-custom-logic': { 'muy-alta': 1 },
