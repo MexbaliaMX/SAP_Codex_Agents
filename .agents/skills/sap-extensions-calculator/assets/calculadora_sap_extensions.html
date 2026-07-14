@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora SAP Extensions (Clean Core)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0ea5e9 0%, #1e3a8a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+        }
+
+        .input-section {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .results-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #2563eb;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #0f172a;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+
+        .helper-text {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        details {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #fff;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+
+        details summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 14px 16px;
+            font-weight: 700;
+            color: #0f172a;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .tier-content {
+            padding: 16px;
+        }
+
+        .ext-group {
+            margin-bottom: 14px;
+            background: #fff;
+            padding: 16px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .ext-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 6px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .tier-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 34px;
+            height: 26px;
+            padding: 0 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .tier1 { background: #16a34a; }
+        .tier2 { background: #f97316; }
+        .tier3 { background: #7c3aed; }
+
+        .ext-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+
+        .complexity-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .complexity-item {
+            text-align: center;
+        }
+
+        .complexity-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: #334155;
+            cursor: pointer;
+        }
+
+        .complexity-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .complexity-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .muy-alta { border-color: #ef4444; }
+        .alta { border-color: #f97316; }
+        .media { border-color: #eab308; }
+        .baja { border-color: #22c55e; }
+
+        .tier1-warning {
+            border: 2px solid #ef4444 !important;
+            background-color: #fef2f2 !important;
+            color: #b91c1c !important;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .warning-text {
+            color: #b91c1c;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .effort-display {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .effort-hours {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #2563eb;
+        }
+
+        .config-panel {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px dashed #cbd5e1;
+            background: #f8fafc;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .config-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+        }
+
+        .config-row label {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 0.95rem;
+        }
+
+        .config-row input[type="number"] {
+            width: 110px;
+            padding: 8px 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 0.95rem;
+        }
+
+        .config-row input[type="checkbox"] {
+            transform: scale(1.15);
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            gap: 12px;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-label {
+            font-weight: 800;
+            color: #334155;
+        }
+
+        .summary-value {
+            font-weight: 900;
+            color: #2563eb;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .total-card {
+            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+            color: white;
+            padding: 22px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .total-label {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            font-weight: 700;
+        }
+
+        .total-hours {
+            font-size: 2.6rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .total-sub {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .advisory-card {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .advisory-card h3 {
+            color: #92400e;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .advisory-list {
+            padding-left: 18px;
+            color: #78350f;
+            line-height: 1.35;
+            font-size: 0.9rem;
+        }
+
+        .advisory-list li {
+            margin-bottom: 6px;
+        }
+
+        .reset-button {
+            width: 100%;
+            padding: 14px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 16px;
+        }
+
+        .reset-button:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+        }
+
+        .export-button {
+            width: 100%;
+            padding: 14px;
+            background: #0f172a;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 16px;
+        }
+
+        .export-button:hover {
+            background: #1f2937;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
+        }
+
+        @media (max-width: 980px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .complexity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header h1 {
+                font-size: 1.7rem;
+            }
+
+            .total-hours {
+                font-size: 2rem;
+            }
+
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧩 Calculadora SAP Extensions</h1>
+            <p>Estimación de esfuerzos por Tier (Clean Core) y complejidad</p>
+        </div>
+
+        <div class="main-content">
+            <div class="grid">
+                <div class="input-section">
+                    <h2 class="section-title">Extensiones</h2>
+                    <p class="helper-text">
+                        Ingresa cantidades por tipo de extensión y complejidad. El modelo está alineado al enfoque del agente EXT:
+                        <strong>Tier 1 (Key User)</strong> → <strong>Tier 2 (RAP)</strong> → <strong>Tier 3 (BTP: CAP, SAP Build o Analytics/Datasphere)</strong>.
+                    </p>
+
+                    <div id="inputs-container"></div>
+
+                    <div class="config-panel" aria-labelledby="config-title">
+                        <h3 id="config-title" class="section-title" style="font-size: 1.2rem; margin-bottom: 0;">Parámetros</h3>
+                        <div class="config-grid">
+                            <div class="config-row">
+                                <label for="hours-per-day">Horas por día</label>
+                                <input id="hours-per-day" type="number" min="1" step="0.5" value="8" inputmode="decimal" />
+                            </div>
+                            <div class="config-row">
+                                <label for="overhead-governance">Overhead gobernanza (%)</label>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <input id="overhead-governance-enabled" type="checkbox" checked />
+                                    <input id="overhead-governance" type="number" min="0" step="1" value="15" inputmode="numeric" />
+                                </div>
+                            </div>
+                            <div class="config-row">
+                                <label for="overhead-testing">Overhead testing (%)</label>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <input id="overhead-testing-enabled" type="checkbox" checked />
+                                    <input id="overhead-testing" type="number" min="0" step="1" value="35" inputmode="numeric" />
+                                </div>
+                            </div>
+                            <div class="config-row">
+                                <label for="overhead-documentation">Overhead documentación (%)</label>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <input id="overhead-documentation-enabled" type="checkbox" checked />
+                                    <input id="overhead-documentation" type="number" min="0" step="1" value="12" inputmode="numeric" />
+                                </div>
+                            </div>
+                            <div class="config-row">
+                                <label for="overhead-integration">Overhead integración (%)</label>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <input id="overhead-integration-enabled" type="checkbox" checked />
+                                    <input id="overhead-integration" type="number" min="0" step="1" value="15" inputmode="numeric" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details style="margin-top: 16px;">
+                        <summary>Modelo de esfuerzo (horas por objeto) — editable</summary>
+                        <div class="tier-content">
+                            <p class="helper-text" style="margin-bottom: 12px;">
+                                Ajusta las horas por objeto según tu estándar interno (equipo, calidad, entorno, tooling). Los cambios se reflejan al instante.
+                            </p>
+                            <div id="rates-container"></div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="results-section">
+                    <h2 class="section-title">Resumen</h2>
+
+                    <div class="summary-card" id="summary-card"></div>
+
+                    <div class="total-card">
+                        <div class="total-label">Total estimado (incluye overhead)</div>
+                        <div class="total-hours" id="total-hours" aria-live="polite">0</div>
+                        <div class="total-sub" id="total-days" aria-live="polite">0 días</div>
+                        <div class="total-sub" id="total-breakdown" style="margin-top: 8px;">Base: 0 h · Overhead: 0 h</div>
+                        <div class="total-sub" id="total-overhead-lines" style="margin-top: 6px; font-size: 0.85rem;">Gobernanza: 0 h · Testing: 0 h · Documentación: 0 h · Integración: 0 h</div>
+                    </div>
+
+                    <div class="advisory-card" id="advisory-card" aria-live="polite">
+                        <h3>Advertencias de estimación</h3>
+                        <ul class="advisory-list" id="advisory-list"></ul>
+                    </div>
+
+                    <button class="export-button" id="export-button" type="button">⬇️ Exportar CSV</button>
+                    <button class="reset-button" id="reset-button" type="button">🔄 Reiniciar</button>
+
+                    <details style="margin-top: 16px;">
+                        <summary>Detalle por tipo</summary>
+                        <div class="tier-content" id="detail-container"></div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculator_core.js"></script>
+    <script src="extensions_calculator.js"></script>
+    <script>
+        const {
+            EXTENSION_COMPLEXITIES: complexities,
+            EXTENSION_TIERS: tiers,
+            EXTENSION_TYPES: extensionTypes,
+            calculateExtensionsEstimate,
+            cloneDefaultExtensionRates
+        } = window.SapExtensionsCalculator;
+        const calculatorCore = window.SapCalculatorCore;
+
+        let effortRates = cloneDefaultExtensionRates();
+
+        function getLocale() { return document.documentElement.lang || undefined; }
+        function formatInt(value) { return value.toLocaleString(getLocale()); }
+        function formatFloat(value) { return new Intl.NumberFormat(getLocale(), { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value); }
+
+        function getSafeLocalStorage() {
+            try {
+                return window.localStorage;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function clampNumericInput(input, options = {}) {
+            const { fallback = 0, integer = false, max = Infinity, min = 0 } = options;
+            const parsed = Number(input.value);
+            const numeric = Number.isFinite(parsed) ? parsed : fallback;
+            const normalized = integer ? Math.floor(numeric) : numeric;
+            const value = Math.min(max, Math.max(min, normalized));
+            input.value = String(value);
+            return value;
+        }
+
+        function el(tag, attrs = {}, children = []) {
+            const node = document.createElement(tag);
+            Object.entries(attrs).forEach(([k, v]) => {
+                if (k === 'class') node.className = v;
+                else if (k === 'text') node.textContent = v;
+                else if (k.startsWith('on') && typeof v === 'function') node.addEventListener(k.slice(2), v);
+                else node.setAttribute(k, v);
+            });
+            for (const child of children) node.appendChild(child);
+            return node;
+        }
+
+        function saveState() {
+            const counts = {};
+            extensionTypes.forEach(t => {
+                complexities.forEach(c => {
+                    const id = `${t.id}-${c.id}`;
+                    counts[id] = document.getElementById(id).value;
+                });
+            });
+
+            const state = {
+                counts,
+                effortRates,
+                params: {
+                    hoursPerDay: document.getElementById('hours-per-day').value,
+                    govEnabled:  document.getElementById('overhead-governance-enabled').checked,
+                    govValue:    document.getElementById('overhead-governance').value,
+                    testEnabled: document.getElementById('overhead-testing-enabled').checked,
+                    testValue:   document.getElementById('overhead-testing').value,
+                    docEnabled:  document.getElementById('overhead-documentation-enabled').checked,
+                    docValue:    document.getElementById('overhead-documentation').value,
+                    intEnabled:  document.getElementById('overhead-integration-enabled').checked,
+                    intValue:    document.getElementById('overhead-integration').value,
+                }
+            };
+            calculatorCore.setStorageItem(getSafeLocalStorage(), 'sap_extensions_calc_state', JSON.stringify(state));
+        }
+
+        function loadState() {
+            const saved = calculatorCore.getStorageItem(getSafeLocalStorage(), 'sap_extensions_calc_state');
+            if (!saved) return;
+            try {
+                const state = JSON.parse(saved);
+                if (state.effortRates) effortRates = state.effortRates;
+                if (state.params) {
+                    if (state.params.hoursPerDay !== undefined) document.getElementById('hours-per-day').value = state.params.hoursPerDay;
+                    if (state.params.govEnabled  !== undefined) document.getElementById('overhead-governance-enabled').checked = state.params.govEnabled;
+                    if (state.params.govValue    !== undefined) document.getElementById('overhead-governance').value = state.params.govValue;
+                    if (state.params.testEnabled !== undefined) document.getElementById('overhead-testing-enabled').checked = state.params.testEnabled;
+                    if (state.params.testValue   !== undefined) document.getElementById('overhead-testing').value = state.params.testValue;
+                    if (state.params.docEnabled  !== undefined) document.getElementById('overhead-documentation-enabled').checked = state.params.docEnabled;
+                    if (state.params.docValue    !== undefined) document.getElementById('overhead-documentation').value = state.params.docValue;
+                    if (state.params.intEnabled  !== undefined) document.getElementById('overhead-integration-enabled').checked = state.params.intEnabled;
+                    if (state.params.intValue    !== undefined) document.getElementById('overhead-integration').value = state.params.intValue;
+                }
+                if (state.counts) {
+                    for (const id in state.counts) {
+                        const input = document.getElementById(id);
+                        if (input) input.value = state.counts[id];
+                    }
+                }
+            } catch (e) { console.error("Error loading state", e); }
+        }
+
+                            function buildInputs() {
+                                const container = document.getElementById('inputs-container');
+                                container.innerHTML = '';
+                                tiers.forEach(tier => {
+                                    const details = el('details', { open: 'open' });
+                                    const summary = el('summary', { text: tier.label });
+                                    const content = el('div', { class: 'tier-content' });
+                                    extensionTypes.filter(t => t.tier === tier.id).forEach(t => {
+                                        const group = el('div', { class: 'ext-group', role: 'group', 'aria-labelledby': `${t.id}-title` });
+                                        const title = el('h3', { class: 'ext-title', id: `${t.id}-title` }, [
+                                            el('span', { class: `tier-pill ${tier.pillClass}`, text: tier.pill }),
+                                            el('span', { text: t.label })
+                                        ]);
+                                        const desc = el('div', { class: 'ext-desc', text: t.description });
+                                        const grid = el('div', { class: 'complexity-grid' });
+                                        complexities.forEach(c => {
+                                            const inputId = `${t.id}-${c.id}`;
+                                            grid.appendChild(el('div', { class: 'complexity-item' }, [
+                                                el('label', { class: 'complexity-label', for: inputId, text: c.label }),
+                                                el('input', {
+                                                    id: inputId, type: 'number', min: '0', step: '1', inputmode: 'numeric', value: '0',
+                                                    class: `complexity-input ${c.cls}`, oninput: calculateAll
+                                                })
+                                            ]));
+                                        });
+                                        group.appendChild(title); group.appendChild(desc); group.appendChild(grid);
+                                        group.appendChild(el('div', { class: 'effort-display' }, [
+                                            el('div', { class: 'effort-hours', id: `${t.id}-effort`, text: '0 h' }),
+                                            el('div', { class: 'warning-text', id: `${t.id}-warning`, text: '⚠️ Tier 1 > 20h: Se recomienda escalar a Tier 2 (RAP)' })
+                                        ]));
+                                        content.appendChild(group);
+                                    });
+                                    details.appendChild(summary); details.appendChild(content); container.appendChild(details);
+                                });
+                            }
+
+                            function buildRatesEditor() {
+                                const container = document.getElementById('rates-container');
+                                container.innerHTML = '';
+                                tiers.forEach(tier => {
+                                    const section = el('div', { style: 'margin-bottom: 14px;' });
+                                    section.appendChild(el('div', { class: 'summary-label', text: tier.label }));
+                                    extensionTypes.filter(t => t.tier === tier.id).forEach(t => {
+                                        const group = el('div', { class: 'ext-group', style: 'margin-top: 10px;' });
+                                        group.appendChild(el('div', { class: 'ext-title', style: 'font-size: 1rem;' }, [
+                                            el('span', { class: `tier-pill ${tier.pillClass}`, text: tier.pill }),
+                                            el('span', { text: t.label })
+                                        ]));
+                                        const grid = el('div', { class: 'complexity-grid' });
+                                        complexities.forEach(c => {
+                                            const rateId = `${t.id}-${c.id}-rate`;
+                                            grid.appendChild(el('div', { class: 'complexity-item' }, [
+                                                el('label', { class: 'complexity-label', for: rateId, text: c.label }),
+                                                el('input', {
+                                                    id: rateId, type: 'number', min: '0', step: '0.5', inputmode: 'decimal', value: String(effortRates[t.id][c.id]),
+                                                    class: `complexity-input ${c.cls}`,
+                                                    oninput: (e) => {
+                                                        const val = clampNumericInput(e.target, { min: 0, fallback: 0 });
+                                                        effortRates[t.id][c.id] = val;
+                                                        calculateAll();
+                                                    }
+                                                })
+                                            ]));
+                                        });
+                                        group.appendChild(grid); section.appendChild(group);
+                                    });
+                                    container.appendChild(section);
+                                });
+                            }
+
+                            function getHoursPerDay() {
+                                return clampNumericInput(document.getElementById('hours-per-day'), { min: 1, fallback: 8 });
+                            }
+
+                            function collectExtensionCounts() {
+                                const counts = {};
+                                extensionTypes.forEach(t => {
+                                    counts[t.id] = {};
+                                    complexities.forEach(c => {
+                                        counts[t.id][c.id] = clampNumericInput(
+                                            document.getElementById(`${t.id}-${c.id}`),
+                                            { min: 0, fallback: 0, integer: true }
+                                        );
+                                    });
+                                });
+                                return counts;
+                            }
+
+                            function getOverheadParams() {
+                                return {
+                                    hoursPerDay: getHoursPerDay(),
+                                    govEnabled:  document.getElementById('overhead-governance-enabled').checked,
+                                    govValue:    clampNumericInput(document.getElementById('overhead-governance'), { min: 0, fallback: 0 }),
+                                    testEnabled: document.getElementById('overhead-testing-enabled').checked,
+                                    testValue:   clampNumericInput(document.getElementById('overhead-testing'), { min: 0, fallback: 0 }),
+                                    docEnabled:  document.getElementById('overhead-documentation-enabled').checked,
+                                    docValue:    clampNumericInput(document.getElementById('overhead-documentation'), { min: 0, fallback: 0 }),
+                                    intEnabled:  document.getElementById('overhead-integration-enabled').checked,
+                                    intValue:    clampNumericInput(document.getElementById('overhead-integration'), { min: 0, fallback: 0 }),
+                                };
+                            }
+
+                            function calculateAll() {
+                                const result = calculateExtensionsEstimate(collectExtensionCounts(), effortRates, getOverheadParams());
+
+                                extensionTypes.forEach(t => {
+                                    const hours = result.typeTotals[t.id] || 0;
+                                    const effortDisp = document.getElementById(`${t.id}-effort`);
+                                    const warningTxt = document.getElementById(`${t.id}-warning`);
+                                    if (effortDisp) {
+                                        effortDisp.textContent = `${formatInt(hours)} h`;
+                                        if (t.tier === 'tier1' && hours > 20) {
+                                            effortDisp.classList.add('tier1-warning');
+                                            if (warningTxt) warningTxt.style.display = 'block';
+                                        } else {
+                                            effortDisp.classList.remove('tier1-warning');
+                                            if (warningTxt) warningTxt.style.display = 'none';
+                                        }
+                                    }
+                                });
+                                const overheadPct = result.totalOverheadPct;
+                                const overheadHours = result.overheadHours;
+
+                                document.getElementById('total-hours').textContent = formatInt(Math.round(result.totalHours));
+                                document.getElementById('total-days').textContent = `${formatFloat(result.totalDays)} días (${formatFloat(result.hoursPerDay)} h/día)`;
+                                document.getElementById('total-breakdown').textContent = `Base: ${formatInt(Math.round(result.baseTotal))} h · Overhead: ${formatInt(Math.round(result.totalOverhead))} h (${formatFloat(overheadPct)}%)`;
+                                document.getElementById('total-overhead-lines').textContent = `Gobernanza: ${formatInt(Math.round(overheadHours.gov))} h · Testing: ${formatInt(Math.round(overheadHours.test))} h · Doc: ${formatInt(Math.round(overheadHours.doc))} h · Int: ${formatInt(Math.round(overheadHours.int))} h`;
+
+                                renderSummary(result.tierTotals, result.baseTotal, result.totalOverhead, overheadHours);
+                                renderDetail(result.typeTotals);
+                                renderAdvisoryWarnings(result.advisoryWarnings || []);
+                                saveState();
+                            }
+
+                            function renderSummary(tierTotals, base, overhead, ohBreakdown) {
+                                const summary = document.getElementById('summary-card');
+                                summary.innerHTML = '';
+                                tiers.forEach(t => {
+                                    summary.appendChild(el('div', { class: 'summary-item' }, [
+                                        el('span', { class: 'summary-label', text: t.label }),
+                                        el('span', { class: 'summary-value', text: `${formatInt(Math.round(tierTotals[t.id]))} h` })
+                                    ]));
+                                });
+                                const adds = [
+                                    { label: 'Base (sin overhead)', val: base },
+                                    { label: 'Overhead Total', val: overhead },
+                                    { label: 'Overhead — Gobernanza', val: ohBreakdown.gov },
+                                    { label: 'Overhead — Testing', val: ohBreakdown.test },
+                                    { label: 'Overhead — Documentación', val: ohBreakdown.doc },
+                                    { label: 'Overhead — Integración', val: ohBreakdown.int }
+                                ];
+                                adds.forEach(a => summary.appendChild(el('div', { class: 'summary-item' }, [
+                                    el('span', { class: 'summary-label', text: a.label }),
+                                    el('span', { class: 'summary-value', text: `${formatInt(Math.round(a.val))} h` })
+                                ])));
+                            }
+                        function renderDetail(typeTotals) {
+            const container = document.getElementById('detail-container');
+            container.innerHTML = '';
+            tiers.forEach(tier => {
+                const block = el('div', { style: 'margin-bottom: 12px;' });
+                block.appendChild(el('div', { class: 'summary-label', text: tier.label }));
+                extensionTypes.filter(t => t.tier === tier.id).forEach(t => {
+                    block.appendChild(el('div', { class: 'summary-item' }, [
+                        el('span', { class: 'summary-label', text: t.label }),
+                        el('span', { class: 'summary-value', text: `${formatInt(Math.round(typeTotals[t.id] || 0))} h` })
+                    ]));
+                });
+                container.appendChild(block);
+            });
+        }
+
+        function renderAdvisoryWarnings(warnings) {
+            const card = document.getElementById('advisory-card');
+            const list = document.getElementById('advisory-list');
+            list.innerHTML = '';
+            if (!warnings.length) {
+                card.style.display = 'none';
+                return;
+            }
+            warnings.forEach(warning => {
+                list.appendChild(el('li', { text: warning.message }));
+            });
+            card.style.display = 'block';
+        }
+
+        function resetCalculator() {
+            if (confirm("¿Estás seguro de que deseas reiniciar todos los valores?")) {
+                extensionTypes.forEach(t => { complexities.forEach(c => { const input = document.getElementById(`${t.id}-${c.id}`); if (input) input.value = '0'; }); });
+                effortRates = cloneDefaultExtensionRates();
+                document.getElementById('hours-per-day').value = 8;
+                document.getElementById('overhead-governance-enabled').checked = true;
+                document.getElementById('overhead-governance').value = 15;
+                document.getElementById('overhead-testing-enabled').checked = true;
+                document.getElementById('overhead-testing').value = 35;
+                document.getElementById('overhead-documentation-enabled').checked = true;
+                document.getElementById('overhead-documentation').value = 12;
+                document.getElementById('overhead-integration-enabled').checked = true;
+                document.getElementById('overhead-integration').value = 15;
+                buildRatesEditor(); calculateAll();
+            }
+        }
+
+        function exportCsv() {
+            const now = new Date().toISOString();
+            const counts = collectExtensionCounts();
+            const result = calculateExtensionsEstimate(counts, effortRates, getOverheadParams());
+            const hpd = result.hoursPerDay;
+
+            // Collect per-type counts, rates, and hours; accumulate tier totals
+            const typeData = extensionTypes.map(t => {
+                const typeCounts = {};
+                complexities.forEach(c => {
+                    const count = clampNumericInput(
+                        document.getElementById(`${t.id}-${c.id}`),
+                        { min: 0, fallback: 0, integer: true }
+                    );
+                    typeCounts[c.id] = count;
+                });
+                return { ...t, counts: typeCounts, hours: result.typeTotals[t.id] || 0 };
+            });
+
+            const baseTotal = result.baseTotal;
+            const ohGov = result.overheadHours.gov;
+            const ohTest = result.overheadHours.test;
+            const ohDoc = result.overheadHours.doc;
+            const ohInt = result.overheadHours.int;
+            const totalOverhead = result.totalOverhead;
+            const total = result.totalHours;
+            const advisoryWarnings = result.advisoryWarnings || [];
+
+            function csvField(val) {
+                const s = String(val);
+                return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s.replace(/"/g, '""')}"` : s;
+            }
+            function row(...fields) { return fields.map(csvField).join(','); }
+
+            const govEnabled  = document.getElementById('overhead-governance-enabled').checked;
+            const testEnabled = document.getElementById('overhead-testing-enabled').checked;
+            const docEnabled  = document.getElementById('overhead-documentation-enabled').checked;
+            const intEnabled  = document.getElementById('overhead-integration-enabled').checked;
+
+            const lines = [
+                row('section', 'key', 'value'),
+                row('meta',   'generated_at',                    now),
+                row('params', 'hours_per_day',                   hpd),
+                row('params', 'overhead_governance_enabled',     govEnabled),
+                row('params', 'overhead_governance_pct',         document.getElementById('overhead-governance').value),
+                row('params', 'overhead_testing_enabled',        testEnabled),
+                row('params', 'overhead_testing_pct',            document.getElementById('overhead-testing').value),
+                row('params', 'overhead_documentation_enabled',  docEnabled),
+                row('params', 'overhead_documentation_pct',      document.getElementById('overhead-documentation').value),
+                row('params', 'overhead_integration_enabled',    intEnabled),
+                row('params', 'overhead_integration_pct',        document.getElementById('overhead-integration').value),
+                row('totals', 'base_hours',                      baseTotal.toFixed(2)),
+                row('totals', 'overhead_governance_hours',       ohGov.toFixed(2)),
+                row('totals', 'overhead_testing_hours',          ohTest.toFixed(2)),
+                row('totals', 'overhead_documentation_hours',    ohDoc.toFixed(2)),
+                row('totals', 'overhead_integration_hours',      ohInt.toFixed(2)),
+                row('totals', 'total_overhead_hours',            totalOverhead.toFixed(2)),
+                row('totals', 'total_hours',                     total.toFixed(2)),
+                row('totals', 'total_days',                      (total / hpd).toFixed(2)),
+            ];
+            tiers.forEach(t => lines.push(row('tiers', `${t.id}_hours`, (result.tierTotals[t.id] || 0).toFixed(2))));
+
+            // Per-type detail section
+            lines.push('');
+            lines.push(row('type_id', 'tier', 'label',
+                'count_muy_alta', 'count_alta', 'count_media', 'count_baja',
+                'rate_muy_alta',  'rate_alta',  'rate_media',  'rate_baja',
+                'hours'));
+            typeData.forEach(t => lines.push(row(
+                t.id, t.tier, t.label,
+                t.counts['muy-alta'], t.counts['alta'], t.counts['media'], t.counts['baja'],
+                effortRates[t.id]['muy-alta'], effortRates[t.id]['alta'],
+                effortRates[t.id]['media'],    effortRates[t.id]['baja'],
+                t.hours.toFixed(2)
+            )));
+
+            lines.push('');
+            lines.push(row('warning_code', 'severity', 'message', 'type_id', 'tier', 'hours'));
+            advisoryWarnings.forEach(w => lines.push(row(
+                w.code || '',
+                w.severity || '',
+                w.message || '',
+                w.typeId || '',
+                w.tier || '',
+                w.hours !== undefined ? Number(w.hours).toFixed(2) : ''
+            )));
+
+            const csv = lines.join('\n');
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `sap_ext_calc_${now.replace(/[:.]/g, '-')}.csv`;
+            document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+        }
+
+        function initialize() {
+            buildInputs(); buildRatesEditor(); loadState();
+            ['hours-per-day', 'overhead-governance', 'overhead-testing', 'overhead-documentation', 'overhead-integration'].forEach(id => document.getElementById(id).addEventListener('input', calculateAll));
+            ['overhead-governance-enabled', 'overhead-testing-enabled', 'overhead-documentation-enabled', 'overhead-integration-enabled'].forEach(id => document.getElementById(id).addEventListener('change', calculateAll));
+            document.getElementById('reset-button').addEventListener('click', resetCalculator);
+            document.getElementById('export-button').addEventListener('click', exportCsv);
+            calculateAll();
+        }
+
+        document.addEventListener('DOMContentLoaded', initialize);
+    </script>
+</body>
+</html>

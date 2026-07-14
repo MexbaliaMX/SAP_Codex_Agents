@@ -1,0 +1,4 @@
+interface:
+  display_name: "SAP Extensions Calculator"
+  short_description: "Clean Core extension sizing with advisory warnings"
+  default_prompt: "Use $sap-extensions-calculator to estimate SAP extension effort and separate numeric estimates from advisory warnings."
