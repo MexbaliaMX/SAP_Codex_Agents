@@ -1,92 +1,61 @@
-﻿# Matriz Fit-to-Standard SAP Fiori Apps
+﻿# Fit-to-Standard Workshop Matrix SAP Fiori E2E
 
-Fecha de preparacion: 2026-07-13
+Fecha de preparacion: 2026-07-14
 
 ## Proposito
 
-Esta matriz convierte el indice maestro E2E de SAP Fiori Apps en un tracker de workshop para SAP Activate Explore / Fit-to-Standard. Su objetivo es capturar decisiones, evidencia, owners, scope items, scripts de prueba y preguntas abiertas sin asumir activacion real en tenant.
+Esta matriz convierte el indice maestro en un tracker de workshop para SAP Activate Explore / Fit-to-Standard.
 
-## Fuente
+## Fuentes
 
-- Indice maestro: `docs/deliverables/s4hana-fiori-e2e-master-app-index.csv`
-- Matriz generada: `docs/deliverables/s4hana-fiori-fit-to-standard-workshop-matrix.csv`
+- CSV generado: `docs/deliverables/s4hana-fiori-fit-to-standard-workshop-matrix.csv`
 
-La matriz hereda las caveats de los catalogos FARL: es evidencia de referencia, no prueba de licenciamiento, activacion, rol asignado, alcance de scope item ni comportamiento productivo.
+## Resumen
 
-## Resumen ejecutivo
+- Total de filas: 456
+- Agrupaciones: 34
 
-| Metrica | Valor |
-| --- | --- |
-| Filas de workshop | 293 |
-| Prioridad High | 231 |
-| Prioridad Medium | 62 |
-| Riesgo: Edition/scope validation | 8 |
-| Riesgo: Fallback dependency | 23 |
-| Riesgo: Mexico fiscal/audit review | 69 |
-| Riesgo: Standard validation | 193 |
-
-## Columnas clave
-
-| Columna | Uso en workshop |
-| --- | --- |
-| Workshop | Agrupacion sugerida para agenda Fit-to-Standard |
-| Workstream | Proceso E2E de referencia |
-| BusinessOwner | Owner sugerido para decision y evidencia |
-| Priority | Prioridad inicial para preparar workshop |
-| FitGapDecision | Decision a capturar: Fit, Gap, Configuration, Extension, Integration, Fallback o Not in scope |
-| DecisionStatus | Estado: Open, Proposed, Approved, Deferred o Rejected |
-| ScopeItem | Scope item validado contra SAP Best Practices o tenant |
-| TestScript | Evidencia de prueba, demo script o caso Cloud ALM |
-| TenantEvidence | Prueba de app visible, role/catalog, space/page, configuracion y evidencia de ejecucion |
-| OpenQuestions | Pregunta minima para cerrar la decision |
-| KeyValidation | Checklist de evidencia esperada |
-| RiskFlag | Riesgo inicial para priorizacion |
-
-## Agenda sugerida por workshop
+## Agrupaciones
 
 | Workshop | Filas |
-| --- | --- |
-| Fallback and transition controls | 23 |
-| L2C/O2C commercial document flow | 22 |
-| Mexico compliance and fiscal evidence | 6 |
-| O2C analytics and controls | 6 |
-| O2C billing, returns and credit memo | 14 |
-| O2C credit management | 9 |
-| O2C delivery, picking and logistics handoff | 6 |
-| O2C receivables, payments, disputes and collections | 34 |
-| O2C revenue accounting handoff | 2 |
-| P2P controls and analytics | 4 |
-| P2P invoice verification and finance handoff | 6 |
-| P2P master data and supplier performance | 4 |
-| P2P receiving, inventory and logistics handoff | 8 |
-| P2P requisition, purchase order and approvals | 19 |
-| P2Produce controls and analytics | 4 |
-| P2Produce costing and R2R handoff | 4 |
-| P2Produce demand, MRP and planned orders | 18 |
-| P2Produce inventory, staging and goods movements | 6 |
-| P2Produce lean, Kanban and supply to production | 3 |
-| P2Produce master data, routings and capacity | 31 |
-| P2Produce production and process order execution | 5 |
-| P2Produce quality inspection and usage decision | 7 |
-| R2R accounts payable and payment operations | 1 |
-| R2R accounts receivable and correspondence | 4 |
-| R2R banking, payments and cash operations | 8 |
-| R2R general ledger, close and controls | 21 |
-| R2R master data and reporting | 2 |
-| S2P sourcing, contracts and source determination | 16 |
+| --- | ---: |
+| D2Operate asset and technical object foundation | 18 |
+| D2Operate EHS and product compliance | 8 |
+| D2Operate maintenance planning, orders and execution | 30 |
+| D2Operate permit-to-work and operational safety | 7 |
+| D2Operate product lifecycle and engineering change | 32 |
+| D2Operate quality, defects and inspection | 20 |
+| H2R access, controls and analytics | 3 |
+| H2R payroll, costing and finance handoff | 5 |
+| H2R personnel settlement and commissions | 5 |
+| H2R project staffing and resource management | 4 |
+| H2R time, leave, overtime and attendance | 17 |
+| H2R travel, expenses and reimbursement | 13 |
+| H2R workforce foundation and employee self-service | 7 |
+| L2C/O2C commercial document flow | 39 |
+| O2C analytics and controls | 9 |
+| O2C billing, returns and credit memo | 24 |
+| O2C delivery, logistics and Carta Porte touchpoints | 5 |
+| O2C receivables, payments, disputes and collections | 28 |
+| P2P analytics, spend control and governance | 13 |
+| P2P invoice verification, AP and payment handoff | 9 |
+| P2P receiving, service entry and logistics evidence | 9 |
+| P2P requisition, purchase order and approvals | 11 |
+| P2Produce controls and analytics | 5 |
+| P2Produce costing and R2R handoff | 10 |
+| P2Produce demand, MRP and planned orders | 28 |
+| P2Produce inventory, staging and goods movements | 8 |
+| P2Produce lean, Kanban and supply to production | 5 |
+| P2Produce master data, routings and capacity | 8 |
+| P2Produce production and process order execution | 15 |
+| P2Produce quality inspection and usage decision | 10 |
+| R2R banking, payments and cash operations | 10 |
+| R2R general ledger, close and controls | 15 |
+| R2R reporting, analytics and compliance | 11 |
+| S2P sourcing, contracts and source determination | 15 |
 
-## Reglas de uso
+## Validaciones abiertas
 
-- Empezar cada fila como `TBD - standard first`; no marcar gap hasta demostrar que SAP standard no cubre el escenario validado.
-- No aprobar uso de SAP GUI fallback sin owner, razon, control SoD, impacto de adopcion y evidencia de que Fiori no cubre el caso.
-- No cerrar filas Mexico sin evidencia CFDI/DRC, complemento de pago, Carta Porte cuando aplique, XML/acuses y trazabilidad contable/fiscal.
-- No usar `PublicCloud2602 = Si` como prueba de activacion; confirmar scope, business role, catalog, space/page y tenant.
-- Conectar cada decision aprobada con backlog, configuracion, pruebas, seguridad, datos maestros y change impact.
-
-## Siguientes acciones
-
-1. Asignar owners reales por workstream antes del primer workshop.
-2. Completar scope items y scripts de prueba por fila prioritaria.
-3. Capturar evidencia tenant para apps core y fallbacks SAP GUI.
-4. Separar filas Mexico en un compliance tracker dedicado cuando inicie el rollout local.
-5. Actualizar `FitGapDecision` y `DecisionStatus` despues de cada sesion.
+- Confirmar scope items, business roles, catalogs, spaces/pages y evidencia tenant.
+- Confirmar edition, pais, industria, licenciamiento, configuracion y restricciones de localizacion.
+- Tratar esta matriz como derivada de los catalogos FARL, no como prueba productiva.
