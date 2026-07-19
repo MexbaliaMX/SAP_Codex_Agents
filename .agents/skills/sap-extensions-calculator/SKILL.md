@@ -82,13 +82,15 @@ For client-facing output, use executive Spanish and separate confirmed facts, as
 
 - Read `references/calculation-model.md` when explaining or modifying the math.
 - Read `references/advisory-warning-policy.md` when tuning warning logic or writing client-facing caveats.
+- Read `references/related-skill-routing.md` when advisory warnings or next actions should hand off to another SAP skill.
 
 ## Related Skills
 
 - Use `sap-btp-cloud-platform` for BTP account, entitlement, runtime, identity, and deployment questions.
 - Use `sap-btp-connectivity` for destinations, Cloud Connector, and hybrid connectivity.
 - Use `sap-btp-integration-suite` for Integration Suite, iFlows, API Management, Event Mesh, and monitoring.
-- Use `sap-abap-cds` or `sapui5` when the estimate turns into concrete ABAP CDS, RAP, Fiori, or UI5 implementation work.
+- Use `sap-abap-cds` for CDS, analytical models, RAP data modeling, and ABAP Cloud persistence questions.
+- Use `sapui5` for SAPUI5, Fiori Elements, and custom UI implementation questions.
 
 ## Caveats
 
