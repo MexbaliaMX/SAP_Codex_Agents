@@ -1,9 +1,13 @@
 param(
-  [string]$Date = '2026-07-13'
+  [string]$Date = '2026-07-19'
 )
 
 $ErrorActionPreference = 'Stop'
 $Deliverables = 'docs/deliverables'
+$Validation = 'docs/validation'
+$TraceabilityCsv = Join-Path $Deliverables 'sap-content-cross-source-traceability.csv'
+$FarlRefreshReportCsv = Join-Path $Validation 's4hana-fiori-farl-refresh-validation-report.csv'
+$FarlRefreshReportMd = Join-Path $Validation 's4hana-fiori-farl-refresh-validation-report.md'
 $CatalogFiles = @(
   'docs/deliverables/s4hana-fiori-fi-r2r-app-inventory.md',
   'docs/deliverables/s4hana-fiori-p2p-s2p-app-inventory.md',
@@ -88,6 +92,142 @@ function Read-Catalog($file) {
     $rows += $row
   }
   return $rows
+}
+
+function Get-OwnerForProcess($processFamily) {
+  switch ($processFamily) {
+    'Record-to-Report' { return 'Finance R2R Owner' }
+    'Source-to-Pay / Procure-to-Pay' { return 'Procurement Owner' }
+    'Lead-to-Cash / Order-to-Cash' { return 'Sales / Billing Owner' }
+    'Plan-to-Produce' { return 'Manufacturing / Supply Chain Owner' }
+    'Design-to-Operate' { return 'Operations / Maintenance / Quality / EHS Owner' }
+    'Hire-to-Retire' { return 'HR / Payroll / Finance Integration Owner' }
+    default { return 'Solution Architecture Lead' }
+  }
+}
+
+function Get-MexicoCue($flag) {
+  if ($flag -eq 'Review') { return 'Audit / SoD / Mexico validation pending' }
+  return 'Not flagged'
+}
+
+function New-TraceabilityRows($fitRows) {
+  $i = 1
+  foreach ($f in $fitRows) {
+    [pscustomobject]@{
+      TraceabilityId = ('SCI-TRACE-{0:0000}' -f $i)
+      ProcessFamily = $f.ProcessFamily
+      ProcessStage = $f.Subprocess
+      ScopeItemCandidate = Get-ScopeCandidate $f
+      ScopeItemId = 'TBD - validate in SAP Process Navigator / tenant'
+      FioriAppId = $f.AppId
+      FioriAppName = $f.AppName
+      BusinessRole = $f.Role
+      BusinessCatalog = $f.Catalog
+      TechnicalCatalog = 'TBD'
+      ApplicationComponent = $f.Component
+      ApiOrArtifactId = 'Not applicable - FARL refresh only'
+      ApiOrArtifactType = 'Not applicable'
+      ApiOrArtifactName = 'Not applicable'
+      BtpService = 'Not applicable - FARL refresh only'
+      BtpServicePlan = 'Not applicable'
+      BtpMission = 'Not applicable'
+      SignavioProcess = 'TBD - SCI-006 pending'
+      SignavioVariant = 'TBD - SCI-006 pending'
+      DeploymentModel = if ($f.PublicCloud2602 -eq 'Si') { 'Public Cloud / Private Cloud Edition / On-Premise validation pending' } else { 'Private Cloud Edition / On-Premise; Public Cloud validation pending' }
+      ReleaseAnchor = $f.ReleaseAnchor
+      CountryOverlay = if ($f.MexicoRelevant -eq 'Review') { 'Mexico' } else { 'Global' }
+      MexicoComplianceCue = Get-MexicoCue $f.MexicoRelevant
+      SourceSystem = 'FARL'
+      SourceUrl = 'https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/'
+      SourceQuery = $f.AppId
+      SourceRetrievedOn = $Date
+      EvidenceLevel = 'FARL sourced'
+      ValidationStatus = 'Tenant validation pending'
+      RefreshRequiredBeforeUse = 'Yes, before project use or derived matrix refresh'
+      OpenGaps = 'Tenant activation, official scope item, business role/catalog, launchpad visibility, edition and licensing not confirmed'
+      Owner = Get-OwnerForProcess $f.ProcessFamily
+      NextAction = 'Validate app, role/catalog and scope item before client commitment'
+      Notes = ('SourceFile=' + $f.SourceFile)
+    }
+    $i++
+  }
+}
+
+function Assert-TraceabilitySchema($rows) {
+  $required = @(
+    'TraceabilityId','ProcessFamily','ProcessStage','ScopeItemCandidate','ScopeItemId','FioriAppId','FioriAppName',
+    'BusinessRole','BusinessCatalog','TechnicalCatalog','ApplicationComponent','ApiOrArtifactId','ApiOrArtifactType',
+    'ApiOrArtifactName','BtpService','BtpServicePlan','BtpMission','SignavioProcess','SignavioVariant','DeploymentModel',
+    'ReleaseAnchor','CountryOverlay','MexicoComplianceCue','SourceSystem','SourceUrl','SourceQuery','SourceRetrievedOn',
+    'EvidenceLevel','ValidationStatus','RefreshRequiredBeforeUse','OpenGaps','Owner','NextAction','Notes'
+  )
+  if ($rows.Count -eq 0) { throw 'Traceability export has no rows.' }
+  $columns = @($rows[0].PSObject.Properties.Name)
+  $missing = @($required | Where-Object { $_ -notin $columns })
+  if ($missing.Count -gt 0) { throw ('Traceability export missing required columns: ' + ($missing -join ', ')) }
+}
+
+function New-FarlRefreshValidationRows($masterRows, $fitRows, $roleRows, $mexRows, $scopeRows, $validationRows, $traceabilityRows) {
+  $checks = @(
+    @{ CheckId = 'FARL-001'; CheckName = 'Master rows generated'; Status = if ($masterRows.Count -gt 0) { 'Pass' } else { 'Fail' }; Detail = "Rows=$($masterRows.Count)" },
+    @{ CheckId = 'FARL-002'; CheckName = 'FARL caveat preserved'; Status = if (($masterRows | Where-Object { $_.ValidationStatus -ne 'FARL sourced; tenant validation pending' }).Count -eq 0) { 'Pass' } else { 'Fail' }; Detail = 'Expected every master row to preserve FARL sourced tenant validation caveat' },
+    @{ CheckId = 'FARL-003'; CheckName = 'Release anchors populated'; Status = if (($masterRows | Where-Object { [string]::IsNullOrWhiteSpace($_.ReleaseAnchor) }).Count -eq 0) { 'Pass' } else { 'Fail' }; Detail = 'Expected ReleaseAnchor on every master row' },
+    @{ CheckId = 'FARL-004'; CheckName = 'App IDs populated'; Status = if (($masterRows | Where-Object { [string]::IsNullOrWhiteSpace($_.AppId) }).Count -eq 0) { 'Pass' } else { 'Fail' }; Detail = 'Expected AppId on every master row' },
+    @{ CheckId = 'FARL-005'; CheckName = 'Business catalogs populated or explicitly flagged'; Status = if (($masterRows | Where-Object { [string]::IsNullOrWhiteSpace($_.Catalog) }).Count -eq 0) { 'Pass' } else { 'Fail' }; Detail = 'Expected Catalog value or controlled fallback marker on every master row' },
+    @{ CheckId = 'FARL-006'; CheckName = 'Traceability uses FARL only'; Status = if (($traceabilityRows | Where-Object { $_.SourceSystem -ne 'FARL' }).Count -eq 0) { 'Pass' } else { 'Fail' }; Detail = 'No Business Accelerator Hub, Discovery Center or Signavio rows expected in SCI-003' },
+    @{ CheckId = 'FARL-007'; CheckName = 'Traceability evidence preserved'; Status = if (($traceabilityRows | Where-Object { $_.EvidenceLevel -ne 'FARL sourced' -or $_.ValidationStatus -ne 'Tenant validation pending' }).Count -eq 0) { 'Pass' } else { 'Fail' }; Detail = 'Expected FARL sourced / Tenant validation pending on every traceability row' },
+    @{ CheckId = 'FARL-008'; CheckName = 'Derived matrices regenerated'; Status = if ($fitRows.Count -eq $masterRows.Count -and $roleRows.Count -eq $masterRows.Count -and $scopeRows.Count -eq $masterRows.Count) { 'Pass' } else { 'Fail' }; Detail = "Master=$($masterRows.Count); Fit=$($fitRows.Count); Role=$($roleRows.Count); Scope=$($scopeRows.Count); Mexico=$($mexRows.Count); ScopeValidation=$($validationRows.Count)" }
+  )
+  foreach ($c in $checks) {
+    [pscustomobject]@{
+      CheckId = $c.CheckId
+      CheckName = $c.CheckName
+      Status = $c.Status
+      Detail = $c.Detail
+      CheckedOn = $Date
+      EvidenceLevel = 'FARL sourced / Derived'
+      OpenGaps = 'Tenant activation, official scope items, licensing, edition, spaces/pages and production readiness remain pending'
+    }
+  }
+}
+
+function Write-FarlRefreshReport($rows) {
+  $rows | Export-Csv -LiteralPath $FarlRefreshReportCsv -NoTypeInformation -Encoding UTF8
+  $groups = $rows | Group-Object Status | Sort-Object Name
+  $lines = @(
+    '# SAP Fiori FARL Refresh Validation Report',
+    '',
+    "Fecha de preparacion: $Date",
+    '',
+    '## Proposito',
+    '',
+    'Este reporte valida el refresh controlado de artefactos FARL-sourced y sus matrices derivadas. No prueba activacion tenant, scope item oficial, licenciamiento, edition, roles productivos ni disponibilidad en launchpad.',
+    '',
+    '## Resultado',
+    '',
+    '| Status | Checks |',
+    '| --- | ---: |'
+  )
+  foreach ($g in $groups) { $lines += "| $($g.Name) | $($g.Count) |" }
+  $lines += @(
+    '',
+    '## Checks',
+    '',
+    '| CheckId | CheckName | Status | Detail |',
+    '| --- | --- | --- | --- |'
+  )
+  foreach ($r in $rows) { $lines += "| $($r.CheckId) | $($r.CheckName) | $($r.Status) | $($r.Detail) |" }
+  $lines += @(
+    '',
+    '## Validaciones abiertas',
+    '',
+    '- Confirmar activacion en tenant, business roles, catalogs, spaces/pages, OData/ICF y visibilidad launchpad.',
+    '- Confirmar scope items oficiales, test scripts y process flows contra SAP Process Navigator, SAP Best Practices o tenant.',
+    '- Confirmar edition, pais, industria, licenciamiento, configuracion y restricciones de localizacion.',
+    '- Mantener Business Accelerator Hub, Discovery Center y Signavio fuera del refresh SCI-003.'
+  )
+  Set-Content -LiteralPath $FarlRefreshReportMd -Value $lines -Encoding UTF8
 }
 
 function Get-WorkshopInfo($r) {
@@ -403,9 +543,22 @@ $validationMd += @(
 )
 Set-Content -LiteralPath (Join-Path $Deliverables 's4hana-fiori-scope-item-validation-report.md') -Value $validationMd -Encoding UTF8
 
+$traceabilityRows = @(New-TraceabilityRows $fit)
+Assert-TraceabilitySchema $traceabilityRows
+$traceabilityRows | Export-Csv -LiteralPath $TraceabilityCsv -NoTypeInformation -Encoding UTF8
+
+$farlRefreshValidationRows = @(New-FarlRefreshValidationRows $master $fit $roleRows $mexRows $scopeRows $validationRows $traceabilityRows)
+Write-FarlRefreshReport $farlRefreshValidationRows
+$failedChecks = @($farlRefreshValidationRows | Where-Object { $_.Status -ne 'Pass' })
+if ($failedChecks.Count -gt 0) {
+  throw ('FARL refresh validation failed: ' + (($failedChecks | ForEach-Object { $_.CheckId + '=' + $_.Status }) -join ', '))
+}
+
 Write-Host "Master rows: $($master.Count)"
 Write-Host "Fit rows: $($fit.Count)"
 Write-Host "Role rows: $($roleRows.Count)"
 Write-Host "Mexico rows: $($mexRows.Count)"
 Write-Host "Scope rows: $($scopeRows.Count)"
 Write-Host "Scope validation rows: $($validationRows.Count)"
+Write-Host "Traceability rows: $($traceabilityRows.Count)"
+Write-Host "FARL refresh checks: $($farlRefreshValidationRows.Count)"

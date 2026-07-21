@@ -1,6 +1,6 @@
 ﻿# Fit-to-Standard Workshop Matrix SAP Fiori E2E
 
-Fecha de preparacion: 2026-07-14
+Fecha de preparacion: 2026-07-19
 
 ## Proposito
 
