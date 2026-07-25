@@ -12,6 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Validate agent operating layer
         shell: powershell
         run: powershell -ExecutionPolicy Bypass -File scripts\validate-agent-operating-layer.ps1
@@ -19,6 +24,10 @@ jobs:
       - name: Validate plugin operating-layer assets
         shell: powershell
         run: powershell -ExecutionPolicy Bypass -File scripts\validate-plugin-operating-layer-assets.ps1
+
+      - name: Test SAP authorization review packs
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File scripts\test-authorization-review-packs.ps1
 
       - name: Validate release hygiene
         shell: powershell
