@@ -1,5 +1,69 @@
 # Final Release Manifest
 
+## Release Addendum - v0.2.0-rc1
+
+Date: 2026-07-25
+
+| Field | Value |
+|---|---|
+| Package | `sap-codex-deliverables` |
+| Release | `v0.2.0-rc1-advisory-rc` |
+| Git tag | `sap-codex-deliverables-v0.2.0-rc1` |
+| Tag target commit | `637cad305060134360c655efa455f1a205b923c5` |
+| Merge commit | `637cad305060134360c655efa455f1a205b923c5` |
+| Base branch | `chore/release-hygiene-advisory-rc` |
+| Merged PR | `https://github.com/MexbaliaMX/SAP_Codex_Agents/pull/9` |
+| GitHub prerelease | `https://github.com/MexbaliaMX/SAP_Codex_Agents/releases/tag/sap-codex-deliverables-v0.2.0-rc1` |
+| Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.2.0-rc1.zip` |
+| Archive size | `1,576,400 bytes` |
+| SHA256 | `6BCD9E94BEDA196C149950118AE5B3C4AD794217DB68DBE69F5A4721A8AA053F` |
+
+### v0.2.0-rc1 Scope
+
+This advisory RC records the merged SAP agents framework roadmap package, including SAP S/4HANA Authorization & Access Security, SoD controls advisory, evidence ingestion, repeatable review packs, deterministic authorization review-pack generation, CI regression coverage, SAP Fiori/process deliverables, GROW Fast advisory content, and extension calculator assets.
+
+### v0.2.0-rc1 Validation
+
+Post-merge local validation passed:
+
+- `scripts\validate-agent-operating-layer.ps1`
+- `scripts\validate-plugin-operating-layer-assets.ps1`
+- `scripts\test-authorization-review-packs.ps1`
+- `scripts\validate-release-hygiene.ps1`
+
+Release archive smoke passed:
+
+```text
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.2.0-rc1.zip
+SHA256: 6BCD9E94BEDA196C149950118AE5B3C4AD794217DB68DBE69F5A4721A8AA053F
+Workspace skills: 29
+Workspace templates markdown files: 16
+Workspace sample deliverable markdown files: 13
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
+GitHub prerelease verification confirmed:
+
+- `isDraft: false`
+- `isPrerelease: true`
+- Asset: `sap-codex-deliverables-v0.2.0-rc1.zip`
+- Asset state: `uploaded`
+- Asset digest: `sha256:6bcd9e94beda196c149950118ae5b3c4ad794217db68dbe69f5a4721a8aa053f`
+
+No GitHub Actions run or combined status appeared for merge commit `637cad3` at packaging time. Pre-merge `Release Hygiene` passed for head SHA `f6cdd5e`, and post-merge local validation passed on `637cad3`.
+
+### v0.2.0-rc1 Safety Boundaries
+
+- This is an advisory and template-oriented release candidate.
+- No live SAP tenant validation has been performed.
+- No fiscal, legal, security, SAP trademark, SAP documentation redistribution, marketplace, client redistribution, or production-readiness approval is implied.
+- Tenant-connected MCPs, hooks, production configuration, direct role/user changes, and transport actions remain blocked without separate explicit approval and environment evidence.
+- The manifest addendum may be committed after the release tag because archive checksum, prerelease URL, and GitHub asset metadata are known only after packaging and prerelease creation.
+
 Date: 2026-07-07
 
 Manifest refresh: 2026-07-07
