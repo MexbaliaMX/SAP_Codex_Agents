@@ -69,6 +69,21 @@ Plugin templates markdown files: 11
 Plugin sample markdown files: 11
 ```
 
+Manual install/load automated validation was also completed and recorded in `docs/validation/sap-codex-deliverables-v0.2.0-rc1-manual-install-load-smoke.md`.
+
+```text
+Download: PASS - 1,576,400 bytes
+SHA-256: PASS - matches 6BCD9E94...AA053F
+Extraction and required paths: PASS
+All 29 workspace skills and plugin skill: PASS
+Plugin validation: PASS
+Disabled configuration: PASS
+Control-character scan: PASS
+GitHub release confirmed as a published prerelease
+Overall app-level status: PENDING until Codex desktop install and fresh-task checks are completed
+Deviation: PowerShell unavailable; equivalent native extraction and python3 checks were used
+```
+
 No GitHub Actions run or combined status appeared for merge commit `637cad3` at packaging time. Pre-merge `Release Hygiene` passed for head SHA `f6cdd5e`, and post-merge local validation passed on `637cad3`.
 
 ### v0.2.0-rc1 Safety Boundaries
