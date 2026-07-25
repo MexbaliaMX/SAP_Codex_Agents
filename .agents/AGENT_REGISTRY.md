@@ -31,7 +31,9 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | Engagement Orchestrator | Advisory-ready | Intake objective, select skills/playbooks, enforce evidence and approval gates |
 | Process Advisory Agents | Advisory-ready | Frame end-to-end business process, controls, handoffs, gaps, and Mexico overlays |
 | SAP Activate Delivery Agents | Advisory-ready | Convert findings into phase-appropriate gates, backlog, RAID, readiness, and hypercare outputs |
+| GROW Fast Delivery Overlay | Advisory-ready | Route fixed-scope first-wave GROW Fast work across Activate phases, core processes, cookbooks, signoffs, and expansion backlog |
 | Technical Architecture Agents | Advisory-ready | Evaluate BTP, integration, connectivity, identity, data, operations, AI, and security impacts |
+| SAP Authorization Security Agents | Advisory-ready | Review S/4HANA authorization concepts, PFCG roles, SAP Fiori access, CDS/DCL, traces, and access evidence |
 | Development Implementation Agents | Advisory-ready | Support SAP development design, code review, quality, and release-aware implementation guidance |
 | Deliverable Factory Agents | Draft-ready | Package findings into reusable consulting and readiness deliverables |
 | MCP and Hook Automation | Blocked | Disabled pending trust, credential, Windows runtime, tenant/security, and approval review |
@@ -60,6 +62,12 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | Deploy Advisor | `sap-activate-deploy` | Cutover plan, migration status, training, readiness, support, risks | Go-live readiness checklist, go/no-go recommendation, residual risks | Go-live approval, residual-risk acceptance |
 | Run Advisor | `sap-activate-run` | Incidents, severity, workarounds, process owner status, AMS handoff | Hypercare triage, stabilization view, exit criteria, CI backlog | SLA commitments, incident closure, AMS acceptance |
 
+## GROW Fast Delivery Overlay
+
+| Agent | Skill or playbook | Typical inputs | Expected outputs | Approval gates |
+|---|---|---|---|---|
+| GROW Fast First-Wave Advisor | `sap-grow-fast`; `.agents/playbooks/grow-fast-first-wave.md` | DDA/CBC/Cloud ALM scope, country/legal entity, project plan, RACI, cookbook, workshop, migration, testing, cutover, and backlog evidence | First-wave scope boundary, routing recommendation, cookbook/readiness view, signoff gates, RAID/backlog entries, expansion-wave candidates | Scope freeze, irreversible finance presets, country fiscal/legal validation, custom extension/integration, migration signoff, go-live approval |
+
 ## Technical Architecture Agents
 
 | Agent | Skill or playbook | Typical inputs | Expected outputs | Approval gates |
@@ -71,6 +79,15 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | HANA Database Advisor | `sap-hana-cli`; `.agents/subagents/sap-hana-database-advisor.md` | HANA objects, HDI/container scope, bindings, schema evidence, performance issue | HANA readiness review, inspection plan, database risk list | Tenant connection, credential use, destructive database actions |
 | AI Core Advisor | `sap-ai-core` | AI use case, model/provider assumptions, data, grounding, security, operations | AI workload readiness, validation gaps, MLOps/security considerations | Provider/model availability claims, data/security approvals |
 | Dependency Security Advisor | `sap-dependency-security` | Package manifests, lockfiles, MCP config, CI, upgrade request | Supply-chain review, staged upgrade plan, MCP pin assessment | Dependency upgrades, package execution, MCP activation |
+
+## SAP Authorization Security Agents
+
+| Agent | Skill or playbook | Typical inputs | Expected outputs | Approval gates |
+|---|---|---|---|---|
+| Authorization Concept Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-authorization-concept-advisor.md` | PFCG role list, user assignment matrix, org levels, authorization object summary, generated profile status, role tests, process scope | Authorization readiness review, least-privilege gaps, role ownership risks, access test plan, transport readiness gaps | Role/profile/user changes, broad authorization acceptance, emergency access, production transports |
+| Fiori Authorization Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-fiori-authorization-advisor.md`; `sap-fiori-tools` | Business roles, catalogs, spaces/pages, app IDs, target mappings, OData services, backend roles, launchpad evidence | Fiori access matrix, app visibility findings, OData/backend alignment gaps, launchpad and SAP GUI fallback risks | Catalog/space/page changes, OData activation, backend role changes, launchpad publication, transports |
+| CDS DCL Security Reviewer | `sap-s4hana-authorization-security`; `.agents/subagents/sap-cds-dcl-security-reviewer.md`; `sap-abap-cds` | CDS view/entity, AccessControl annotation, DCL role, pfcg_auth mapping, service exposure, user test evidence | CDS/DCL security review, row-level access risks, PFCG mapping gaps, release assumptions, validation plan | DCL/code changes, privileged access, service exposure, production transports |
+| SoD Controls Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-sod-controls-advisor.md`; process skills | Role/persona matrix, user aliases, sensitive tasks, conflicting tasks, emergency access notes, compensating controls, audit evidence | SoD/control matrix, sensitive access risks, compensating control gaps, approval and monitoring plan | SoD exception acceptance, emergency access, broad role assignments, production transports |
 
 ## Development Implementation Agents
 
@@ -98,6 +115,10 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | BTP platform readiness | `.agents/templates/btp-platform-readiness.md` |
 | UI5 quality review | `.agents/templates/ui5-quality-review.md` |
 | Identity security readiness | `.agents/templates/identity-security-readiness.md` |
+| S/4HANA authorization readiness | `.agents/templates/s4hana-authorization-readiness.md` |
+| S/4HANA Fiori access matrix | `.agents/templates/s4hana-fiori-access-matrix.md` |
+| SAP access trace analysis | `.agents/templates/sap-access-trace-analysis.md` |
+| SAP SoD control matrix | `.agents/templates/sap-sod-control-matrix.md` |
 
 Client-ready anonymized examples live under `.agents/samples/client-ready`. They demonstrate how to combine routing playbooks and output profiles, but they are not tenant evidence, legal/tax approval, security approval, or production readiness approval.
 
@@ -105,6 +126,7 @@ Client-ready anonymized examples live under `.agents/samples/client-ready`. They
 
 | Playbook | Path |
 |---|---|
+| GROW Fast first wave | `.agents/playbooks/grow-fast-first-wave.md` |
 | Fit-to-standard workshop | `.agents/playbooks/fit-to-standard-workshop.md` |
 | Process diagnostic | `.agents/playbooks/process-diagnostic.md` |
 | Technical readiness review | `.agents/playbooks/technical-readiness-review.md` |
@@ -125,6 +147,7 @@ Client-ready anonymized examples live under `.agents/samples/client-ready`. They
 
 - No live SAP tenant validation has been performed.
 - No legal or tax validation has been performed for Mexico fiscal scenarios.
+- GROW Fast guidance is a local advisory abstraction; do not publish proprietary accelerator content or treat it as live SAP documentation.
 - API style review has a role playbook but no local `sap-api-style` skill folder in this workspace.
 - Identity security has a role playbook but no dedicated local Cloud Identity Services skill folder in this workspace.
 - MCP servers and hooks remain disabled by design.

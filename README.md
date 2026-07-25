@@ -29,9 +29,9 @@ Not ready for:
 
 | Area | Contents |
 |---|---|
-| Skills | 26 SAP skills under `.agents/skills` |
+| Skills | 27 SAP skills under `.agents/skills` |
 | Agent registry | `.agents/AGENT_REGISTRY.md` |
-| Routing playbooks | 7 playbooks under `.agents/playbooks` |
+| Routing playbooks | 8 playbooks under `.agents/playbooks` |
 | Role playbooks | Advisory technical/development roles under `.agents/subagents` |
 | Output profiles | Executive Spanish, technical working notes, and evidence-bound audit profiles |
 | Templates | 11 reusable SAP deliverable templates under `.agents/templates` |
@@ -91,6 +91,12 @@ Use these skills to convert process and technical findings into phase-appropriat
 | Realize | `sap-activate-realize` |
 | Deploy | `sap-activate-deploy` |
 | Run | `sap-activate-run` |
+
+### GROW Fast Delivery Overlay
+
+Use `sap-grow-fast` when planning, qualifying, routing, or reviewing a fixed-scope SAP GROW Fast first productive wave. It routes work across SAP Activate phases, core Record-to-Report, Order-to-Cash, and Procure-to-Pay process skills, configuration cookbook readiness, migration, testing, signoff, cutover, hypercare, and expansion-wave backlog.
+
+Use `.agents/playbooks/grow-fast-first-wave.md` for the first-wave delivery motion. Keep proprietary accelerator content, tenant behavior, localization, fiscal/legal, licensing, and production-readiness claims evidence-bound.
 
 ### Technical Architecture Agents
 
@@ -169,6 +175,7 @@ Scenario: We need an Order-to-Cash fit-to-standard workshop plan for a Mexico S/
 Pick the closest playbook:
 
 - `.agents/playbooks/fit-to-standard-workshop.md`
+- `.agents/playbooks/grow-fast-first-wave.md`
 - `.agents/playbooks/process-diagnostic.md`
 - `.agents/playbooks/technical-readiness-review.md`
 - `.agents/playbooks/go-live-readiness.md`

@@ -13,6 +13,7 @@ They are anonymized examples. They are not live tenant evidence, legal/tax advic
 | `hypercare-triage-client-ready.md` | Hypercare triage | Executive Spanish |
 | `ui5-cap-development-review-client-ready.md` | Development/code review | Technical working notes |
 | `integration-suite-transport-readiness-client-ready.md` | Integration transport readiness | Evidence-bound audit |
+| `s4hana-authorization-sod-client-ready.md` | SAP authorization SoD review | Evidence-bound audit |
 
 ## Reuse Rules
 

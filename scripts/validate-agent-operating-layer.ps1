@@ -33,6 +33,7 @@ $automation = ".agents\automation-candidates.md"
 $forwardReport = "docs\validation\full-agent-forward-test-report.md"
 
 $playbooks = @(
+  ".agents\playbooks\grow-fast-first-wave.md",
   ".agents\playbooks\fit-to-standard-workshop.md",
   ".agents\playbooks\process-diagnostic.md",
   ".agents\playbooks\technical-readiness-review.md",
@@ -57,7 +58,8 @@ $clientReadySamples = @(
   ".agents\samples\client-ready\s4hana-go-live-readiness-client-ready.md",
   ".agents\samples\client-ready\hypercare-triage-client-ready.md",
   ".agents\samples\client-ready\ui5-cap-development-review-client-ready.md",
-  ".agents\samples\client-ready\integration-suite-transport-readiness-client-ready.md"
+  ".agents\samples\client-ready\integration-suite-transport-readiness-client-ready.md",
+  ".agents\samples\client-ready\s4hana-authorization-sod-client-ready.md"
 )
 
 $templateRefs = @(
@@ -79,8 +81,8 @@ $templateRefs = @(
 $playbookDir = Join-Path $Root ".agents\playbooks"
 if (Test-Path -LiteralPath $playbookDir) {
   $actualPlaybooks = @(Get-ChildItem -LiteralPath $playbookDir -Filter "*.md" -File)
-  if ($actualPlaybooks.Count -ne 7) {
-    Add-Failure "Expected 7 playbooks, found $($actualPlaybooks.Count)"
+  if ($actualPlaybooks.Count -ne 8) {
+    Add-Failure "Expected 8 playbooks, found $($actualPlaybooks.Count)"
   }
 }
 
@@ -95,8 +97,8 @@ if (Test-Path -LiteralPath $profileDir) {
 $clientReadyDir = Join-Path $Root ".agents\samples\client-ready"
 if (Test-Path -LiteralPath $clientReadyDir) {
   $actualClientReadySamples = @(Get-ChildItem -LiteralPath $clientReadyDir -Filter "*.md" -File)
-  if ($actualClientReadySamples.Count -ne 8) {
-    Add-Failure "Expected 8 client-ready sample files including INDEX.md, found $($actualClientReadySamples.Count)"
+  if ($actualClientReadySamples.Count -ne 9) {
+    Add-Failure "Expected 9 client-ready sample files including INDEX.md, found $($actualClientReadySamples.Count)"
   }
 }
 
@@ -140,4 +142,4 @@ if ($Failures.Count -gt 0) {
 }
 
 Write-Host "Agent operating-layer validation passed." -ForegroundColor Green
-Write-Host "Checked: 1 registry, 7 playbooks, 4 output profile files, 8 client-ready sample files, controlled automation notes, forward-test report, and template references."
+Write-Host "Checked: 1 registry, 8 playbooks, 4 output profile files, 9 client-ready sample files, controlled automation notes, forward-test report, and template references."

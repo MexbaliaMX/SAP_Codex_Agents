@@ -82,7 +82,7 @@ Release hygiene update on 2026-07-05:
 - `.github/workflows/release-hygiene.yml` was added for push and pull request validation.
 - `scripts/validate-release-hygiene.ps1` was added to enforce advisory RC guardrails for broken reference paths, active `.codex/config.toml`, active `.codex/hooks.json`, disabled example files, unfinished operating-layer markers, and private/customer/NDA artifact filename patterns.
 - `.gitignore` was expanded for local Codex runtime config, environment files, certificates, keys, and private/customer/NDA deliverable patterns.
-- GPL-3.0-only source release planning is recorded in `docs/governance/license-review.md`; third-party notice, contributor-rights, provenance, and redistribution review remain pending.
+- GPL-3.0-only source release planning is recorded in `docs/governance/license-review.md`; initial post-RC third-party provenance inventory is recorded in `docs/governance/third-party-provenance-review.md`; upstream source, contributor-rights, SAP documentation terms, trademark, marketplace, and redistribution review remain pending.
 - Local validation passed for `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1`.
 
 GPL-3.0 release planning update on 2026-07-05:
@@ -90,7 +90,7 @@ GPL-3.0 release planning update on 2026-07-05:
 - Owner direction recorded for GPL-3.0-only source release planning.
 - `LICENSE` added with GNU GPLv3 text downloaded from the Free Software Foundation license URL.
 - `docs/governance/gpl-3-release-plan.md` added.
-- Third-party notices, contributor-rights, provenance, proprietary packaging, marketplace distribution, and client redistribution review remain open.
+- Third-party notices now include an initial tracked-repository provenance inventory; upstream repository URL, pinned source commit, local import archive checksum, and archive-content comparison are recorded; contributor-rights, SAP documentation terms, proprietary packaging, marketplace distribution, and client redistribution review remain open.
 
 Archive refresh on 2026-07-05:
 
@@ -100,6 +100,34 @@ Archive refresh on 2026-07-05:
 - `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
 - `scripts\validate-agent-operating-layer.ps1`, `scripts\validate-plugin-operating-layer-assets.ps1`, and `scripts\validate-release-hygiene.ps1` passed.
 - Extracted archive check confirmed `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs\governance\gpl-3-release-plan.md` are present.
+
+Post-PR #8 archive refresh on 2026-07-07:
+
+- PR #8 was merged as provenance checkpoint commit `adc09eb Merge pull request #8 from MexbaliaMX/codex/gpl-provenance-review`.
+- `sap-codex-deliverables-v0.1.0.zip` regenerated from commit `adc09eb`.
+- Archive size: `1,184,351 bytes`.
+- SHA256: `EA444CB94350C0C0DF1D4A4D0FDF30A5ABE28F5C440D305724041F8CBB0458E2`.
+- `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
+- `scripts\validate-release-hygiene.ps1`, `scripts\validate-agent-operating-layer.ps1`, and `scripts\validate-plugin-operating-layer-assets.ps1` passed.
+- Remaining external distribution blockers are release-owner/legal acceptance of contributor-rights posture, SAP documentation audit sufficiency, SAP trademark/product-name treatment, marketplace/client redistribution posture, tenant/security approvals, and app-level plugin smoke before any external/client distribution.
+
+Contributor-rights and SAP redistribution/trademark checkpoint on 2026-07-07:
+
+- Pinned upstream public GPL signals remain the evidence basis for public-source advisory RC planning.
+- Local scan of the pinned upstream archive found contributor-guide material but no root CLA, DCO, copyright-assignment, or contributor-license agreement file.
+- SAP website legal pages reviewed on 2026-07-07 support a conservative posture: use SAP names only for clear textual compatibility/advisory references, preserve trademark attribution, avoid SAP endorsement/affiliation/certification/logo implications, and do not bundle SAP documentation pages, screenshots, large excerpts, API reference dumps, or SAP-authored assets without separate permission.
+- SAP documentation excerpt audit completed in `docs/governance/sap-documentation-excerpt-audit.md`; tracked-source scan found SAP documentation URLs and source-guided summaries, but no tracked SAP documentation pages, screenshots, large excerpts, API reference dumps, SAP logos, or SAP-authored binary/media/archive assets by the audited patterns.
+- Public-source advisory review remains allowed by owner direction with caveats preserved; proprietary/client packaging, marketplace publication, SAP-branded promotion, and external/client distribution beyond public source review remain blocked pending formal acceptance.
+
+Post-issue #2 close archive refresh on 2026-07-07:
+
+- Issue #2 was closed as completed for the public-source advisory RC GPL/provenance/notices review scope.
+- `sap-codex-deliverables-v0.1.0.zip` regenerated from commit `f62cd38 Record SAP documentation excerpt audit`.
+- Archive size: `1,190,304 bytes`.
+- SHA256: `36B1F20E5A5452D41B10B972D0ABADED817EB31D860B787A0AC64786662CF42D`.
+- `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed.
+- The archive includes `docs/governance/sap-documentation-excerpt-audit.md` available at source commit `f62cd38`; this readiness report records the later issue #2 closure note.
+- Proprietary/client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, and external/client distribution beyond public source advisory review remain blocked pending separate release-owner/legal/security acceptance.
 
 ## Release Assets
 
@@ -123,15 +151,14 @@ Archive refresh on 2026-07-05:
 | Hooks | Reviewed, not enabled |
 | Tenant-connected MCPs | Blocked |
 | Release hygiene CI | Added for advisory RC push and pull request checks |
-| License review | GPL-3.0-only source release planned; third-party notice and redistribution review still open |
+| License review | GPL-3.0-only source release planned; upstream source ref pinned; contributor-rights and SAP redistribution/trademark checkpoint recorded; SAP documentation excerpt audit completed for tracked source; issue #2 closed for public-source advisory RC governance; marketplace/client redistribution acceptance still separate |
 
 ## Blockers Before External Distribution
 
 - Keep SAC MCP disabled until source-install evidence, tenant approval, and security review are complete.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
-- Review GPL-3.0 obligations before proprietary client packaging, marketplace distribution, closed redistribution, or client distribution beyond public source review.
-- Complete formal third-party notice review before external/client distribution.
+- Obtain separate release-owner/legal/security acceptance before proprietary client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, or client distribution beyond public source review.
 - Regenerate and smoke the release archive again if validation documentation or release governance files change before distribution.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 

@@ -45,6 +45,24 @@ function Assert-PathExists {
   return $null
 }
 
+function Expand-ReleaseArchive {
+  param(
+    [string]$Archive,
+    [string]$Destination
+  )
+
+  $tar = Get-Command tar -CommandType Application -ErrorAction SilentlyContinue
+  if ($tar) {
+    & $tar.Source -xf $Archive -C $Destination
+    if ($LASTEXITCODE -ne 0) {
+      throw "tar extraction failed for release archive: $Archive"
+    }
+    return
+  }
+
+  Expand-Archive -LiteralPath $Archive -DestinationPath $Destination -Force
+}
+
 $archiveFullPath = Resolve-RequiredPath -Path $ArchivePath -Label "Release archive"
 $hash = Get-FileHash -LiteralPath $archiveFullPath -Algorithm SHA256
 
@@ -70,7 +88,7 @@ $smokeRoot = Join-Path $env:TEMP ("sap-release-archive-smoke-" + [guid]::NewGuid
 New-Item -ItemType Directory -Path $smokeRoot | Out-Null
 
 try {
-  Expand-Archive -LiteralPath $archiveFullPath -DestinationPath $smokeRoot -Force
+  Expand-ReleaseArchive -Archive $archiveFullPath -Destination $smokeRoot
 
   $expectedPaths = @(
     "plugins\sap-codex-deliverables\.codex-plugin\plugin.json",

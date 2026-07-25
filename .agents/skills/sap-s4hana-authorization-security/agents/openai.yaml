@@ -1,0 +1,4 @@
+interface:
+  display_name: "SAP S/4HANA Authorization Security"
+  short_description: "Review S/4HANA and Fiori access security"
+  default_prompt: "Use $sap-s4hana-authorization-security to review S/4HANA roles, Fiori catalogs, CDS/DCL, traces, and access evidence."

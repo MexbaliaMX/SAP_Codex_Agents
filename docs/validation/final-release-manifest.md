@@ -1,8 +1,8 @@
 # Final Release Manifest
 
-Date: 2026-07-05
+Date: 2026-07-07
 
-Manifest refresh: 2026-07-05
+Manifest refresh: 2026-07-07
 
 ## Release Identity
 
@@ -10,17 +10,17 @@ Manifest refresh: 2026-07-05
 |---|---|
 | Package | `sap-codex-deliverables` |
 | Release | `v0.1.0-advisory-rc` |
-| Git tag | `sap-codex-deliverables-v0.1.0` |
-| Git commit | `cf49ee5 Reconcile advisory RC validation docs` |
-| Branch at release | `chore/release-hygiene-advisory-rc` |
-| Git status at manifest creation | Clean before ignored archive generation; manifest updated after smoke |
+| Git tag | `sap-codex-deliverables-v0.1.0` (not moved during this archive refresh) |
+| Archive source commit | `f62cd38 Record SAP documentation excerpt audit` |
+| Branch at archive refresh | `codex/sap-agents-framework-rc-roadmap` |
+| Git status at archive creation | Clean tracked workspace before ignored archive generation; manifest updated after smoke |
 | Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip` |
-| Archive size | `1,176,338 bytes` |
-| SHA256 | `7EE823211B620D5167A076ACE7272ADB09E68C82B4EB95BB90C522F56465985A` |
+| Archive size | `1,190,304 bytes` |
+| SHA256 | `36B1F20E5A5452D41B10B972D0ABADED817EB31D860B787A0AC64786662CF42D` |
 
 ## Manifest Refresh Note
 
-This manifest records the GPL-3.0-only advisory RC archive regenerated from commit `cf49ee5` after reconciling release validation docs. The archive smoke test, extracted plugin validation, disabled config check, and GPL file presence check passed.
+This manifest records the GPL-3.0-only advisory RC archive regenerated from commit `f62cd38` after issue #2 was closed for the public-source advisory RC GPL/provenance/notices review scope. The archive includes the SAP documentation excerpt audit available at that commit; this manifest records the later issue #2 closure note. The archive smoke test, extracted plugin validation, disabled config check, and GPL file presence check passed.
 
 The final manifest commit may be newer than the archive source commit because the archive checksum cannot be embedded inside the same archive without changing the checksum.
 
@@ -28,7 +28,7 @@ The final manifest commit may be newer than the archive source commit because th
 
 Status: ready for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review.
 
-External or client distribution remains blocked pending third-party notice, provenance, redistribution, tenant/security, and governance review.
+Issue #2 is closed for the public-source advisory RC GPL/provenance/notices review scope. External or client distribution beyond public-source advisory review remains blocked pending separate release-owner/legal/security decisions for SAP trademark treatment, SAP documentation redistribution rights, marketplace terms, proprietary/client packaging, tenant/security approval, and production readiness.
 
 Production or tenant-connected use remains blocked pending live SAP tenant evidence, security approval, legal/tax review where relevant, and explicit human approval for tenant-impacting actions.
 
@@ -93,6 +93,36 @@ Plugin templates markdown files: 11
 Plugin sample markdown files: 11
 ```
 
+Post-PR #8 archive refresh result:
+
+```text
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip
+SHA256: EA444CB94350C0C0DF1D4A4D0FDF30A5ABE28F5C440D305724041F8CBB0458E2
+Workspace skills: 26
+Workspace templates markdown files: 11
+Workspace sample deliverable markdown files: 11
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
+Post-issue #2 close archive refresh result:
+
+```text
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.1.0.zip
+SHA256: 36B1F20E5A5452D41B10B972D0ABADED817EB31D860B787A0AC64786662CF42D
+Workspace skills: 26
+Workspace templates markdown files: 11
+Workspace sample deliverable markdown files: 11
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
 Additional extracted-archive validation:
 
 ```powershell
@@ -115,6 +145,8 @@ Passed in this workspace:
 - `validate_plugin.py` for `plugins/sap-codex-deliverables`.
 - Release archive smoke via `scripts/test-release-archive.ps1`.
 - GPL release files present in the refreshed archive: `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `docs/governance/gpl-3-release-plan.md`.
+- Issue #2 closed as completed for public-source advisory RC GPL/provenance/notices review scope.
+- SAP documentation excerpt audit present at `docs/governance/sap-documentation-excerpt-audit.md`.
 - Manual Codex app install/load smoke for `sap-codex-deliverables`.
 - Template forward testing and sample deliverable creation.
 - Remaining Phase 2 forward testing: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, and Realize.
@@ -134,7 +166,7 @@ Passed in this workspace:
 ## Safety Boundaries
 
 - No live SAP BTP, Integration Suite, HANA, SAC, Datasphere, S/4HANA, BAS, or Fiori launchpad tenant validation has been performed.
-- No fiscal, legal, security, third-party notice, redistribution, or production-readiness approval is implied.
+- No fiscal, legal, security, SAP trademark, SAP documentation redistribution, marketplace, client redistribution, or production-readiness approval is implied.
 - Tenant-connected MCPs remain blocked.
 - Hooks remain disabled; `.codex/hooks.example.json` is documentation-only.
 - `.codex/config.toml.example` is disabled/comment-only.
@@ -146,7 +178,7 @@ Passed in this workspace:
 
 ## Remaining Blockers
 
-- Complete third-party notice, contributor-rights, provenance, and GPL-3.0 redistribution review before proprietary/client packaging, marketplace distribution, closed redistribution, or external/client distribution beyond public source review.
+- Issue #2 is closed for public-source advisory RC GPL/provenance/notices review scope, but proprietary/client packaging, marketplace distribution, closed redistribution, SAP-branded promotion, or external/client distribution beyond public source review still require separate release-owner/legal/security acceptance.
 - Rerun app-level plugin smoke after any archive, marketplace, plugin manifest, or operating-layer asset change before external/client distribution.
 - Decide whether copied command references stay under individual skills or move to a shared prompt library.
 - Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.

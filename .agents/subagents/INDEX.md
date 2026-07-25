@@ -13,6 +13,10 @@ These files are Codex-safe role playbooks converted from upstream Claude agents.
 | `sap-sqlscript-analyzer` | SAP SQLScript Analyzer | plugins/sap-sqlscript/agents/sqlscript-analyzer.md |
 | `sap-api-style-reviewer` | SAP API Style Reviewer | plugins/sap-api-style/agents/api-style-reviewer.md |
 | `sap-identity-security-advisor` | SAP Identity Security Advisor | plugins/sap-btp-cloud-identity-services/agents/identity-security-advisor.md |
+| `sap-authorization-concept-advisor` | SAP Authorization Concept Advisor | local/sap-s4hana-authorization-security |
+| `sap-fiori-authorization-advisor` | SAP Fiori Authorization Advisor | local/sap-s4hana-authorization-security |
+| `sap-cds-dcl-security-reviewer` | SAP CDS DCL Security Reviewer | local/sap-s4hana-authorization-security |
+| `sap-sod-controls-advisor` | SAP SoD Controls Advisor | local/sap-s4hana-authorization-security |
 
 ## Use Rules
 

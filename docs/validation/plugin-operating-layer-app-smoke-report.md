@@ -33,6 +33,34 @@ Confirmed from this Codex session:
 - Fresh Codex thread `019f2e46-e707-7203-a297-7f03050da78a` completed a no-shell delegated O2C rerun, but the delegated MCP resource surface did not expose `sap-deliverable-templates`; it is recorded as a plugin-surface limitation, not a pass.
 - GPL-3.0-only release planning changed source governance files only; it did not enable MCP servers, hooks, tenant execution, or plugin runtime behavior.
 
+## App-Level Smoke Rerun For Issue #6
+
+Date: 2026-07-08
+
+Status: pass.
+
+Rerun evidence:
+
+- The repo-local plugin URL was opened successfully through the Codex app:
+  `codex://plugins/sap-codex-deliverables?marketplacePath=C%3A%5Ccodex%5CSAP%20Agents%5Cmarketplace.json`
+- Fresh Codex thread `019f4377-63cd-77e2-9370-e5cf428664f0` completed the issue #6 app-level smoke prompt using `sap-deliverable-templates` and the `evidence-bound-audit` profile.
+- The fresh thread reported that plugin-local `sap-deliverable-templates` assets and the `evidence-bound-audit` profile were available under `plugins\sap-codex-deliverables`.
+- The fresh thread produced an executive Spanish go-live readiness recommendation for an anonymized S/4HANA Mexico release.
+- The output separated confirmed facts, assumptions, validation gaps, risks, owners, and next actions.
+- The output treated CFDI, complementos de pago, Carta Porte, SAT evidence, security, fiscal/legal, tenant, and production approval items as validation gaps.
+- The output ended with a PASS note confirming the plugin-local skill/assets were available and that it avoided tenant readiness, legal/fiscal compliance, security approval, and production approval claims.
+- `scripts\test-release-archive.ps1 -ArchivePath sap-codex-deliverables-v0.1.0.zip` passed again with SHA256 `36B1F20E5A5452D41B10B972D0ABADED817EB31D860B787A0AC64786662CF42D`.
+- `scripts\validate-plugin-operating-layer-assets.ps1` passed.
+- `scripts\validate-release-hygiene.ps1` passed.
+
+Current release evidence after rerun:
+
+- Tag/source head: `0e6cf6c Refresh release archive manifest after issue 2`.
+- Archive payload source recorded in the final manifest: `f62cd38 Record SAP documentation excerpt audit`.
+- Archive: `sap-codex-deliverables-v0.1.0.zip`.
+- Archive SHA256: `36B1F20E5A5452D41B10B972D0ABADED817EB31D860B787A0AC64786662CF42D`.
+- No MCP servers, hooks, tenant execution, credentials, production actions, legal/tax approvals, security approvals, or SAP tenant claims were introduced.
+
 Fresh-thread output confirmation:
 
 - Both fresh threads reported use of `sap-deliverable-templates` and operating-layer assets.
