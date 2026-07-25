@@ -54,6 +54,21 @@ GitHub prerelease verification confirmed:
 - Asset state: `uploaded`
 - Asset digest: `sha256:6bcd9e94beda196c149950118ae5b3c4ad794217db68dbe69f5a4721a8aa053f`
 
+GitHub prerelease asset fresh-download smoke passed:
+
+```text
+Downloaded asset: sap-codex-deliverables-v0.2.0-rc1.zip
+Downloaded SHA256: 6BCD9E94BEDA196C149950118AE5B3C4AD794217DB68DBE69F5A4721A8AA053F
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Workspace skills: 29
+Workspace templates markdown files: 16
+Workspace sample deliverable markdown files: 13
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
 No GitHub Actions run or combined status appeared for merge commit `637cad3` at packaging time. Pre-merge `Release Hygiene` passed for head SHA `f6cdd5e`, and post-merge local validation passed on `637cad3`.
 
 ### v0.2.0-rc1 Safety Boundaries
