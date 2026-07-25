@@ -99,6 +99,14 @@ No GitHub Actions run or combined status appeared for merge commit `637cad3` at 
 - Tenant-connected MCPs, hooks, production configuration, direct role/user changes, and transport actions remain blocked without separate explicit approval and environment evidence.
 - The manifest addendum may be committed after the release tag because archive checksum, prerelease URL, and GitHub asset metadata are known only after packaging and prerelease creation.
 
+### v0.2.0-rc1 Acceptance
+
+Status: ACCEPTED for internal advisory RC use.
+
+Acceptance record: `docs/validation/v0.2.0-rc1-acceptance.md`.
+
+This acceptance is limited to internal advisory RC use, local workspace use, template/skill review, and fresh Codex plugin install/load evaluation. It does not approve production use, client distribution, marketplace publication, SAP tenant access, legal/fiscal conclusions, security approval, or SAP trademark/documentation redistribution.
+
 Date: 2026-07-07
 
 Manifest refresh: 2026-07-07
