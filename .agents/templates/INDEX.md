@@ -18,6 +18,7 @@ Use these copy-ready templates when producing repeatable SAP consulting, deliver
 | `s4hana-fiori-access-matrix.md` | Fiori role, catalog, space/page, app, OData, CDS, and backend access traceability |
 | `sap-access-trace-analysis.md` | SU53/authorization trace troubleshooting and access evidence review |
 | `sap-sod-control-matrix.md` | S/4HANA SoD, sensitive access, compensating control, and audit evidence review |
+| `sap-authorization-evidence-intake.md` | Sanitized evidence request checklist for authorization review packs |
 
 ## Use Rules
 

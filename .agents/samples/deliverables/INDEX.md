@@ -14,6 +14,8 @@ These files are fictional filled examples that demonstrate how to use the shared
 | `sample-btp-platform-readiness.md` | `btp-platform-readiness.md` |
 | `sample-ui5-quality-review.md` | `ui5-quality-review.md` |
 | `sample-identity-security-readiness.md` | `identity-security-readiness.md` |
+| `sample-s4hana-fiori-access-matrix.csv` | `s4hana-fiori-access-matrix.md` |
+| `sample-sap-sod-control-matrix.csv` | `sap-sod-control-matrix.md` |
 
 ## Use Rules
 

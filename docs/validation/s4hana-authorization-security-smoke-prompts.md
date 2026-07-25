@@ -50,3 +50,11 @@ Use `$sap-s4hana-authorization-security` and the `.agents/subagents/sap-sod-cont
 Scenario: Alias `BUYER_QA_02` appears to have access to create purchase orders, post goods receipt, release blocked invoices, and view supplier payment status. Evidence available: role assignment matrix, Fiori tile screenshots, and workshop notes from the Procure-to-Pay owner. Missing evidence: backend object summary, SAP GUI fallback exposure, negative tests, approval workflow evidence, and control owner signoff.
 
 Produce an advisory SoD review with sensitive access risks, Mexico fiscal/audit cues, compensating control options, validation steps, and gates before any transport.
+
+## Prompt 6: File-Based Fiori Evidence Review
+
+Use `$sap-s4hana-authorization-security` to review `.agents/samples/deliverables/sample-s4hana-fiori-access-matrix.csv`. First run `.agents/skills/sap-s4hana-authorization-security/scripts/validate_authorization_evidence.py --profile fiori-access` against the CSV. Then summarize validation issues, evidence gaps, risks, recommendations, owners, and approval gates. Do not edit files.
+
+## Prompt 7: File-Based SoD Evidence Review
+
+Use `$sap-s4hana-authorization-security` and `.agents/subagents/sap-sod-controls-advisor.md` to review `.agents/samples/deliverables/sample-sap-sod-control-matrix.csv`. First run `.agents/skills/sap-s4hana-authorization-security/scripts/validate_authorization_evidence.py --profile sod-control` against the CSV. Then produce a concise SoD advisory review with control gaps, Mexico fiscal/audit cues, validation steps, and approval gates. Do not edit files.

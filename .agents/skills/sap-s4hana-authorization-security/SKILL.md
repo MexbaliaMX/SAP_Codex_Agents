@@ -32,6 +32,8 @@ Ask for or inspect only sanitized evidence:
 - Test evidence: positive and negative user tests, SU53, sanitized authorization trace, failed app/OData call details, role comparison.
 - Transport evidence: transport request, target system, role generation status, user assignment policy, retrofit/dependency notes.
 
+For file-based reviews, use `.agents/templates/sap-authorization-evidence-intake.md` to request sanitized inputs. When CSV or Markdown matrices are available, run `scripts/validate_authorization_evidence.py` before drafting findings to catch missing owners, approval gates, evidence status, and required columns.
+
 ## Workflow
 
 1. Classify the request as concept design, Fiori access review, CDS/DCL review, trace troubleshooting, readiness review, or SoD/control review.
@@ -48,6 +50,7 @@ Ask for or inspect only sanitized evidence:
    - `.agents/templates/s4hana-fiori-access-matrix.md`
    - `.agents/templates/sap-access-trace-analysis.md`
    - `.agents/templates/sap-sod-control-matrix.md`
+   - `.agents/templates/sap-authorization-evidence-intake.md`
 
 ## Review Lenses
 
@@ -91,3 +94,7 @@ For technical work, include object-level detail, test cases, and exact evidence 
 - Do not treat SAP Fiori Apps Reference Library, training PDFs, or generic SAP examples as proof of client configuration.
 - Do not approve SoD conflicts, emergency access, broad wildcard authorizations, or production transports.
 - Do not automate live tenant access or role generation from this skill unless separate trusted tooling and explicit approval exist.
+
+## Bundled Script
+
+- `scripts/validate_authorization_evidence.py`: Validate CSV or Markdown evidence matrices with profiles `fiori-access`, `sod-control`, `authorization-readiness`, or `trace-analysis`. Use it on sanitized files only.
