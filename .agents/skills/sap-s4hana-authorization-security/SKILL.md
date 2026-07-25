@@ -32,7 +32,7 @@ Ask for or inspect only sanitized evidence:
 - Test evidence: positive and negative user tests, SU53, sanitized authorization trace, failed app/OData call details, role comparison.
 - Transport evidence: transport request, target system, role generation status, user assignment policy, retrofit/dependency notes.
 
-For file-based reviews, use `.agents/templates/sap-authorization-evidence-intake.md` to request sanitized inputs. When CSV or Markdown matrices are available, run `scripts/validate_authorization_evidence.py` before drafting findings to catch missing owners, approval gates, evidence status, and required columns.
+For file-based reviews, use `.agents/templates/sap-authorization-evidence-intake.md` to request sanitized inputs. When CSV or Markdown matrices are available, run `scripts/validate_authorization_evidence.py` before drafting findings to catch missing owners, approval gates, evidence status, and required columns. For repeatable review packs, run `scripts/generate_authorization_review_pack.py` after validation and compare the output with the golden sample shape when applicable.
 
 ## Workflow
 
@@ -98,3 +98,4 @@ For technical work, include object-level detail, test cases, and exact evidence 
 ## Bundled Script
 
 - `scripts/validate_authorization_evidence.py`: Validate CSV or Markdown evidence matrices with profiles `fiori-access`, `sod-control`, `authorization-readiness`, or `trace-analysis`. Use it on sanitized files only.
+- `scripts/generate_authorization_review_pack.py`: Generate deterministic Markdown review packs from sanitized CSV or Markdown evidence using the same profiles as the validator. Use it for smoke tests and repeatable client-ready drafts.

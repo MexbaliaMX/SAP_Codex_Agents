@@ -58,3 +58,7 @@ Use `$sap-s4hana-authorization-security` to review `.agents/samples/deliverables
 ## Prompt 7: File-Based SoD Evidence Review
 
 Use `$sap-s4hana-authorization-security` and `.agents/subagents/sap-sod-controls-advisor.md` to review `.agents/samples/deliverables/sample-sap-sod-control-matrix.csv`. First run `.agents/skills/sap-s4hana-authorization-security/scripts/validate_authorization_evidence.py --profile sod-control` against the CSV. Then produce a concise SoD advisory review with control gaps, Mexico fiscal/audit cues, validation steps, and approval gates. Do not edit files.
+
+## Prompt 8: Generated Review Pack Regression
+
+Use `$sap-s4hana-authorization-security` to generate review packs from the Fiori and SoD CSV samples with `.agents/skills/sap-s4hana-authorization-security/scripts/generate_authorization_review_pack.py`. Compare the generated Markdown to the matching `golden-*.md` sample outputs and summarize any behavioral drift before accepting changes.

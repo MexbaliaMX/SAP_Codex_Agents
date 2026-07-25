@@ -16,6 +16,8 @@ These files are fictional filled examples that demonstrate how to use the shared
 | `sample-identity-security-readiness.md` | `identity-security-readiness.md` |
 | `sample-s4hana-fiori-access-matrix.csv` | `s4hana-fiori-access-matrix.md` |
 | `sample-sap-sod-control-matrix.csv` | `sap-sod-control-matrix.md` |
+| `golden-s4hana-fiori-access-review-pack.md` | Generated review pack from `sample-s4hana-fiori-access-matrix.csv` |
+| `golden-sap-sod-control-review-pack.md` | Generated review pack from `sample-sap-sod-control-matrix.csv` |
 
 ## Use Rules
 
