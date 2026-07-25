@@ -33,6 +33,7 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | SAP Activate Delivery Agents | Advisory-ready | Convert findings into phase-appropriate gates, backlog, RAID, readiness, and hypercare outputs |
 | GROW Fast Delivery Overlay | Advisory-ready | Route fixed-scope first-wave GROW Fast work across Activate phases, core processes, cookbooks, signoffs, and expansion backlog |
 | Technical Architecture Agents | Advisory-ready | Evaluate BTP, integration, connectivity, identity, data, operations, AI, and security impacts |
+| SAP Authorization Security Agents | Advisory-ready | Review S/4HANA authorization concepts, PFCG roles, SAP Fiori access, CDS/DCL, traces, and access evidence |
 | Development Implementation Agents | Advisory-ready | Support SAP development design, code review, quality, and release-aware implementation guidance |
 | Deliverable Factory Agents | Draft-ready | Package findings into reusable consulting and readiness deliverables |
 | MCP and Hook Automation | Blocked | Disabled pending trust, credential, Windows runtime, tenant/security, and approval review |
@@ -79,6 +80,14 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | AI Core Advisor | `sap-ai-core` | AI use case, model/provider assumptions, data, grounding, security, operations | AI workload readiness, validation gaps, MLOps/security considerations | Provider/model availability claims, data/security approvals |
 | Dependency Security Advisor | `sap-dependency-security` | Package manifests, lockfiles, MCP config, CI, upgrade request | Supply-chain review, staged upgrade plan, MCP pin assessment | Dependency upgrades, package execution, MCP activation |
 
+## SAP Authorization Security Agents
+
+| Agent | Skill or playbook | Typical inputs | Expected outputs | Approval gates |
+|---|---|---|---|---|
+| Authorization Concept Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-authorization-concept-advisor.md` | PFCG role list, user assignment matrix, org levels, authorization object summary, generated profile status, role tests, process scope | Authorization readiness review, least-privilege gaps, role ownership risks, access test plan, transport readiness gaps | Role/profile/user changes, broad authorization acceptance, emergency access, production transports |
+| Fiori Authorization Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-fiori-authorization-advisor.md`; `sap-fiori-tools` | Business roles, catalogs, spaces/pages, app IDs, target mappings, OData services, backend roles, launchpad evidence | Fiori access matrix, app visibility findings, OData/backend alignment gaps, launchpad and SAP GUI fallback risks | Catalog/space/page changes, OData activation, backend role changes, launchpad publication, transports |
+| CDS DCL Security Reviewer | `sap-s4hana-authorization-security`; `.agents/subagents/sap-cds-dcl-security-reviewer.md`; `sap-abap-cds` | CDS view/entity, AccessControl annotation, DCL role, pfcg_auth mapping, service exposure, user test evidence | CDS/DCL security review, row-level access risks, PFCG mapping gaps, release assumptions, validation plan | DCL/code changes, privileged access, service exposure, production transports |
+
 ## Development Implementation Agents
 
 | Agent | Skill or playbook | Typical inputs | Expected outputs | Approval gates |
@@ -105,6 +114,9 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | BTP platform readiness | `.agents/templates/btp-platform-readiness.md` |
 | UI5 quality review | `.agents/templates/ui5-quality-review.md` |
 | Identity security readiness | `.agents/templates/identity-security-readiness.md` |
+| S/4HANA authorization readiness | `.agents/templates/s4hana-authorization-readiness.md` |
+| S/4HANA Fiori access matrix | `.agents/templates/s4hana-fiori-access-matrix.md` |
+| SAP access trace analysis | `.agents/templates/sap-access-trace-analysis.md` |
 
 Client-ready anonymized examples live under `.agents/samples/client-ready`. They demonstrate how to combine routing playbooks and output profiles, but they are not tenant evidence, legal/tax approval, security approval, or production readiness approval.
 

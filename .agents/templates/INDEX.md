@@ -14,6 +14,9 @@ Use these copy-ready templates when producing repeatable SAP consulting, deliver
 | `btp-platform-readiness.md` | BTP subaccount and workload readiness |
 | `ui5-quality-review.md` | UI5 static review and remediation planning |
 | `identity-security-readiness.md` | IAS/IPS/BTP trust and role mapping readiness |
+| `s4hana-authorization-readiness.md` | S/4HANA PFCG role, user, profile, test, and transport readiness |
+| `s4hana-fiori-access-matrix.md` | Fiori role, catalog, space/page, app, OData, CDS, and backend access traceability |
+| `sap-access-trace-analysis.md` | SU53/authorization trace troubleshooting and access evidence review |
 
 ## Use Rules
 
