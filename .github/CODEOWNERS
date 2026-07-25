@@ -1,0 +1,16 @@
+# Repository governance ownership
+#
+# @MexbaliaMX is used as the available repository owner placeholder.
+# Create dedicated reviewer teams later and update this file only after they exist.
+
+/.github/ @MexbaliaMX
+/scripts/ @MexbaliaMX
+/docs/governance/ @MexbaliaMX
+/docs/validation/ @MexbaliaMX
+/plugins/ @MexbaliaMX
+/skills/ @MexbaliaMX
+/.agents/ @MexbaliaMX
+/.codex/ @MexbaliaMX
+/LICENSE @MexbaliaMX
+/THIRD_PARTY_NOTICES.md @MexbaliaMX
+/SECURITY.md @MexbaliaMX

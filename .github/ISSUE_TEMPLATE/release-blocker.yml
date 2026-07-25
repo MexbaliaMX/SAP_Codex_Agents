@@ -1,0 +1,74 @@
+name: Release blocker
+description: Track a blocker for final release readiness.
+title: "Release blocker: "
+labels: ["release-blocker"]
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      placeholder: Owner required
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      placeholder: v0.2.0-final
+    validations:
+      required: true
+  - type: textarea
+    id: blocker
+    attributes:
+      label: Blocker
+      description: What prevents final release?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Release impact
+      description: Internal advisory, final release, client distribution, marketplace, tenant execution, or production impact.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence requirements
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+    validations:
+      required: true
+  - type: textarea
+    id: security-boundary
+    attributes:
+      label: Security boundary
+      description: Confirm no secrets, client data, tenant details, MCP/hook activation, or production action is included.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+    validations:
+      required: true

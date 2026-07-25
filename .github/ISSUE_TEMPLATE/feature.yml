@@ -1,0 +1,75 @@
+name: Feature
+description: Propose a new advisory capability, document, or validation improvement.
+title: "Feature: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      placeholder: Owner required
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      placeholder: v0.2.0-final
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: What user or governance need does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Files, workflows, skills, templates, or process areas affected.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence requirements
+      description: Authoritative SAP, repository, security, or release evidence required.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+    validations:
+      required: true
+  - type: textarea
+    id: security-boundary
+    attributes:
+      label: Security boundary
+      description: Confirm advisory-only scope and whether tenant, MCP, hook, credential, or production approvals are needed.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+    validations:
+      required: true

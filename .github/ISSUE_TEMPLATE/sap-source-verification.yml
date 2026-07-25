@@ -1,0 +1,86 @@
+name: SAP source verification
+description: Refresh or validate SAP technical source metadata.
+title: "SAP source verification: "
+labels: ["sap-evidence", "governance"]
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      placeholder: Owner required
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      placeholder: v0.2.0-final
+    validations:
+      required: true
+  - type: input
+    id: product
+    attributes:
+      label: SAP product
+      placeholder: S/4HANA, BTP, Integration Suite, HANA, SAC, Datasphere, BAS
+    validations:
+      required: true
+  - type: input
+    id: edition-version
+    attributes:
+      label: Edition, version, or release context
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim to verify
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Authoritative source
+      description: URL, access date, relevant section, and caveats.
+    validations:
+      required: true
+  - type: textarea
+    id: affected-files
+    attributes:
+      label: Repository files affected
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+    validations:
+      required: true
+  - type: textarea
+    id: security-boundary
+    attributes:
+      label: Security boundary
+      description: Confirm no tenant secrets, client data, or production evidence is included.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+    validations:
+      required: true

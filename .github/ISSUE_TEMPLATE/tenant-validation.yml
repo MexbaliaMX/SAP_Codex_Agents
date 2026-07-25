@@ -1,0 +1,113 @@
+name: Tenant validation
+description: Plan or record approved non-production or production tenant validation.
+title: "Tenant validation: "
+labels: ["tenant-validation", "security"]
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      placeholder: Environment owner required
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      placeholder: v0.2.0-final
+    validations:
+      required: true
+  - type: dropdown
+    id: validation-state
+    attributes:
+      label: Validation state
+      options:
+        - UNTESTED
+        - LOCAL-SIMULATED
+        - NONPROD-VALIDATED
+        - PRODUCTION-APPROVED
+    validations:
+      required: true
+  - type: dropdown
+    id: system-type
+    attributes:
+      label: System type
+      options:
+        - S/4HANA
+        - BTP
+        - Integration Suite
+        - HANA
+        - SAC
+        - Datasphere
+        - BAS
+        - Fiori launchpad
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: test-data-policy
+    attributes:
+      label: Test data policy
+      description: Confirm sanitized data and no public client data.
+    validations:
+      required: true
+  - type: textarea
+    id: credentials
+    attributes:
+      label: Approved credentials process
+      description: Do not paste credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: test-scope
+    attributes:
+      label: Read-only versus write test scope
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence artifact
+      description: Link sanitized evidence or private evidence location.
+    validations:
+      required: true
+  - type: textarea
+    id: cleanup
+    attributes:
+      label: Cleanup procedure
+    validations:
+      required: true
+  - type: textarea
+    id: risk-approval
+    attributes:
+      label: Risk owner and approval record
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+    validations:
+      required: true

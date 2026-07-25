@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security-sensitive report
+    url: https://github.com/MexbaliaMX/SAP_Codex_Agents/security
+    about: Use a private owner channel for credentials, tenant details, client data, or exploitable security details.

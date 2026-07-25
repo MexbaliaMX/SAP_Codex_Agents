@@ -2,13 +2,13 @@
 
 Advisory SAP agent framework for Codex, focused on SAP S/4HANA process language, SAP Activate delivery governance, technical architecture review, development implementation guidance, and reusable consulting deliverables.
 
-> **Release status:** `v0.1.0-advisory-rc` candidate under GPL-3.0-only source release planning. Local advisory use and public source review only. Not tenant-connected, not production-ready, not legal/tax/security approved, and not marketplace-ready.
+> **Release status:** `v0.2.0-rc1` accepted for internal advisory RC use only. Local advisory use and public source review only. Not tenant-connected, not production-ready, not legal/tax/security approved, not approved for client distribution, and not marketplace-ready.
 
 The framework is designed for evidence-bound SAP advisory work. It helps structure analysis, route work to the right skill or playbook, and produce clear outputs that separate confirmed facts, assumptions, validation gaps, risks, owners, and next actions.
 
 ## Current Status
 
-This repository is a release-candidate planning branch for public source review.
+This repository is an internal advisory release-candidate branch for public source review and governance hardening.
 
 Ready for:
 
@@ -29,7 +29,7 @@ Not ready for:
 
 | Area | Contents |
 |---|---|
-| Skills | 27 SAP skills under `.agents/skills` |
+| Skills | 29 SAP skills under `.agents/skills` |
 | Agent registry | `.agents/AGENT_REGISTRY.md` |
 | Routing playbooks | 8 playbooks under `.agents/playbooks` |
 | Role playbooks | Advisory technical/development roles under `.agents/subagents` |
@@ -39,6 +39,7 @@ Not ready for:
 | Plugin bundle | `plugins/sap-codex-deliverables` |
 | Marketplace file | `marketplace.json` for local plugin review |
 | Validation records | `docs/validation` |
+| Governance records | `docs/governance` and `docs/reviews` |
 | Release roadmap | `docs/roadmap/release-candidate-roadmap.md` |
 | License | GNU General Public License v3.0 only (`GPL-3.0-only`) |
 
