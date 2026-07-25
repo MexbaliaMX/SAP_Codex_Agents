@@ -37,24 +37,25 @@ Recommended source for `main`:
 
 ```text
 origin/chore/release-hygiene-advisory-rc
-432b1656b4960a45ac6c0f95265aed4ff48e9788
+fd0a1383465c36de4eaa7d81c1c36081441790af
 ```
 
 Reason:
 
 - Contains current default branch history.
 - Contains the v0.2.0-rc1 release acceptance trail.
+- Contains the merged PR #10 repository governance controls.
 - Contains tag target `637cad305060134360c655efa455f1a205b923c5` in history.
 - Avoids unpublished local commit `390de4ad192afcb4371557d143a45188716c3484`, which includes `tmp/pdfs/` render artifacts pending owner review.
 
-Alternative source:
+Historical pre-governance baseline:
 
 ```text
-chore/repository-governance-v0.2.0
-ad39ec055de7b9b50e05e777f67a73a1fc5f8369
+origin/chore/release-hygiene-advisory-rc before PR #10
+432b1656b4960a45ac6c0f95265aed4ff48e9788
 ```
 
-Use this alternative only after PR #10 is approved, because it adds governance controls before creating `main`.
+Do not use the historical pre-governance baseline for `main` unless the owner explicitly decides to exclude the PR #10 governance controls.
 
 ## Read-Only Preflight
 
@@ -91,12 +92,12 @@ Stop if:
 Owner-approved command sequence:
 
 ```powershell
-git switch --detach 432b1656b4960a45ac6c0f95265aed4ff48e9788
+git switch --detach fd0a1383465c36de4eaa7d81c1c36081441790af
 git switch -c main
 git push -u origin main
 ```
 
-If the owner chooses the post-governance baseline after PR #10 is merged, replace the detached commit with the approved merge commit.
+If the owner chooses a different post-governance baseline, replace the detached commit with the approved commit.
 
 Do not force-push. If `main` already exists, stop and compare histories instead of overwriting it.
 
