@@ -4,9 +4,13 @@ on:
   pull_request:
   push:
 
+permissions:
+  contents: read
+
 jobs:
   release-hygiene:
     runs-on: windows-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout

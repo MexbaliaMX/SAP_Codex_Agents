@@ -1,0 +1,67 @@
+name: Security or governance
+description: Track security, MCP, hook, provenance, or repository governance work.
+title: "Security/governance: "
+labels: ["security", "governance"]
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      placeholder: Owner required
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0
+        - P1
+        - P2
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      placeholder: v0.2.0-final
+    validations:
+      required: true
+  - type: textarea
+    id: concern
+    attributes:
+      label: Concern
+      description: Describe the governance or security concern without secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Security boundary
+      description: Active or inactive configuration, permissions, filesystem/network access, secret handling, tenant impact.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence requirements
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+    validations:
+      required: true
