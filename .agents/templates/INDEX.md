@@ -17,6 +17,7 @@ Use these copy-ready templates when producing repeatable SAP consulting, deliver
 | `s4hana-authorization-readiness.md` | S/4HANA PFCG role, user, profile, test, and transport readiness |
 | `s4hana-fiori-access-matrix.md` | Fiori role, catalog, space/page, app, OData, CDS, and backend access traceability |
 | `sap-access-trace-analysis.md` | SU53/authorization trace troubleshooting and access evidence review |
+| `sap-sod-control-matrix.md` | S/4HANA SoD, sensitive access, compensating control, and audit evidence review |
 
 ## Use Rules
 

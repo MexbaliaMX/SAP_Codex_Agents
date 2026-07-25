@@ -87,6 +87,7 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | Authorization Concept Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-authorization-concept-advisor.md` | PFCG role list, user assignment matrix, org levels, authorization object summary, generated profile status, role tests, process scope | Authorization readiness review, least-privilege gaps, role ownership risks, access test plan, transport readiness gaps | Role/profile/user changes, broad authorization acceptance, emergency access, production transports |
 | Fiori Authorization Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-fiori-authorization-advisor.md`; `sap-fiori-tools` | Business roles, catalogs, spaces/pages, app IDs, target mappings, OData services, backend roles, launchpad evidence | Fiori access matrix, app visibility findings, OData/backend alignment gaps, launchpad and SAP GUI fallback risks | Catalog/space/page changes, OData activation, backend role changes, launchpad publication, transports |
 | CDS DCL Security Reviewer | `sap-s4hana-authorization-security`; `.agents/subagents/sap-cds-dcl-security-reviewer.md`; `sap-abap-cds` | CDS view/entity, AccessControl annotation, DCL role, pfcg_auth mapping, service exposure, user test evidence | CDS/DCL security review, row-level access risks, PFCG mapping gaps, release assumptions, validation plan | DCL/code changes, privileged access, service exposure, production transports |
+| SoD Controls Advisor | `sap-s4hana-authorization-security`; `.agents/subagents/sap-sod-controls-advisor.md`; process skills | Role/persona matrix, user aliases, sensitive tasks, conflicting tasks, emergency access notes, compensating controls, audit evidence | SoD/control matrix, sensitive access risks, compensating control gaps, approval and monitoring plan | SoD exception acceptance, emergency access, broad role assignments, production transports |
 
 ## Development Implementation Agents
 
@@ -117,6 +118,7 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | S/4HANA authorization readiness | `.agents/templates/s4hana-authorization-readiness.md` |
 | S/4HANA Fiori access matrix | `.agents/templates/s4hana-fiori-access-matrix.md` |
 | SAP access trace analysis | `.agents/templates/sap-access-trace-analysis.md` |
+| SAP SoD control matrix | `.agents/templates/sap-sod-control-matrix.md` |
 
 Client-ready anonymized examples live under `.agents/samples/client-ready`. They demonstrate how to combine routing playbooks and output profiles, but they are not tenant evidence, legal/tax approval, security approval, or production readiness approval.
 

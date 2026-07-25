@@ -47,6 +47,7 @@ Ask for or inspect only sanitized evidence:
    - `.agents/templates/s4hana-authorization-readiness.md`
    - `.agents/templates/s4hana-fiori-access-matrix.md`
    - `.agents/templates/sap-access-trace-analysis.md`
+   - `.agents/templates/sap-sod-control-matrix.md`
 
 ## Review Lenses
 
@@ -65,6 +66,10 @@ Check whether sensitive CDS views use `#CHECK` or `#MANDATORY`, whether DCL exis
 ### Trace Troubleshooting
 
 Use SU53 or authorization trace evidence to identify missing objects/fields, but do not recommend blindly adding everything from a trace. Connect each proposed authorization to a business task, role owner, risk, and test case.
+
+### SoD and Control Review
+
+Check whether one role or user combines incompatible business tasks across process boundaries, such as vendor master maintenance plus payment release, purchase order creation plus goods receipt plus invoice release, or sales order changes plus billing/revenue actions. Treat SoD conclusions as control-review findings that require process owner, security owner, and internal-control validation.
 
 ## Output Shape
 

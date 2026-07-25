@@ -16,6 +16,7 @@ These files are Codex-safe role playbooks converted from upstream Claude agents.
 | `sap-authorization-concept-advisor` | SAP Authorization Concept Advisor | local/sap-s4hana-authorization-security |
 | `sap-fiori-authorization-advisor` | SAP Fiori Authorization Advisor | local/sap-s4hana-authorization-security |
 | `sap-cds-dcl-security-reviewer` | SAP CDS DCL Security Reviewer | local/sap-s4hana-authorization-security |
+| `sap-sod-controls-advisor` | SAP SoD Controls Advisor | local/sap-s4hana-authorization-security |
 
 ## Use Rules
 
