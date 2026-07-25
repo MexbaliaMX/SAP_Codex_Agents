@@ -6,7 +6,7 @@ Date: 2026-07-25
 
 Manual install/load smoke evidence for the published GitHub prerelease asset `sap-codex-deliverables-v0.2.0-rc1.zip`.
 
-This report records the automated validation portion of the manual install/load smoke procedure. Overall app-level status remains pending until Codex desktop plugin installation and fresh-task checks are completed.
+This report records the automated validation portion and the Codex desktop install/load portion of the manual install/load smoke procedure. Overall app-level status is PASS.
 
 ## Release Under Test
 
@@ -48,17 +48,23 @@ PowerShell was unavailable in the validation environment. Equivalent substantive
 
 ## Remaining Manual Steps
 
-Overall app-level status: PENDING.
+Overall app-level status: PASS.
 
-Pending checks:
+Completed Codex desktop checks:
 
-- Open the extracted marketplace in Codex desktop.
-- Install or load `sap-codex-deliverables` from the extracted marketplace.
-- Create a fresh Codex task after install/load.
-- Confirm the fresh task can use the installed plugin skill or plugin assets.
-- Run the go-live readiness smoke prompt from `docs/validation/v0.2.0-rc1-manual-install-load-smoke-procedure.md`.
-- Run the authorization review-pack smoke prompt from `docs/validation/v0.2.0-rc1-manual-install-load-smoke-procedure.md`.
-- Confirm outputs remain advisory, evidence-bound, and do not claim live SAP tenant validation, fiscal/legal approval, security approval, licensing approval, go-live approval, or production readiness.
+- Fresh Codex task: `019f9b20-861d-7f73-b0bd-fdb20ef262f4`.
+- Smoke prompt 1: PASS.
+- Smoke prompt 2: PASS.
+- The installed `sap-codex-deliverables` assets loaded locally.
+- The fresh task used `sap-deliverable-templates` and template assets successfully.
+- MCP servers, hooks, tenant credentials, live SAP systems, and production actions were not enabled or used.
+- Outputs remained advisory and evidence-bound, without live SAP tenant validation, fiscal/legal approval, security approval, licensing approval, go-live approval, or production-readiness claims.
+
+## Desktop Smoke Deviations
+
+- The requested `/tmp/sap-v020-rc1-manual-install-CZqeC89v/marketplace.json` path was not visible from the current Windows/PowerShell environment, though the exact requested `codex://plugins/...` URL was opened successfully.
+- The reachable workspace marketplace fallback at `C:\codex\SAP Agents\marketplace.json` was also opened.
+- The fresh task confirmed the installed plugin assets loaded locally and completed both smoke prompts.
 
 ## Safety Boundaries
 

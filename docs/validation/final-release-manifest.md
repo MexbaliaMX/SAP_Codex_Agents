@@ -80,8 +80,13 @@ Plugin validation: PASS
 Disabled configuration: PASS
 Control-character scan: PASS
 GitHub release confirmed as a published prerelease
-Overall app-level status: PENDING until Codex desktop install and fresh-task checks are completed
+Codex desktop install/load smoke: PASS
+Fresh task: 019f9b20-861d-7f73-b0bd-fdb20ef262f4
+Smoke prompt 1: PASS
+Smoke prompt 2: PASS
+MCP/hooks/tenant credentials: Not enabled
 Deviation: PowerShell unavailable; equivalent native extraction and python3 checks were used
+Desktop deviation: /tmp marketplace path was not visible from Windows/PowerShell, but the requested codex:// URL opened successfully and the workspace marketplace fallback was also opened
 ```
 
 No GitHub Actions run or combined status appeared for merge commit `637cad3` at packaging time. Pre-merge `Release Hygiene` passed for head SHA `f6cdd5e`, and post-merge local validation passed on `637cad3`.
