@@ -14,6 +14,7 @@
 
 ## Live environment tests
 
+- Tenant validation is deferred for v0.2.0 by `docs/governance/tenant-validation-deferral-decision-2026-07-26.md`.
 - No SAP BTP, Integration Suite, HANA, SAC, Datasphere, S/4HANA, BAS, or Fiori launchpad tenant validation has been performed in this Codex port.
 - Treat generated artifacts as locally structured and source-guided until imported or tested in a real tenant.
 
@@ -73,6 +74,6 @@
 - Decide whether copied command references should remain under each skill or be consolidated under a shared prompt library.
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
 - Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.
-- Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
+- Complete tenant/security approval before enabling HANA, Datasphere, SAC, or other tenant-connected MCPs.
 - Confirm active Codex hook schema, event names, stdin payload shape, denial enforcement, fail-open/fail-closed behavior, timeout behavior, and recursive-hook behavior before enabling any hooks from `.codex/hooks.example.json`.
 - Run active lifecycle smoke tests for each reviewed hook candidate before enablement.

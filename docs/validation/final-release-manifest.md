@@ -95,6 +95,7 @@ No GitHub Actions run or combined status appeared for merge commit `637cad3` at 
 
 - This is an advisory and template-oriented release candidate.
 - No live SAP tenant validation has been performed.
+- Issue #3 tenant validation is deferred for v0.2.0 in `docs/governance/tenant-validation-deferral-decision-2026-07-26.md`.
 - No fiscal, legal, security, SAP trademark, SAP documentation redistribution, marketplace, client redistribution, or production-readiness approval is implied.
 - Tenant-connected MCPs, hooks, production configuration, direct role/user changes, and transport actions remain blocked without separate explicit approval and environment evidence.
 - The manifest addendum may be committed after the release tag because archive checksum, prerelease URL, and GitHub asset metadata are known only after packaging and prerelease creation.
@@ -137,7 +138,7 @@ Status: ready for local workspace use, internal review packaging, and GPL-3.0-on
 
 Issue #2 is closed for the public-source advisory RC GPL/provenance/notices review scope. Issue #14 is addressed by `docs/governance/external-distribution-decision-record-2026-07-26.md`: public-source advisory release posture remains approved under `GPL-3.0-only`, while external/client distribution beyond public-source advisory review, proprietary/client packaging, marketplace publication, SAP-branded promotion, SAP documentation redistribution, tenant-connected execution, security approval, legal/tax approval, and production readiness remain blocked or deferred pending separate qualified approval.
 
-Production or tenant-connected use remains blocked pending live SAP tenant evidence, security approval, legal/tax review where relevant, and explicit human approval for tenant-impacting actions.
+Production or tenant-connected use remains blocked. Issue #3 tenant validation is deferred for v0.2.0 in `docs/governance/tenant-validation-deferral-decision-2026-07-26.md`; any future tenant validation requires live SAP tenant evidence, security approval, legal/tax review where relevant, and explicit human approval for tenant-impacting actions.
 
 ## Included Assets
 

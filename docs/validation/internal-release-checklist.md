@@ -47,6 +47,7 @@ Required before external/client distribution:
 - [x] Complete tracked-source SAP documentation excerpt audit in `docs/governance/sap-documentation-excerpt-audit.md`.
 - [x] Record release-owner distribution posture decision for public-source advisory release and blocked/deferred external, client, proprietary, marketplace, SAP-branded, and closed redistribution paths.
 - [x] Refresh Codex port source metadata evidence for the four over-180-day technical skills in `docs/validation/source-metadata-refresh-2026-07-26.md`.
+- [x] Defer live SAP tenant validation for v0.2.0 advisory/source-only release posture in `docs/governance/tenant-validation-deferral-decision-2026-07-26.md`.
 - [ ] Obtain separate legal or qualified approval before proprietary/client packaging, marketplace distribution, SAP-branded promotion, SAP documentation redistribution, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
@@ -68,6 +69,7 @@ Required before external/client distribution:
 ## Release Safety Notes
 
 - No live SAP tenant validation has been performed.
+- Live SAP tenant validation is deferred for v0.2.0; no tenant behavior, activation, edition availability, role/catalog visibility, fiscal outcome, security approval, or production readiness is claimed.
 - No fiscal, legal, security, third-party notice, SAP trademark, SAP documentation redistribution, marketplace, client redistribution, or production-readiness approval is implied.
 - Fictional sample deliverables are examples only and must not be reused as client facts.
 - Tenant-connected MCPs remain blocked.
