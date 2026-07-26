@@ -33,3 +33,20 @@ allowed-tools:
   - WebFetch
   - WebSearch
 ``
+
+## Phase 6 Source Refresh - 2026-07-26
+
+Codex port verification status: refreshed for public-source advisory use on 2026-07-26.
+
+Reviewer: Codex repository governance pass for issue #1. This is not SAP tenant validation, legal review, licensing approval, security approval, production readiness, or client distribution approval.
+
+| Claim area | Product / edition context | Authoritative source URL | Access date | Relevant source section | Verification status | Caveats |
+|---|---|---|---|---|---|---|
+| Integration Suite capability inventory | SAP Integration Suite | https://help.sap.com/docs/SAP_INTEGRATION_SUITE/sap-integration-suite/capabilities | 2026-07-26 | `Capabilities of SAP Integration Suite` | Verified for advisory source guidance | Capability availability depends on service plan, activation, role collections, region, tenant configuration, and SAP terms. |
+| Capability activation and role prerequisites | SAP Integration Suite tenant administration | https://help.sap.com/docs/integration-suite/sap-integration-suite/activating-and-managing-capabilities | 2026-07-26 | `Prerequisites`, `Context`, and capability activation table | Verified for advisory source guidance | Do not infer that a tenant has Cloud Integration, API Management, Event Mesh, Trading Partner Management, or other capabilities activated. |
+| Cloud Integration scope and adapters | SAP Integration Suite, Cloud Integration | https://help.sap.com/docs/integration-suite/sap-integration-suite/introduction | 2026-07-26 | `Introduction` and `Kind of Systems to Connect to Cloud Integration` | Verified for advisory source guidance | Adapter support must be checked against the active tenant, licensing, connectivity, and security controls before implementation. |
+| API Management scope and runtimes | SAP Integration Suite, API Management | https://help.sap.com/docs/integration-suite/isuite-integrations-and-apis/api-management | 2026-07-26 | `API Management` and `API Management Runtimes` | Verified for advisory source guidance | Runtime choice and feature availability require tenant evidence and service-plan review. No API proxy was created or deployed. |
+| Edge Integration Cell positioning | SAP Integration Suite, Edge Integration Cell | https://help.sap.com/docs/integration-suite/sap-integration-suite/what-is-sap-integration-suite-edge-integration-cell | 2026-07-26 | `What Is Edge Integration Cell` | Verified for advisory source guidance | Hybrid runtime use requires separate security, infrastructure, licensing, and operations approval. |
+| Monitoring surface | SAP Integration Suite | https://help.sap.com/docs/integration-suite/sap-integration-suite/monitor | 2026-07-26 | `Monitor` | Verified for advisory source guidance | Monitoring claims are UI/documentation guidance only. No tenant monitoring evidence was collected. |
+
+Port treatment: the original upstream `last_verified` value is preserved above as copied-source metadata. The Codex port source refresh date for these claim areas is 2026-07-26.
