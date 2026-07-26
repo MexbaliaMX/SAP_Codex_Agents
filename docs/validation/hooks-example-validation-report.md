@@ -2,6 +2,8 @@
 
 Date: 2026-07-02
 
+Phase 6 update: 2026-07-26. See `docs/validation/codex-hooks-runtime-validation-2026-07-26.md`.
+
 ## Purpose
 
 Create and validate a disabled `.codex/hooks.example.json` file from the hook trust and Windows execution review without enabling lifecycle automation.
@@ -47,11 +49,13 @@ Runtime status:
 - No hook was enabled.
 - No validator was executed as a lifecycle hook.
 - No tenant, credential, production, or filesystem mutation behavior is implied.
+- Phase 6 disposable stdin validation passed for inactive example safety, safe payload handling, malformed payload handling, and denial-shaped upstream validator output.
+- Active Codex lifecycle hook schema, event names, stdin payload shape, denial enforcement, fail-open behavior, fail-closed behavior, timeout behavior, and recursive-hook behavior remain unapproved.
 
 ## Remaining Conditions Before Enablement
 
-- Confirm Codex hook schema and event names.
-- Confirm stdin payload shape and denial semantics.
+- Confirm active Codex hook schema and event names.
+- Confirm active Codex lifecycle stdin payload shape and denial semantics.
 - Replace Claude path assumptions with reviewed Codex/project-local paths.
 - Run disposable-workspace smoke tests for each candidate hook.
 - Keep SAC, Datasphere, tenant-connected, credential-bearing, and production-impacting workflows approval-gated.
