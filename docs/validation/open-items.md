@@ -37,7 +37,8 @@
 ## Hooks
 
 - Hook trust and Windows execution review is complete.
-- Keep lifecycle hooks disabled until Codex hook schema, event names, stdin payload shape, and denial semantics are confirmed.
+- Phase 6 hook validation record completed: `docs/validation/codex-hooks-runtime-validation-2026-07-26.md`.
+- Keep lifecycle hooks disabled. Inactive example safety and upstream validator contracts are validated, but active Codex hook schema, event names, stdin payload shape, denial enforcement, fail-open/fail-closed behavior, timeout behavior, and recursive-hook behavior remain unapproved.
 - Replace Claude path variables and Bash assumptions before any Windows execution.
 - Disabled `.codex/hooks.example.json` exists as documentation-only; do not convert it into active hooks until Codex hook runtime behavior is confirmed.
 
@@ -73,5 +74,5 @@
 - Install Git or run status checks from an environment where Git is available before making commits or release tags.
 - Keep SAC MCP blocked until source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access are reviewed.
 - Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
-- Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
-- Run disposable-workspace smoke tests for each reviewed hook candidate before enablement.
+- Confirm active Codex hook schema, event names, stdin payload shape, denial enforcement, fail-open/fail-closed behavior, timeout behavior, and recursive-hook behavior before enabling any hooks from `.codex/hooks.example.json`.
+- Run active lifecycle smoke tests for each reviewed hook candidate before enablement.

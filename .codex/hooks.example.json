@@ -1,7 +1,8 @@
 {
   "status": "documentation-only-disabled-example",
   "activationAllowed": false,
-  "schemaStatus": "Codex hook schema, event names, stdin payload shape, and denial semantics are not confirmed.",
+  "schemaStatus": "Phase 6 validation confirmed inactive example safety and upstream validator contracts; active Codex hook schema, event names, stdin payload shape, denial enforcement, fail-open/fail-closed behavior, timeout behavior, and recursive-hook behavior remain unapproved.",
+  "validationRecord": "docs/validation/codex-hooks-runtime-validation-2026-07-26.md",
   "activeHooks": [],
   "safetyRules": [
     "Do not rename this file to hooks.json or copy entries into an active hook config until Codex hook behavior is confirmed in a disposable workspace.",
@@ -97,10 +98,11 @@
   ],
   "sourceReview": {
     "reviewDocument": "docs/porting/hook-trust-windows-review.md",
+    "phase6ValidationRecord": "docs/validation/codex-hooks-runtime-validation-2026-07-26.md",
     "upstreamTests": [
       "node scripts/test-hooks.mjs",
       "node scripts/test-hook-contracts.mjs"
     ],
-    "upstreamTestStatus": "passed for source validators; does not prove Codex runtime compatibility"
+    "upstreamTestStatus": "passed for source validators; disposable stdin harness passed; does not prove active Codex lifecycle enforcement"
   }
 }

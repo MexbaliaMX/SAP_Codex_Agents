@@ -57,7 +57,8 @@ Required before external/client distribution:
 - [ ] Complete SAC MCP source-install provenance, exact commit evidence, tenant/security approval, and least-privilege access review before enablement.
 - [ ] Complete tenant/security approval before enabling HANA, Datasphere, or SAC MCPs.
 - [x] Create disabled `.codex/hooks.example.json` as documentation-only example.
-- [ ] Confirm Codex hook schema, event names, stdin payload shape, and denial semantics before enabling any hooks from `.codex/hooks.example.json`.
+- [x] Record Phase 6 hook validation decision in `docs/validation/codex-hooks-runtime-validation-2026-07-26.md`; inactive example safety and upstream validator contracts are validated, while active hook enablement remains blocked.
+- [ ] Confirm active Codex hook schema, event names, stdin payload shape, denial enforcement, fail-open/fail-closed behavior, timeout behavior, and recursive-hook behavior before enabling any hooks from `.codex/hooks.example.json`.
 - [x] Install or provide `xmllint` before rerunning upstream iFlow XML template validation.
 - [x] Start plugin-safe packaging for operating-layer assets under `plugins/sap-codex-deliverables/skills/sap-deliverable-templates/assets/operating-layer`.
 - [x] Plugin operating-layer asset validation passed with `scripts\validate-plugin-operating-layer-assets.ps1`.
