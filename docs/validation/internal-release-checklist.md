@@ -6,7 +6,7 @@ Date: 2026-07-02
 
 Current status: ready for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review.
 
-External/client distribution status: blocked pending manual governance checks, third-party notice completion, provenance review, tenant/security approval, and final archive smoke.
+External/client distribution status: explicitly blocked by `docs/governance/external-distribution-decision-record-2026-07-26.md`; public-source advisory release posture remains approved under `GPL-3.0-only` with caveats preserved.
 
 ## Pre-Distribution Checklist
 
@@ -45,7 +45,8 @@ Required before external/client distribution:
 - [x] Pin upstream `sap-skills-main.zip` source URL, commit, and local checksum evidence in `docs/governance/third-party-provenance-review.md`.
 - [x] Record contributor-rights and SAP redistribution/trademark checkpoint for public-source advisory RC governance.
 - [x] Complete tracked-source SAP documentation excerpt audit in `docs/governance/sap-documentation-excerpt-audit.md`.
-- [ ] Obtain release-owner/legal acceptance of contributor-rights posture, SAP documentation audit sufficiency, SAP trademark/product-name treatment, marketplace terms, and GPL-3.0 redistribution posture before proprietary/client packaging, marketplace distribution, SAP-branded promotion, or closed redistribution.
+- [x] Record release-owner distribution posture decision for public-source advisory release and blocked/deferred external, client, proprietary, marketplace, SAP-branded, and closed redistribution paths.
+- [ ] Obtain separate legal or qualified approval before proprietary/client packaging, marketplace distribution, SAP-branded promotion, SAP documentation redistribution, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
 - [x] Complete remaining Phase 2 forward tests: L2C, S2P, P2P, Plan-to-Produce, Design-to-Operate, Hire-to-Retire, Discover, Prepare, Realize.
