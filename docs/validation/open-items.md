@@ -3,9 +3,10 @@
 ## Source verification
 
 - Source verification audit completed: `docs/validation/source-verification-audit.md`.
+- Phase 6 source metadata refresh completed for the four over-180-day technical skills: `docs/validation/source-metadata-refresh-2026-07-26.md`.
 - Preserve upstream `last_verified` metadata; do not advance dates without new evidence.
-- Before client-facing use, remediate or explicitly accept the audit findings:
-  - 4 technical skills have source metadata older than 180 days.
+- Before client-facing use, remediate or explicitly accept the remaining audit findings:
+  - 4 technical skills had source metadata older than 180 days at the original audit and now have Codex port source refresh records dated 2026-07-26; recheck before client-specific, version-specific, licensing, roadmap, or tenant behavior claims.
   - 14 local process/SAP Activate overlay skills have caveat files but no `last_verified` date.
 - Release hygiene update on 2026-07-05: the 14 local process/SAP Activate overlay `SKILL.md` files now directly point to `references/verification.md`.
 - Upstream repository URL for copied technical skills confirmed on 2026-07-07 as `secondsky/sap-skills`; source ref pinned to commit `45073ee91a2d7fb81401c35199da32aa91e08053`; local `.imports/sap-skills-main.zip` checksum and archive-content comparison are recorded in `docs/governance/third-party-provenance-review.md`. Contributor-rights checkpoint is recorded, but release-owner/legal acceptance remains open.

@@ -4,6 +4,8 @@ Date: 2026-07-03
 
 Release hygiene update: 2026-07-05. Caveat discoverability was improved without advancing any `last_verified` dates.
 
+Phase 6 source refresh: 2026-07-26. The four over-180-day technical skills now have refreshed Codex port source evidence in their `references/verification.md` files and in `docs/validation/source-metadata-refresh-2026-07-26.md`. Original upstream `last_verified` values remain preserved as copied-source metadata.
+
 ## Scope
 
 This audit covers the 26 Codex workspace skills under `.agents/skills`.
@@ -16,9 +18,9 @@ Reviewed:
 
 Not performed:
 
-- No SAP Help Portal, API, roadmap, licensing, or product behavior revalidation.
+- Phase 6 revalidation was later performed only for the four over-180-day technical skills listed below.
 - No live SAP BTP, Integration Suite, HANA, SAC, Datasphere, S/4HANA, BAS, or Fiori launchpad tenant validation.
-- No `last_verified` dates were advanced.
+- No original copied upstream `last_verified` dates were advanced. The Codex port refresh date for the reviewed claim areas is recorded separately as 2026-07-26.
 
 ## Audit Result
 
@@ -33,7 +35,7 @@ Summary:
 - 14 of 26 locally created process or SAP Activate overlay skills do not have `last_verified` metadata.
 - 26 of 26 `SKILL.md` files directly reference `references/verification.md`.
 - 0 of 26 `SKILL.md` files have undisclosed local caveat files.
-- 4 source-copied technical skills have `last_verified` dates older than 180 days as of 2026-07-03.
+- 4 source-copied technical skills had `last_verified` dates older than 180 days as of 2026-07-03; Phase 6 refreshed their Codex port source evidence on 2026-07-26 without changing copied upstream metadata.
 
 ## Dated Verification Inventory
 
@@ -47,10 +49,10 @@ Summary:
 | `sap-abap-cds` | 2026-04-02 | 92 days | Watch; over 90 days | Recheck before client-facing platform/version claims |
 | `sap-fiori-tools` | 2026-02-26 | 127 days | Watch; over 90 days | Recheck before client-facing tool/version claims |
 | `sap-cap-capire` | 2026-02-22 | 131 days | Watch; over 90 days | Recheck before client-facing CAP/runtime claims |
-| `sap-btp-cloud-platform` | 2025-11-27 | 218 days | Stale; over 180 days | Refresh sources before BTP account, entitlement, Kyma, or Cloud Foundry claims |
-| `sap-btp-connectivity` | 2025-11-27 | 218 days | Stale; over 180 days | Refresh sources before destination, Cloud Connector, or proxy claims |
-| `sap-btp-integration-suite` | 2025-11-27 | 218 days | Stale; over 180 days | Refresh sources before Integration Suite feature, adapter, or licensing claims |
-| `sap-hana-cli` | 2025-11-26 | 219 days | Stale; over 180 days | Refresh sources before HANA CLI/runtime behavior claims |
+| `sap-btp-cloud-platform` | 2025-11-27; Codex port refresh 2026-07-26 | 218 days at original audit | Refreshed for advisory source guidance | Use refreshed evidence before BTP account, entitlement, Kyma, or Cloud Foundry claims; tenant and licensing evidence still required |
+| `sap-btp-connectivity` | 2025-11-27; Codex port refresh 2026-07-26 | 218 days at original audit | Refreshed for advisory source guidance | Use refreshed evidence before destination, Cloud Connector, or proxy claims; tenant, network, and security evidence still required |
+| `sap-btp-integration-suite` | 2025-11-27; Codex port refresh 2026-07-26 | 218 days at original audit | Refreshed for advisory source guidance | Use refreshed evidence before Integration Suite feature or adapter claims; service-plan, capability activation, and tenant evidence still required |
+| `sap-hana-cli` | 2025-11-26; Codex port refresh 2026-07-26 | 219 days at original audit | Refreshed for advisory source guidance | Distinguish SAP Help Portal HANA Cloud CLI/HDBSQL claims from SAP-samples `hana-cli` utility behavior; tenant evidence still required |
 
 ## Missing Date Inventory
 
@@ -85,7 +87,7 @@ This audit does not block the current internal `v0.1.0` release package because 
 
 Before external or client-facing distribution:
 
-- Refresh SAP source references for the four skills older than 180 days.
+- Keep the 2026-07-26 source refresh records discoverable and recheck them before making client-specific, version-specific, licensing, roadmap, or tenant behavior claims.
 - Recheck over-90-day technical skills before making version-specific claims.
 - Keep the newly added caveat pointers in the 14 process and SAP Activate overlay skills discoverable during future edits.
 - Keep tenant-specific, fiscal, legal, licensing, roadmap, and production claims marked as assumptions or validation gaps until evidenced.

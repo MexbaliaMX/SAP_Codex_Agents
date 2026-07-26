@@ -46,6 +46,7 @@ Required before external/client distribution:
 - [x] Record contributor-rights and SAP redistribution/trademark checkpoint for public-source advisory RC governance.
 - [x] Complete tracked-source SAP documentation excerpt audit in `docs/governance/sap-documentation-excerpt-audit.md`.
 - [x] Record release-owner distribution posture decision for public-source advisory release and blocked/deferred external, client, proprietary, marketplace, SAP-branded, and closed redistribution paths.
+- [x] Refresh Codex port source metadata evidence for the four over-180-day technical skills in `docs/validation/source-metadata-refresh-2026-07-26.md`.
 - [ ] Obtain separate legal or qualified approval before proprietary/client packaging, marketplace distribution, SAP-branded promotion, SAP documentation redistribution, or closed redistribution.
 - [ ] Remediate or explicitly accept source verification audit findings before client-facing distribution.
 - [ ] Decide whether copied command references stay under skills or move to a shared prompt library.
