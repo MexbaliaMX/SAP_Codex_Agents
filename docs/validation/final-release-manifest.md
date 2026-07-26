@@ -135,7 +135,7 @@ The final manifest commit may be newer than the archive source commit because th
 
 Status: ready for local workspace use, internal review packaging, and GPL-3.0-only public source advisory RC review.
 
-Issue #2 is closed for the public-source advisory RC GPL/provenance/notices review scope. External or client distribution beyond public-source advisory review remains blocked pending separate release-owner/legal/security decisions for SAP trademark treatment, SAP documentation redistribution rights, marketplace terms, proprietary/client packaging, tenant/security approval, and production readiness.
+Issue #2 is closed for the public-source advisory RC GPL/provenance/notices review scope. Issue #14 is addressed by `docs/governance/external-distribution-decision-record-2026-07-26.md`: public-source advisory release posture remains approved under `GPL-3.0-only`, while external/client distribution beyond public-source advisory review, proprietary/client packaging, marketplace publication, SAP-branded promotion, SAP documentation redistribution, tenant-connected execution, security approval, legal/tax approval, and production readiness remain blocked or deferred pending separate qualified approval.
 
 Production or tenant-connected use remains blocked pending live SAP tenant evidence, security approval, legal/tax review where relevant, and explicit human approval for tenant-impacting actions.
 

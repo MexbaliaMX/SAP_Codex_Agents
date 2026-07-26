@@ -2,9 +2,11 @@
 
 Date: 2026-07-26
 
-Status: proposed decision plan; not legal approval
+Status: completed by constrained decision record; not legal approval
 
 Tracking issue: [#14 Approve external and client distribution posture for v0.2.0](https://github.com/MexbaliaMX/SAP_Codex_Agents/issues/14)
+
+Decision record: `docs/governance/external-distribution-decision-record-2026-07-26.md`
 
 ## Purpose
 
@@ -83,12 +85,9 @@ Before final v0.2.0, create or update a decision record that states:
 
 ## Next Actions
 
-1. Assign issue #14 to the release owner and legal or qualified reviewer.
-2. Review the evidence package listed above.
-3. Classify each distribution path.
-4. Draft the decision record.
-5. Update release readiness documents to match the decision.
-6. Close issue #14 only after the decision record is merged.
+1. Merge `docs/governance/external-distribution-decision-record-2026-07-26.md`.
+2. Close issue #14 after the decision record is on `main`.
+3. Continue final readiness through `docs/governance/v0.2.0-final-readiness-phase-6.md`.
 
 ## Safety Confirmation
 
