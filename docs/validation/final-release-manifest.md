@@ -108,6 +108,14 @@ Acceptance record: `docs/validation/v0.2.0-rc1-acceptance.md`.
 
 This acceptance is limited to internal advisory RC use, local workspace use, template/skill review, and fresh Codex plugin install/load evaluation. It does not approve production use, client distribution, marketplace publication, SAP tenant access, legal/fiscal conclusions, security approval, or SAP trademark/documentation redistribution.
 
+### v0.2.0 Final Readiness
+
+Final readiness checklist: `docs/validation/v0.2.0-final-release-readiness-checklist.md`.
+
+Status: READY FOR FINAL PROMOTION DECISION.
+
+Final promotion is appropriate only if the release owner confirms that final `v0.2.0` preserves the same internal advisory/source release scope and distribution limits as the accepted `v0.2.0-rc1`.
+
 Date: 2026-07-07
 
 Manifest refresh: 2026-07-07
