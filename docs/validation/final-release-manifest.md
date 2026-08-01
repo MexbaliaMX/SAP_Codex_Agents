@@ -1,5 +1,80 @@
 # Final Release Manifest
 
+## Release Addendum - v0.2.0 Final
+
+Date: 2026-08-01
+
+| Field | Value |
+|---|---|
+| Package | `sap-codex-deliverables` |
+| Release | `v0.2.0-advisory-source-release` |
+| Git tag | `sap-codex-deliverables-v0.2.0` |
+| Tag target commit | `10999cff95ba32c3124e71abfbddd8221f9129b0` |
+| Source branch at tagging | `docs/phase6-tenant-validation-deferral` |
+| GitHub release | `https://github.com/MexbaliaMX/SAP_Codex_Agents/releases/tag/sap-codex-deliverables-v0.2.0` |
+| Archive | `C:\codex\SAP Agents\sap-codex-deliverables-v0.2.0.zip` |
+| Archive size | `1,638,198 bytes` |
+| SHA256 | `A0AAB775F8D88CA45AEA8839139CB2D81E27A5E32FB57B2A71E0A99202E6F3A2` |
+
+### v0.2.0 Final Scope
+
+This final release promotes the accepted `v0.2.0-rc1` advisory release candidate to final `v0.2.0` for internal advisory/source use. It preserves the same safety boundaries and distribution limits recorded for `v0.2.0-rc1`.
+
+### v0.2.0 Final Validation
+
+Pre-tag local validation passed:
+
+- `scripts\validate-release-hygiene.ps1`
+- `scripts\validate-agent-operating-layer.ps1`
+- `scripts\validate-plugin-operating-layer-assets.ps1`
+- `scripts\test-authorization-review-packs.ps1`
+
+Final archive smoke passed:
+
+```text
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Archive: C:\codex\SAP Agents\sap-codex-deliverables-v0.2.0.zip
+SHA256: A0AAB775F8D88CA45AEA8839139CB2D81E27A5E32FB57B2A71E0A99202E6F3A2
+Workspace skills: 29
+Workspace templates markdown files: 16
+Workspace sample deliverable markdown files: 13
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
+GitHub final release verification confirmed:
+
+- `isDraft: false`
+- `isPrerelease: false`
+- Asset: `sap-codex-deliverables-v0.2.0.zip`
+- Asset state: `uploaded`
+- Asset digest: `sha256:a0aab775f8d88ca45aea8839139cb2d81e27a5e32fb57b2a71e0a99202e6f3a2`
+
+GitHub final release asset fresh-download smoke passed:
+
+```text
+Downloaded asset: sap-codex-deliverables-v0.2.0.zip
+Downloaded SHA256: A0AAB775F8D88CA45AEA8839139CB2D81E27A5E32FB57B2A71E0A99202E6F3A2
+Plugin validation passed: <extracted-archive-root>\plugins\sap-codex-deliverables
+config example active keys: []
+Release archive smoke passed.
+Workspace skills: 29
+Workspace templates markdown files: 16
+Workspace sample deliverable markdown files: 13
+Plugin templates markdown files: 11
+Plugin sample markdown files: 11
+```
+
+### v0.2.0 Final Safety Boundaries
+
+- This is an advisory/source release only.
+- No live SAP tenant validation has been performed.
+- No fiscal, legal, security, SAP trademark, SAP documentation redistribution, marketplace, client redistribution, or production-readiness approval is implied.
+- Tenant-connected MCPs, hooks, production configuration, direct role/user changes, and transport actions remain blocked without separate explicit approval and environment evidence.
+- External/client/proprietary distribution and marketplace publication remain blocked unless separately approved.
+
 ## Release Addendum - v0.2.0-rc1
 
 Date: 2026-07-25
