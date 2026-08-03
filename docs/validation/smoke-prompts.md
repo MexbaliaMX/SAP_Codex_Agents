@@ -84,6 +84,10 @@ Use `$sap-process-design-to-operate` to map an asset lifecycle scenario from eng
 
 Use `$sap-process-hire-to-retire` to frame an employee lifecycle integration between SuccessFactors, identity management, time, payroll posting, and S/4HANA cost accounting.
 
+## sap-successfactors-hcm
+
+Use `$sap-successfactors-hcm` to map SuccessFactors H2R scope across Recruiting, Onboarding, Employee Central, Time, Employee Central Payroll, Benefits, Learning, Performance, Compensation, Succession, Workforce Analytics, Work Zone, integrations, RBP, and Mexico payroll evidence. See `docs/validation/successfactors-hcm-smoke-prompts.md` for the full smoke pack.
+
 ## sap-activate-discover
 
 Use `$sap-activate-discover` to qualify an S/4HANA transformation opportunity. Include value case, scope hypotheses, risks, stakeholders, assumptions, and next-step recommendation.

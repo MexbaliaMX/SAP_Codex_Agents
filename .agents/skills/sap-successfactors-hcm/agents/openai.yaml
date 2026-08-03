@@ -1,0 +1,4 @@
+interface:
+  display_name: "SAP SuccessFactors HCM Advisory"
+  short_description: "Plan evidence-bound SuccessFactors H2R coverage."
+  default_prompt: "Use $sap-successfactors-hcm to map SuccessFactors H2R scope, evidence gaps, integrations, and validation next actions."

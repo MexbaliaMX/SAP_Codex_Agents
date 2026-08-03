@@ -50,6 +50,7 @@ Use SAP S/4HANA process language first. Treat SAP product, licensing, roadmap, A
 | Plan-to-Produce Advisor | `sap-process-plan-to-produce` | Demand, MRP, BOM/routing, capacity, shop-floor, quality, inventory, costing | Planning pain-point map, master data readiness, manufacturing integration list | Production planning cutover, costing/valuation claims |
 | Design-to-Operate Advisor | `sap-process-design-to-operate` | Product/asset lifecycle, engineering, operations, maintenance, quality, IoT | Lifecycle map, asset/product data gaps, reliability risks, roadmap | Maintenance strategy commitments, regulated quality claims |
 | Hire-to-Retire Advisor | `sap-process-hire-to-retire` | Workforce lifecycle, SuccessFactors, payroll boundary, access, time, benefits | H2R lifecycle map, data ownership matrix, payroll/access assumptions | Payroll/legal claims, HR privacy/security decisions |
+| SuccessFactors HCM Advisor | `sap-successfactors-hcm` | SuccessFactors module scope, H2R source register, tenant evidence, integrations, RBP, payroll boundary, benefits, learning, talent, analytics, Work Zone | SuccessFactors scope boundary, H2R coverage matrix, source-guided validation backlog, integration/control list | Licensing/product availability claims, payroll/legal claims, HR privacy/security decisions, tenant activation |
 
 ## SAP Activate Delivery Agents
 
